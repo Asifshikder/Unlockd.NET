@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ModelVsCarrierViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    var pageid = ViewBag.pageId;
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h2>Device Model price accordng to carrier</h2>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home /</a></li>
+                    <li><a href="/Admin/ModelVsCarrier/index">Index</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-6"><div class="text-left"><strong class="card-title">Price list</strong></div></div>
+                                <div class="col-md-6"><div class="text-right"><a href="/Admin/ModelVsCarrier/create?id=@pageid" class="btn btn-outline-primary">Add New</a></div></div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th hidden>#</th>
+                                        <th>Carrier</th>
+                                        <th>Model</th>
+                                        <th>Brand</th>
+                                        <th><p class="text-sm">P.S Service</p></th>
+                                        <th>S.S price</th>
+                                        <th>P.S price</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model)
+                                    {
+
+                                        var value = item.HasPremiumService;
+                                        string distext = string.Empty;
+                                        if (value != false)
+                                        {
+                                            distext = "Yes";
+                                        }
+                                        else
+                                        {
+                                            distext = "No";
+                                        }
+                                        <tr>
+                                            <td hidden>@item.Id</td>
+                                            <td>@item.CarrierName</td>
+                                            <td>@item.ModelName</td>
+                                            <td>@item.BrandName</td>
+                                            <td>@distext</td>
+                                            <td>@item.BasePrice</td>
+                                            <td>@item.PremiumPrice</td>
+                                            <td>
+                                                <a href="/Admin/ModelVsCarrier/Edit?id=@item.Id" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                                <a href="/Admin/ModelVsCarrier/Delete?id=@item.Id" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

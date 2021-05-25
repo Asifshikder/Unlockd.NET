@@ -1,0 +1,9 @@
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Domain\bin\Debug\netcoreapp3.1\Unlockd.Domain.deps.json
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Domain\bin\Debug\netcoreapp3.1\Unlockd.Domain.dll
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Domain\bin\Debug\netcoreapp3.1\Unlockd.Domain.pdb
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Domain\obj\Debug\netcoreapp3.1\Unlockd.Domain.csprojAssemblyReference.cache
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Domain\obj\Debug\netcoreapp3.1\Unlockd.Domain.AssemblyInfoInputs.cache
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Domain\obj\Debug\netcoreapp3.1\Unlockd.Domain.AssemblyInfo.cs
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Domain\obj\Debug\netcoreapp3.1\Unlockd.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Domain\obj\Debug\netcoreapp3.1\Unlockd.Domain.dll
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Domain\obj\Debug\netcoreapp3.1\Unlockd.Domain.pdb

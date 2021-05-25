@@ -1,0 +1,352 @@
+﻿@model Contact
+
+@{
+    ViewData["Title"] = "Contact";
+    string message = ViewBag.contactm;
+}
+@Html.AntiForgeryToken()
+<hr class="offset-lg">
+<hr class="offset-lg">
+
+<div class="container">
+    <div class="col-xs-12 text-center">
+        <h1 class="text-themecolor">Contact Us <br /><small style="margin-top:15px;">Send us direct message</small></h1>
+        <br />
+        <br />
+    </div>
+</div>
+<div class="container">
+    <div style="border:5px solid;border-color:black;border-radius:0px">
+
+        <div style="padding:10px">
+            <div class="row">
+                <div class="col-md-6">
+                    <br />
+                    <h3 class="h3"><strong>Contact us</strong></h3>
+                    <div class="">
+                        <p>
+                            <b>
+                                Have you got a question about one of our services? At Mobile Unlocked we are here to help!
+
+                                If you would like to find out more about phone unlocking or IMEI checks, don’t hesitate to get in touch with our team who will be happy to help. All you need to do is choose your preferred contact method below – and don’t forget to follow us on social media too!
+                            </b>
+                        </p>
+                    </div>
+                    <div class="">
+                        <p>
+                            <b>
+                                Email:  </b>
+                        </p>
+                        <p> support@veeunlock.com</p>
+                    </div>
+                    <div>
+                        <div class="contact">
+                            <a href="https://www.facebook.com/Garagespecialisten"><i class="ion-social-facebook"></i></a>
+                            <a href="#"><i class="ion-social-twitter"></i></a>
+                            <a href="#"><i class="ion-social-linkedin-outline"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="">
+                        @if (String.IsNullOrEmpty(message))
+                        {
+                            <form asp-area="" asp-controller="Home" asp-action="Contact" method="post">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class=" form-control-label">FirstName</label>
+                                            <input type="text" asp-for="FirstName" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Last Name</label>
+                                            <input type="text" asp-for="LastName" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Your email</label>
+                                    <input type="text" asp-for="Email" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Message</label>
+                                    <textarea asp-for="Description" class="form-control" required></textarea>
+                                </div>
+                                <br />
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-square btn-block black">Send message to us</button>
+
+                                </div>
+                            </form>
+                        }
+                        else
+                        {
+                            <div class="text-center">
+                                <h2 class="text-themecolor">@message</h2>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div style="border:5px solid;border-color:black;border-radius:0px">
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2>How to carry out a Network Check <br><small class="text-black">with VeeUnlock</small></h2>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12 text-center">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="icon-lg">
+                                    <i class="fa fa-file-text"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Enter your iPhone Details</h3>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0">
+                                <p>We just need your iPhone's IMEI number so we can start processing your network check order.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6 col-xs-12 text-center">
+                        <div class="row">
+                            <div c="" lass="col-xs-12">
+                                <div class="icon-lg">
+                                    <i class="fa fa-code"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Your iPhone's Network Check</h3>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0">
+                                <p>Confirmation of your network check details will be sent to you via an email within 24hrs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <a asp-area="" asp-controller="phonecheck" asp-action="carriercheck" class="btn btn-primary btn-square black">Carrier check</a>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div style="border:5px solid;border-color:black;border-radius:0px">
+
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0">
+                <div class="row">
+                    <div class="col-xs-12" style="font-size: 16px; line-height: 24px;">
+                        <h2>What carrier is my phone locked to?</h2>
+                        <br>
+                        <p class="lead">If you have a pre-owned iPhone or have been given one by a friend or family?</p><br /><p>If you do not know which carrier the iPhone is locked to, then iPhone Approved Unlock's carrier check can find out! We search the carrier IMEI database to find the details about the carrier history of your iPhone and what it is currently locked to.</p><p>To get started, you’ll need to simply provide us with your iPhone’s IMEI number (you can find this out by typing *#06# into your iPhone keypad) then just enter this in the form above. We will then send you the carrier check report via the email address you supplied.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4 col-xs-12 col-xs-offset-0">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0 text-center">
+                        
+                                        <a asp-area="" asp-controller="phonecheck" asp-action="carriercheck" class="btn btn-primary btn-square black">Carrier check</a>
+                                        <br>
+                                    
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div style="border:5px solid;border-color:black;border-radius:0px">
+                <div class="text-center">
+                    <div class="text-black">
+                        <h2 class="text-themecolor"><strong>Track <br />your unlock</strong></h2>
+                        <br />
+                        <br />
+                        <div class="row">
+                            <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+                                <p class="lead light">Login below to view your mobile progress at any point of the process.</p>
+                                <br />
+                                <br />
+                                <p><a href="/order/ordertracking" class="btn  btn-square btn-primary black">Live tracking <i class="io"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div style="border:5px solid;border-color:black;border-radius:0px">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="text-center">
+                    <h2><b>Why we are best?</b></h2>
+                    <p>we provide the best phone unlock service right now.</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <div class="text-center">
+                    <div class="icon">
+                        <span class="step size-96">
+                            <i class="icon ion-android-alarm-clock"></i>
+                        </span>
+                    </div>
+                    <h3>24 hour unlock delivery</h3>
+                    <p class="lead light">Instant unlocking for many mobile networks.</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <div class="text-center">
+                    <div class="icon">
+                        <span class="step size-96">
+                            <i class="icon ion-ios-people"></i>
+                        </span>
+                    </div>
+                    <h3>Highly Skilled Tech Team</h3>
+                    <p class="lead light">Experienced in all iPhone and iPad <br />products.</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <div class="text-center">
+                    <div class="icon">
+                        <span class="step size-96">
+                            <i class="icon ion-iphone"></i>
+                        </span>
+                    </div>
+                    <h3>Your Phone is Safe</h3>
+                    <p class="lead light">You keep your device throughout the entire process.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="col-md-10 col-md-offset-1 text-center">
+        <div>
+            <h2 class="heading-lg">Excellent <strong>4.8</strong> <small>/ 5</small></h2>
+            <br />
+            <div class="rating">
+                <span class="step size-21">
+                    <i class="icon ion-star"></i>
+                    <i class="icon ion-star"></i>
+                    <i class="icon ion-star"></i>
+                    <i class="icon ion-star"></i>
+                    <i class="icon ion-android-star-half"></i>
+                </span>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0">
+                        <p class="text-grey" style="margin: 10px 0 0; line-height: 22px;">IMEI Network Check is rated 4.8 out of 5 based on 528 reviews</p>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+    <hr />
+</div>
+<div id="reviewCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="testo-box text-center">
+                            <h3>Excellent service</h3>
+                            <p class="text-grey">Mr John Stanford</p>
+                            <br />
+                            <div class="rating small">
+                                <span class="step size-21">
+                                    <i class="icon ion-star"></i>
+                                    <i class="icon ion-star"></i>
+                                    <i class="icon ion-star"></i>
+                                    <i class="icon ion-star"></i>
+                                    <i class="icon ion-star"></i>
+                                </span>
+                                <p>Rated 5 out of 5 stars</p>
+                            </div>
+                            <br />
+                            <p class="lead light">No messing around I've had my iPhone 7 unlocked by <span class="notranslate">iPhone Approved Unlock</span> within 48 hours. I found the site really easy to use, Strongly recommend.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="testo-box text-center">
+                            <h3>Impeccable service</h3>
+                            <p class="text-grey">Miss Keeley Churchill</p>
+                            <br />
+                            <div class="rating small">
+                                <span class="step size-21">
+                                    <i class="icon ion-star"></i>
+                                    <i class="icon ion-star"></i>
+                                    <i class="icon ion-star"></i>
+                                    <i class="icon ion-star"></i>
+                                    <i class="icon ion-android-star-outline"></i>
+                                </span>
+                                <p>Rated 4 out of 5 stars</p>
+                            </div>
+                            <br />
+                            <p class="lead light">I was very pleased with the service I received from this company. My iPhone was unlocked within a couple of days and the price was very reasonable.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="testo-box text-center">
+                            <h3>Best unlocking company</h3>
+                            <p class="text-grey">Mr Marc Beckwith</p>
+                            <br />
+                            <div class="rating small">
+                                <span class="step size-21">
+                                    <i class="icon ion-star"></i>
+                                    <i class="icon ion-star"></i>
+                                    <i class="icon ion-star"></i>
+                                    <i class="icon ion-star"></i>
+                                    <i class="icon ion-star"></i>
+                                </span>
+                                <p>Rated 5 out of 5 stars</p>
+                            </div>
+                            <br />
+                            <p class="lead light"> I've used a few different companies without success! <span class="notranslate">iPhone Approved Unlock</span> have unlocked 4 of our iPhones, the site easy to use and support team are very helpful.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<br />

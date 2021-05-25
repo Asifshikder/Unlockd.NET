@@ -1,0 +1,62 @@
+﻿@model BlogIndexViewModel
+@{
+    ViewData["Title"] = Model.BlogPost.Title;
+}
+
+<hr class="offset-lg">
+<hr class="offset-lg">
+<div class="body-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-xs-12">
+                <label class="label label-info" style="background-color: rgb(0,122,255);">@Model.BlogPost.BlogCategoryName</label>
+                <br />
+                <h1 class="heading-blog" style="margin-bottom: 10px;">@Model.BlogPost.Title</h1>
+                <p class="text-grey text-uppercase" style="margin-bottom: 15px;"><small>By UNLOCKD &nbsp;&bull;&nbsp; @Model.BlogPost.CreateDate</small></p>
+                <br />
+                <div class="addthis_inline_share_toolbox"></div>
+                <hr />
+                <img src="@Url.Content(Model.BlogPost.PrimaryImage)" class="img-responsive" alt="@Url.Content(Model.BlogPost.Title)" />
+                <br />
+                <br />
+                @Html.Raw(Model.BlogPost.Description)
+                <br />
+                <br />
+                <br />
+                <div class="addthis_inline_share_toolbox"></div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <hr />
+                        <h2>Latest Articles</h2>
+                        <br />
+                        <br />
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach (var item in Model.BlogPosts)
+                    {
+                        <div class="col-sm-4">
+                            <img src="@Url.Content(item.PrimaryImage)" alt="@Url.Content(item.Title)" class="img-responsive" style="cursor: pointer;" />
+                            <br />
+                            <h3><a asp-area="" asp-controller="Blog" asp-action="Post" asp-route-id="@item.Id" class="text-black">@item.Title</a></h3>
+                            <p class="text-grey text-uppercase" style="margin-bottom: 15px;"><small>Guides &bull; @item.CreateDate</small></p>
+                        </div>
+                    }
+                </div>
+
+            </div>
+            <div class="col-md-3 col-md-offset-1 col-xs-12 col-xs-offset-0">
+
+                <div style="border-radius: 3px; padding: 40px 40px 40vh; background-repeat: no-repeat; background-color: #111; background-image: url(../../images/unbeatable-times.jpg); background-size: 120%; background-position: center bottom;" class="text-center text-white">
+                    <h2>Unbeatable Prices</h2>
+                    <br />
+                    <br />
+                    <p class="lead light">Unlock your iPhone from any network by IMEI</p>
+                    <br />
+                    <br />
+                    <a href="/Home/Index" class="btn btn-primary btn-square">Unlock Now <i class="fa fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,163 @@
+﻿@model CarrierIndexViewModel
+@{
+    ViewData["Title"] = "Carriers";
+
+}
+
+<hr class="offset-lg">
+<hr class="offset-lg">
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <br />
+            <h1 class="heading-blog"><span class="notranslate">VeeUnlock</span><br /> <small style="margin-top:10px;">Unlock Phone on any Carrier</small></h1>
+            <br />
+            <p class="lead light">Select carrier to unlock.</p>
+            <br />
+            <br />
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var item in Model.Country.Carriers)
+        {
+            <div class="col-sm-2 col-xs-6 card-item card-brand" data-aos="zoom-in"
+                 data-aos-duration="2000">
+                <a asp-controller="Carrier" asp-action="Select" asp-route-id="@item.Id">
+                    <div class="text-center">
+                        <img src="@Url.Content(item.CarrierIcon)" height="50">
+                        <h4 style="color:#22435C"><b>@item.NetworkName @item.Country.DisplayName</b></h4>
+                        <strong>From @item.BasePrice -@item.Country.Currency</strong>
+                        <a asp-area="" asp-controller="Carrier" asp-action="Select" asp-route-id="@item.Id" class="btn btn-primary btn-sm btn-block btn-square black">Unlock now</a>
+
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+<hr class="offset-lg">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="text-center" style="border:solid 5px;border-color:#adadad;" >
+                <div style="min-height :100px;padding:10px">
+                    <h2 class="heading-lg"><strong>Carrier Check</strong></h2>
+                    <p class="lead">Only $3.00</p>
+                </div>
+                <br />
+                <div style="min-height:160px;max-height:300px">
+
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+                            <p class="lead light">Instantly find out what <span class="text-lowercase">Carrier</span> your iPhone or iPad is locked to by your IMEI number.<br />&nbsp;</p>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div style="min-height:50px">
+                    <a href="/Phonecheck/Carriercheck" class="btn btn-primary btn-square black">Carrier Check <i class="icon ion-connection-bars"></i></a>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="text-center" style="border:solid 5px;border-color:#adadad;">
+                <div style="min-height:130px;padding:10px">
+                    <h2 class="heading-lg"><strong>iCloud Activation</strong></h2>
+                    <p class="lead"></p>
+                </div>
+                <br />
+                <div style="min-height:160px;max-height:300px">
+
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+                            <p class="lead light">From $175 - $301 to complete your iCloud unlock depending on device model. Pre-order eligibility check service available from $24.00</p>
+                            <br />
+                        </div>
+                    </div>
+
+                </div>
+                <div style="min-height:50px">
+                    <a href="/PhoneCheck/icloudactivation" class="btn btn-primary btn-square black">Unlock iCloud <i class="icon ion-ios-cloud"></i></a>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<hr />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h2><b>Select the country of your carrier to unlock</b></h2>
+            <p class="lead light">Don't know the Carrier? <a href="/Phonecheck/Carriercheck" title="Carrier Check">Click here</a></p>
+            <br />
+            <br />
+        </div>
+    </div>
+    <div class="row text-center" id="Country-Badges">
+        <div class="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0">
+
+            @foreach (var item in Model.Countries)
+            {
+                <a href="#GB" class="text-center" style="color: #111; display: inline-block; margin: 0 15px 15px;">
+                    <img src="@Url.Content(item.FlagIcon)" height="50" alt="" class="img-circle" style="margin-bottom: 5px;" />
+                    <p>@item.DisplayName</p>
+                </a>
+            }
+        </div>
+    </div>
+</div>
+<div>
+    <div class="col-xs-12 text-center">
+        <h2>Network Unlock Service</h2>
+        <br />
+        <p class="lead light">Prices to unlock your device from the carrier <br /><small>(Prices vary depending on the device model and carrier/contract status)</small></p>
+        <br />
+        <br />
+    </div>
+</div>
+<br />
+
+<div class="container">
+    @foreach (var item in Model.Countries)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center">
+                    <img src="@Url.Content(item.FlagIcon)" alt="@Url.Content(item.Name)" class="img-circle" height="50" />
+                    <h3>@item.Name</h3>
+                    <p>Unlock iPhone from @item.DisplayName</p>
+                </div>
+            </div>
+            <hr />
+        </div>
+        <div style="margin: 1px; position: relative; overflow: hidden;" id="Country-Networks">
+            @foreach (var subItem in item.Carriers)
+            {
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div style="border: 1px solid #eee; padding-bottom: 30px; margin: -1px; background: #FFF;">
+                        <div class="row">
+                            <div class="col-xs-8 col-xs-offset-2 text-center">
+                                <img src="@Url.Content(subItem.CarrierIcon)" alt="@Url.Content(subItem.NetworkName)" class="" height="100" width="100" style="margin: 8% auto 5%;" />
+                            </div>
+                            <div class="col-xs-12 text-center">
+                                <strong>@subItem.NetworkName</strong>
+
+                                <p>From @item.Currency@subItem.BasePrice</p>
+                            </div>
+                            <div class="col-xs-12 text-center">
+                                <a href="/Carrier/Select?id=@subItem.Id" class="btn btn-primary  btn-block btn-square  black">Unlock</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

@@ -1,0 +1,180 @@
+﻿<aside class="main-sidebar sidebar-light-secondary elevation-4">
+    <!-- Brand Logo -->
+    <a asp-area="" asp-controller="Home" asp-action="Index" class="brand-link">
+        <img src="~/logo.png" alt="Unlockd" class="brand-image"
+             style="opacity: .8">
+        <span class="brand-text font-weight-light">Unlockd</span>
+    </a>
+
+    <div class="sidebar">
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                @*class="elevation-2"*@
+                <img src="~/logo.png" alt="Unlockd">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">VeeUnlock</a>
+            </div>
+        </div>
+
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                <li class="nav-item">
+                    <a href="/Admin/Home/Index" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-header">PRICING</li>
+                <li class="nav-item">
+                    <a href="/Admin/Country/Index" class="nav-link">
+                        <i class="nav-icon far fa-map"></i>
+                        <p>
+                            Country
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Admin/NetworkCarrier/Index" class="nav-link">
+                        <i class="nav-icon fas fa-network-wired"></i>
+                        <p>
+                            Network Carrier
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Admin/Brand/Index" class="nav-link">
+                        <i class="nav-icon fas fa-bookmark"></i>
+                        <p>
+                            Brand
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Admin/DeviceModel/Index" class="nav-link">
+                        <i class="nav-icon fas fa-mobile-alt"></i>
+                        <p>
+                            Devices
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            Phone checks
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/Admin/CarrierCheck/Index" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Carrier check</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/Admin/BlackListCheck/Index" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Black list check</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/Admin/ICloudCheck/Index" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>ICloud check</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/Admin/SprintStatusCheck/Index" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Sprint Status check</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-header">Manage Orders</li>
+                <li class="nav-item">
+                    <a asp-area="Admin" asp-controller="ManageOrder" asp-action="Index" class="nav-link">
+                        <i class="nav-icon fa fa-unlock-alt"></i>
+                        <p>
+                            Orders
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-header">BLOG</li>
+                <li class="nav-item">
+                    <a href="/Admin/blogcategory/Index" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Blog Category
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Admin/blogpost/Index" class="nav-link">
+                        <i class="nav-icon fas fa-blog"></i>
+                        <p>
+                            Post
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-header">CONTACT &amp; INFOS</li>
+                <li class="nav-item">
+                    <a asp-controller="Testimonial" asp-action="Index" class="nav-link">
+                        <i class="nav-icon fas fa-star"></i>
+                        <p>
+                            Testimonials
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="FAQ" asp-action="Index" class="nav-link">
+                        <i class="nav-icon fas fa-question-circle"></i>
+                        <p>
+                            FAQ
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a asp-area="Admin" asp-controller="Contact" asp-action="Index" class="nav-link">
+                        <i class="nav-icon fas fa-at"></i>
+                        <p>
+                            Contacts
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-header">Support</li>
+                <li class="nav-item">
+                    <a asp-controller="SupportMenu" asp-action="Index" class="nav-link">
+                        <i class="nav-icon fas fa-star"></i>
+                        <p>
+                            Support items
+                        </p>
+                    </a>
+                </li>
+                @*<li class="nav-item">
+            <a asp-controller="FAQ" asp-action="Index" class="nav-link">
+                <i class="nav-icon fas fa-question-circle"></i>
+                <p>
+                    FAQ
+                </p>
+            </a>
+        </li>*@
+            </ul>
+        </nav>
+    </div>
+</aside>

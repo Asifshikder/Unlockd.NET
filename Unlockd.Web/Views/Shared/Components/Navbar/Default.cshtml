@@ -1,0 +1,60 @@
+﻿@model CarrierIndexViewModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Unlockd.Domain.Entities.Auth.User> SignInManager
+@inject UserManager<Unlockd.Domain.Entities.Auth.User> UserManager
+<div class="cart" data-toggle="inactive">
+    @*<div class="label" style="border:2px solid;border-color:#1b0aad">
+        <img class="img-circle" src="@Url.Content(Model.Country.FlagIcon)" />
+        <span>@Model.Country.DisplayName</span>
+    </div>*@
+
+
+    <div class="overlay"></div>
+
+    <div class="window">
+
+        <div class="content">
+            <div class="title">
+                <button type="button" class="close"><i class="ion-android-close"></i></button>
+                <h4 class="text-themecolor">Select country</h4>
+            </div>
+            @foreach (var item in Model.Countries)
+            {
+                if (item.Id == Model.Country.Id)
+                {
+                    <div class="media is-selected">
+                        <a onclick="ChangeCountry(@item.Id)" @*class="onlclickpage" asp-area="" asp-controller="Carrier" asp-action="SetCountry" asp-route-id="@item.Id"*@>
+                            <div class="media-wrap">
+                                <div class="media-left">
+                                    <img class="img-circle" src="@Url.Content(item.FlagIcon)" height="22" />
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="">@item.Name &mdash;@item.Currency</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+                else
+                {
+                    <div class="media">
+                        <a onclick="ChangeCountry(@item.Id)" @*class="onlclickpage" asp-area="" asp-controller="Carrier" asp-action="SetCountry" asp-route-id="@item.Id"*@>
+                            <div class="media-wrap">
+                                <div class="media-left">
+                                    <img class="img-circle" src="@Url.Content(item.FlagIcon)" height="22" />
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="">@item.Name &mdash;@item.Currency</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+
+            }
+
+        </div>
+
+    </div>
+</div>
+

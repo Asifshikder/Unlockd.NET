@@ -1,0 +1,125 @@
+﻿@model CartViewModel
+
+
+<div class="body-content" style="background-color:#e0f6f3">
+    <div class="unlock-online" style="padding-top:20px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 text-center">
+                    <div class="choose-network-header">
+                        <h3>Unlock your phone with VeeUnlock</h3>
+                        <br />
+                    </div>
+                </div>
+                <div class="col-md-7 col-xs-12">
+                    <div class="unlock-online-func" style="background-color:white">
+                        <div class="func-form">
+                            <form id="formorderunlock" asp-area="" asp-controller="Order" asp-action="ProceedToCheckout" method="post">
+                                <div class="row">
+                                    <input type="hidden" asp-for="UnlockTypeId" />
+                                    <input type="hidden" asp-for="TotalPrice" />
+
+                                    <div class="col-md-12 col-xs-12">
+                                        <h3 class="form-head">Select Make</h3>
+                                        <div class="form-group">
+                                            @Html.DropDownListFor(s => s.BrandId, (SelectList)ViewBag.brandList, "Select Brand", new { @class = "form-control", @required = "required", @style = "border:solid 2px" })
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-xs-12">
+                                        <h3 class="form-head">Select model</h3>
+                                        <div class="form-group">
+                                            <select class="form-control" style="border:solid 2px" asp-for="DeviceModelId" asp-items="@(new SelectList(string.Empty,"Id", "Name"))">
+                                                <option value="">Select Model</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            @Html.DropDownListFor(s => s.CountryId, (SelectList)ViewBag.countryList, "Select Country", new { @class = "form-control", @required = "required", @style = "border:solid 2px" })
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <select class="form-control" style="border:solid 2px" asp-for="CarrierId" asp-items="@(new SelectList(string.Empty,"Id", "Name"))">
+                                                <option value="">Select Carrier</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-xs-12 hidden" id="serviceprev">
+                                        <h3 class="form-head">Select an unlocking service</h3>
+                                        <div class="form-group">
+                                            <div class="row" style="margin-left:1px;margin-right:1px">
+                                                <div class="col-md-6 col-xs-12">
+                                                    <div class="row  form-radio-s">
+                                                        <div class="col-md-10">
+                                                            <h4 class="form-radio-standard">Standard</h4>
+                                                            <span class="form-radio-service">Service</span>
+                                                            <input hidden id="standardPrice" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="radio" name="radioService" id="serstd" value="1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-xs-12 hidden" id="serviceprem">
+                                                    <div class="row  form-radio-p">
+                                                        <div class="col-md-10">
+                                                            <h4 class="form-radio-standard">Premium</h4>
+                                                            <span class="form-radio-service">Service</span>
+                                                            <input hidden id="premPrice" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="radio" name="radioService" id="radioService" value="2">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-xs-12">
+
+                                        <h3 class="form-head">Select your IMEI Number</h3>
+                                        <div class="form-group">
+                                            <input style="border:solid 2px" type="text" asp-for="IMEI" class="form-control imeihomeunlock" required>
+                                            <p id="msgun" class="text-danger-cs"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-xs-12">
+
+                                        <div class="form-footer">
+                                            <div class="row">
+                                                <div class="col-md-6 col-xs-6">
+                                                    <a id="btnsub" onclick="FormCheckSubmit()" class="btn btn-primary btn-lg btn-square stretch-xs"><strong>Checkout</strong></a>
+                                                </div>
+                                                <div class="col-md-6 col-xs-6">
+                                                    <div class="unlock-price" id="pricehide">
+                                                        <span>Price: </span>
+                                                        <span id="chnageprice" class="price-num">$0</span>
+                                                    </div>
+                                                    <div class="unlock-price hidden" id="unavailableprice">
+                                                        <span><h4 class="text-danger-cs"><b>Unlock unavailable</b></h4></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-6 hidden-xs">
+                    <h3>Why unlock your iPhone Mobile Unlocked?</h3>
+                    <p class="text-sm">Mobile Unlocked’s recommended unlocking method is guaranteed to unlock your iPhone from any carrier. With our service, your iPhone is unlocked quickly and permanently by Whitelisting the IMEI in Apple’s Database, creating an official iPhone unlock.</p>
+                    <div class="why-unlocked-img">
+                        <img class="img-responsive" src="~/images/images/network-check.jpg" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

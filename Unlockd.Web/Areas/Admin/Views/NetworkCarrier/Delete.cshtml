@@ -1,0 +1,53 @@
+﻿@model NetworkCarrier
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+@Html.AntiForgeryToken()
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Network Carrier</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home /</a></li>
+                    <li><a href="/Admin/NetworkCarrier/index">Network Carrier</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Delete Network Carrier</strong>
+                        </div>
+                        <div class="card-body">
+                            <form asp-area="Admin" asp-controller="NetworkCarrier" asp-action="DeleteConfirm" method="post" enctype="multipart/form-data">
+
+                                @Html.HiddenFor(model => model.Id)
+                                @Html.HiddenFor(S => S.CarrierIcon)
+                                @Html.HiddenFor(S => S.CountryId)
+                                <h3>Are you sure to delete @Model.NetworkName?</h3>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <a href="/Admin/Country/CarrierList" class="btn btn-warning">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<NetworkCarrier>
+
+@{
+    ViewData["Title"] = "Carrier List";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Network carrier</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home /</a></li>
+                    <li><a href="/Admin/NetworkCarrier/Index">Carrier List</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-6"><div class="text-left"><strong class="card-title">Carrier list</strong></div></div>
+                                <div class="col-md-6"><div class="text-right"><a href="/Admin/networkcarrier/create?id=@ViewBag.CountryId" class="btn btn-outline-primary">Add New</a></div></div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Icon</th>
+                                        <th>Name</th>
+                                        <th>BasePrice</th>
+                                        <th>Country</th>
+                                        <th>Pricing</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td><img src="@Url.Content(item.CarrierIcon)" height="25" /></td>
+                                            <td>@item.NetworkName</td>
+                                            <td>@item.BasePrice @item.Country.Currency</td>
+                                            <td>@item.Country.Name</td>
+                                            <td>
+                                                <a href="/Admin/ModelVsCarrier/Index?id=@item.Id" class="btn btn-success btn-sm"><i class="fa fa-globe"></i>Model Prices</a>
+                                            </td>
+                                            <td>
+                                                <a href="/Admin/NetworkCarrier/Edit?id=@item.Id" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                                <a href="/Admin/NetworkCarrier/Delete?id=@item.Id" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+    </div>
+</div>

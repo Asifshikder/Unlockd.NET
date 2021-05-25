@@ -1,0 +1,70 @@
+﻿@model NetworkCarrierViewModel
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+@Html.AntiForgeryToken()
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Network Carrier</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home /</a></li>
+                    <li><a href="/Admin/NetworkCarrier/index">Network Carrier</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Update Network Carrier</strong>
+                        </div>
+                        <div class="card-body">
+                            <form asp-area="Admin" asp-controller="NetworkCarrier" asp-action="Update" method="post" enctype="multipart/form-data">
+                                @Html.HiddenFor(s => s.Id)
+                                <input type="hidden" asp-for="CarrierIcon" />
+                                <input type="hidden" asp-for="CountryId" />
+                                <div class="form-group">
+                                    <label class=" form-control-label">NetworkCarrier Name</label>
+                                    <input type="text" asp-for="NetworkName" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Base Price</label>
+                                    <input type="text" asp-for="BasePrice" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Country Logo</label>
+                                    <input type="file" asp-for="CarrierIconFile" class="form-control dropify" data-default-file="@Url.Content(Model.CarrierIcon)">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success">Update</button>
+                                    <a href="/Admin/NetworkCarrier/index" class="btn btn-warning">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.dropify').dropify();
+        });
+    </script>
+}

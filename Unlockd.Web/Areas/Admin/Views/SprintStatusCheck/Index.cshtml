@@ -1,0 +1,67 @@
+﻿@model IEnumerable<SprintStatusCheckViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h2> SprintStatus Check pricing</h2>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home /</a></li>
+                    <li><a href="/Admin/SprintStatusCheck/index"> SprintStatus Check</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-6"><div class="text-left"><strong class="card-title">Price list</strong></div></div>
+                                <div class="col-md-6"><div class="text-right"><a href="/Admin/SprintStatusCheck/create" class="btn btn-outline-primary">Add New</a></div></div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th hidden>#</th>
+                                        <th>Brand</th>
+                                        <th>Price</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td hidden>@item.Id</td>
+                                            <td>@item.BrandName</td>
+                                            <td>@item.Price</td>
+                                            <td>
+                                                <a href="/Admin/SprintStatusCheck/Edit?id=@item.Id" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                                <a href="/Admin/SprintStatusCheck/Delete?id=@item.Id" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

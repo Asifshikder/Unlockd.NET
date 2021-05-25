@@ -1,0 +1,1115 @@
+﻿@model HomeContentsViewModel
+@{
+    ViewData["Title"] = "Unlock your phone";
+}
+
+
+<style>
+    h1 {
+        font-size: 105px;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .hero-text {
+        width: 100%;
+        font-family: Montserrat, Helvetica, sans-serif !important;
+        font-weight: 800;
+        color: #22435c !important;
+    }
+
+    @@media screen and (max-width: 480px) {
+        h1 {
+            font-size: 30px !important;
+            line-height: 80%;
+            margin-top: 100px;
+        }
+
+        .hero-text {
+            width: 100%;
+            color: rgb(6 6 6);
+            width: 100%;
+            font-family: sans-serif !important;
+            font-weight: 100;
+            color: #22435c !important;
+        }
+    }
+</style>
+
+<header>
+    <div class="carousel" data-count="1" data-current="1">
+
+        <div class="items" style="margin-top:-40px">
+            <div class="item active" data-marker="1" data-aos="fade-up"
+                 data-aos-duration="2000">
+                <img src="~/Contents/assets/img/mockup-863469_1920.jpg" style="animation: animatedBackground 10s linear infinite alternate;" alt="Background" class="background" data-marker="1" data-aos="zoom-in"
+                     data-aos-duration="3000" data-aos-delay="4" />
+
+                <div class="content">
+                    <div class="outside-content">
+                        <div class="inside-content">
+                            <div class="container">
+                                <div class="visible-xs hidden-sm hidden-md hidden-lg text-center">
+                                    <h2>We unlock<br />Phones</h2>
+                                </div>
+                                <div class="row hidden-xs">
+                                    <div class="col-sm-8 col-md-offset-2 align-center">
+                                        @*<h3 class="h2 hidden-xs" data-marker="1" data-aos="fade-up"
+                                                data-aos-duration="2000">
+                                                <b>Unlock Your Phone With VeeUnlock</b>
+                                            </h3>
+                                            <p class="h3 hidden-xs" data-marker="1" data-aos="fade-down"
+                                               data-aos-duration="2000"><b>Instant Remote Unlocking. Use Your Phone With Any Network</b></p>
+                                            <p class="hidden-xs" style=" color: cadetblue;"><b>Unlock your phone using our online service. We unlock all phones using the IMEI number so that your device is capable of using any Networks sim card. Our recommended method of unlocking is safe and legal, No technical skills are required</b></p>*@
+
+                                        <h1 class="hero-text" data-marker="1" data-aos="fade-down"
+                                            data-aos-duration="2000">
+                                            We Unlock<br />Phones
+                                        </h1>
+                                        <div class="">
+                                            <a data-marker="1" data-aos="zoom-in"
+                                               data-aos-duration="2000" class="btn btn-primary btn-lg btn-square  btn-themecolor  btn-style" href="#" data-toggle="modal" data-target="#modalcarriercheck">Carrier Check</a>
+                                            <a data-marker="1" data-aos="zoom-out"
+                                               data-aos-duration="2000" class="btn btn-primary btn-lg  btn-square btn-themecolor btn-style" href="#" data-toggle="modal" data-target="#modalPhoneUnlock">Unlock Phone</a>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul hidden class="markers">
+            <li hidden data-marker="1" class="active"></li>
+        </ul>
+    </div>
+</header>
+<!-- Modal -->
+<div class="modal fade" id="modalcarriercheck" tabindex="-1" role="dialog" aria-labelledby="modalcarriercheckTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="">
+            <div class="modal-body" style="background-color:transparent">
+                <div class="row">
+                    <div class="col-md-7 col-md-offset-2  col-xs-12">
+                        <div class="unlock-online-func" style="background-color:white">
+                            <div class="">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="unlock-online-cart">
+                                        <div class="cart-bg-img">
+                                            <img src="~/Carrier/Mobile.png" />
+                                        </div>
+                                        <div class="online-cart-wrap">
+                                            <div class="cart-wrap-upper text-center">
+                                                <div class="cart-upper-img">
+                                                    <div class="cart-upper-img-wrap">
+                                                        <img src="~/images/PhoneCheck/Carriericon.png" />
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cart-wrap-lower">
+                                                <div class="cart-wrap-upper text-center" style="">
+                                                    <h3 style="color:white">Carrier check</h3>
+
+                                                </div>
+                                                @await Component.InvokeAsync("CarrierCheck")
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalPhoneUnlock" tabindex="-1" role="dialog" aria-labelledby="modalPhoneUnlockTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="">
+            <div class="modal-body" style="background-color:transparent">
+                <div class="row">
+                    <div class="col-md-7 col-md-offset-2  col-xs-12">
+                        <div class="unlock-online-func" style="background-color:white">
+                            <div class="">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="unlock-online-cart">
+                                        <div class="cart-bg-img">
+                                            <img src="~/Carrier/Mobile.png" />
+                                        </div>
+
+                                        <div class="online-cart-wrap">
+                                            <div class="cart-wrap-upper text-center" style="margin-top:100px">
+                                                <h3 style="color:white">Unlock phone</h3>
+                                            </div>
+                                            <div class="cart-wrap-lower">
+                                                @await Component.InvokeAsync("ModalPhoneUnlock")
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="visible-xs">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="text-center">
+                    <div style="margin:10px">
+                        <a data-marker="1" data-aos="zoom-in"
+                           data-aos-duration="2000" class="btn btn-primary btn-lg btn-square btn-themecolor btn-block" href="#" data-toggle="modal" data-target="#modalcarriercheck">Carrier Check</a>
+                        <a data-marker="1" data-aos="zoom-out"
+                           data-aos-duration="2000" class="btn btn-primary btn-lg  btn-square btn-themecolor btn-block" data-toggle="modal" data-target="#modalPhoneUnlock" href="#">Unlock Phone</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<div class="body-content" style="background-color:#e0f6f3">
+    <div class="unlock-online" style="padding-top:20px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 text-center">
+                    <div class="choose-network-header">
+                        <h3>Unlock your phone with VeeUnlock</h3>
+                        <br />
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="unlock-online-func" style="background-color:white">
+                        <div class="func-form">
+                            <a class="btn btn-lg btn-primary btn-square btn-block btn-themecolor" href="#togglecarrier">Select carrier to unlock</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="unlock-online-func" style="background-color:white">
+                        <div class="func-form">
+                            <a class="btn btn-lg btn-primary btn-block btn-square btn-themecolor" href="#toggledevice">Select device to unlock</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="device-network">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h2 class="device-network-header" data-aos="fade-up" *@
+                    data-aos-duration="2000">
+                    Unlock your device from any network Worldwide.
+                </h2>
+                <p class="device-network-subheader" data-aos="fade-down"
+                   data-aos-duration="2000">In three simple steps you can permanently unlock you device.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-xs-12" data-aos="zoom-in"
+                 data-aos-duration="2000">
+                <div class="device-network-content text-center">
+                    <div class="device-network-content-wrap">
+                        <div class="device-network-counter">1</div>
+                        <div class="device-network-details">
+                            <h3>Enter your device details</h3>
+                            <p>Select the model and network the device is locked to and enter the IMEI or Serial <i class="fa fa-question-circle hidden-xs" data-toggle="popover" data-placement="bottom" data-trigger="hover" style="font-size: 1.2em; position: relative; top: 1px; color: rgb(0,122,255); cursor: help;" data-content="Your IMEI number can be found in the Settings > General > About screen, or by dialing *#06#" title="" data-original-title="Finding your IMEI Number"></i></p>
+                            @*<p >If you don't know your IMEI number then dial <strong>*#06#</strong> into your phone</p>*@
+                            <p>If you don’t know the network your device is locked to use our <a class="text-blue" href="#" data-toggle="modal" data-country="United States">network check</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12" data-aos="zoom-in"
+                 data-aos-duration="2000">
+                <div class="device-network-content text-center">
+                    <div class="device-network-content-wrap">
+                        <div class="device-network-counter">2</div>
+                        <div class="device-network-details">
+                            <h3>Process your unlock</h3>
+                            <p>Your payment is verified and your order is processed.</p>
+                            <p>Your live tracking login is supplied within the confirmation email.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12" data-aos="zoom-in"
+                 data-aos-duration="2000">
+                <div class="device-network-content text-center">
+                    <div class="device-network-content-wrap">
+                        <div class="device-network-counter">3</div>
+                        <div class="device-network-details">
+                            <h3>Device Unlocked</h3>
+                            <p>Your Phone or <span class="notranslate">Apple</span><sup>TM</sup> device is unlocked.</p>
+                            <p>Confirmation will be sent to you via email and your unlock is delivered over the air using 3G/4G/WIFI <i class="fa fa-info-circle hidden-xs" data-toggle="popover" data-placement="bottom" data-trigger="hover" style="font-size: 1.2em; position: relative; top: 1px; color: rgb(0,122,255); cursor: help;" data-content="Please do not send us your device, your unlock is delivered Over-The-Air via WIFI/3G/4G." title="" data-original-title="You keep your device"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="background-color:white">
+    <div class="container">
+        <div class="">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="unlock-online-func">
+
+                        <h3>Select your make to unlock</h3>
+
+                    </div>
+                </div>
+                <br />
+                <div class="col-sm-12 products">
+                    <br />
+                    <div class="unlock-online-func">
+                        <div class="">
+                            <div class="row">
+                                @foreach (var item in Model.Brandlist)
+                                {
+
+                                    <div class="col-sm-3 col-md-3 col-xs-6">
+                                        <div class="product">
+                                            <a asp-controller="UnlockPhone" asp-action="ByBrand" asp-route-id="@item.Id"><img src="@Url.Content(item.BrandLogo)" alt="@item.Name" height="100" /></a>
+
+                                            <div class="content text-center">
+                                                <h1 class="h4">@item.Name</h1>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                }
+                            </div>
+                            <div class="main-btn">
+                                <a href="/UnlockPhone/Index" class="btn btn-primary btn-square black">All Makes</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <br />
+
+
+            </div>
+        </div>
+    </div>
+</div>
+@{ int BFC = 0;}
+@foreach (var item in Model.Brands)
+{
+    if (BFC == 0)
+    {
+        <div class="device">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6" data-aos="zoom-in"
+                         data-aos-duration="2000">
+                        <div class="device-content" style="padding-top:100px">
+                            <p class="device-content-tag">Unlock your</p>
+                            <h2 class="device-name">@item.Name Device</h2>
+                            <h3 class="device-price"><span>From Only</span> $@item.AverageUnlockingPrice</h3>
+                            <p>@item.ShortDescription</p>
+                            <a href="/UnlockPhone/ByBrand?id=@item.Id" class="btn btn-primary btn-square black">Unlock Now</a>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6" data-aos="zoom-in"
+                         data-aos-duration="2000">
+                        <img src="@Url.Content(item.FeaturedImage)" alt="@Url.Content(item.Name)" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    }
+    else if (BFC == 1)
+    {
+
+        <div class="device">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6" data-aos="zoom-in"
+                         data-aos-duration="2000">
+                        <img src="@Url.Content(item.FeaturedImage)" alt="@Url.Content(item.Name)" class="img-responsive">
+                    </div>
+                    <div class="col-sm-6" data-aos="zoom-in"
+                         data-aos-duration="2000">
+                        <div class="device-content" style="padding-top:100px">
+                            <p class="device-content-tag">Unlock your</p>
+                            <h2 class="device-name">@item.Name Phone</h2>
+                            <h3 class="device-price"><span>From Only</span> $@item.AverageUnlockingPrice</h3>
+                            <p>@item.ShortDescription</p>
+                            <a href="/UnlockPhone/ByBrand?id=@item.Id" class="btn btn-primary btn-square black">Unlock Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+    else
+    {
+        <div class="device">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6" data-aos="zoom-in"
+                         data-aos-duration="2000">
+                        <div class="device-content" style="padding-top:100px">
+                            <p class="device-content-tag">Unlock your</p>
+                            <h2 class="device-name">@item.Name Device</h2>
+                            <h3 class="device-price"><span>From Only</span> $@item.AverageUnlockingPrice</h3>
+                            <p>@item.ShortDescription</p>
+                            <a href="/UnlockPhone/ByBrand?id=@item.Id" class="btn btn-primary btn-square black">Unlock Now</a>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6" data-aos="zoom-in"
+                         data-aos-duration="2000">
+                        <img src="@Url.Content(item.FeaturedImage)" alt="@Url.Content(item.Name)" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    BFC++;
+}
+
+@*<div class="container">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <br />
+            <br />
+            <h2 data-aos="fade-up" *@
+@*data-aos-duration="2000">
+                    Unlock your iphone or any <span class="notranslate">Apple</span> device from any network Worldwide.
+                </h2>
+                <br>
+                <p class="lead" data-aos="fade-down"
+                   data-aos-duration="2000">In three simple steps you can permanently unlock you device.</p>
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-xs-12" data-aos="zoom-in"
+                 data-aos-duration="2000">
+                <div class="text-center" style="padding:10px">
+                    <div style="border:solid 5px;border-color:#adadad;min-height:350px;max-height:500px">
+                        <div style="background-color:#445667"><h2 style="color:white"><b>1</b></h2></div>
+                        <h3>Enter your device details</h3>
+                        <p class="lead light">Select the model and network the device is locked to and enter the IMEI or Serial <i class="fa fa-question-circle hidden-xs" data-toggle="popover" data-placement="bottom" data-trigger="hover" style="font-size: 1.2em; position: relative; top: 1px; color: rgb(0,122,255); cursor: help;" data-content="Your IMEI number can be found in the Settings > General > About screen, or by dialing *#06#" title="" data-original-title="Finding your IMEI Number"></i></p>
+                        <p class="lead light visible-xs">If you don't know your IMEI number then dial <strong>*#06#</strong> into your phone</p>
+                        <p class="lead light">If you don’t know the network your device is locked to use our <a class="text-blue" href="/PhoneCheck/CarrierCheck" data-toggle="modal" data-country="United States">network check</a>.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12" data-aos="zoom-in"
+                 data-aos-duration="2000">
+                <div class="text-center" style="padding:10px">
+                    <div style="border:solid 5px;border-color:#adadad;min-height:350px;max-height:500px">
+                        <div style="background-color:#445667"><h2 style="color:white"><b>2</b></h2></div>
+                        <h3>Process your unlock</h3>
+                        <p class="lead light">Your payment is verified and your order is processed.</p>
+                        <p class="lead light">Your live tracking login is supplied within the confirmation email.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12" data-aos="zoom-in"
+                 data-aos-duration="2000">
+                <div class="text-center" style="padding:10px">
+                    <div style="border:solid 5px;border-color:#adadad;min-height:350px;max-height:500px">
+                        <div style="background-color:#445667"><h2 style="color:white"><b>3</b></h2></div>
+                        <h3>Device Unlocked</h3>
+                        <p class="lead light">Your Phone or <span class="notranslate">Apple</span><sup>TM</sup> device is unlocked.</p>
+                        <p class="lead light">Confirmation will be sent to you via email and your unlock is delivered over the air using 3G/4G/WIFI <i class="fa fa-info-circle hidden-xs" data-toggle="popover" data-placement="bottom" data-trigger="hover" style="font-size: 1.2em; position: relative; top: 1px; color: rgb(0,122,255); cursor: help;" data-content="Please do not send us your device, your unlock is delivered Over-The-Air via WIFI/3G/4G." title="" data-original-title="You keep your device"></i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+    </div>*@
+
+<div class="container text-center">
+    <div style="border:solid 5px; border-color:#022e4c">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0">
+                <h2 data-aos="fade-down"
+                    data-aos-duration="2000">
+                    Unlock your Phone easily by whitelisting <br />your IMEI
+                </h2>
+                <br />
+                <br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <p class="" data-aos="zoom-in"
+                   data-aos-duration="2000">Our easy and affordable Phone unlocking service is compatible with all versions of iOS, up to and including iOS 12. Supported Apple models include Phone 11, 11 Pro, 11 Pro Max, XR, XS Max, XS, X, 8 Plus, 8, 7 Plus, 7, 6S Plus, 6S, 6 Plus, 6, 5S, 5C, 5, 4S, 4, 3GS and 3G.</p>
+                <br />
+                <p class="" data-aos="zoom-in"
+                   data-aos-duration="2000">During the unlocking process your IMEI will be whitelisted in the Apple Database providing an official and permanent unlock, as well as being safe and completely legal. What's more, it is the recommended method to unlock Phone as your <span class="notranslate">Apple</span> Warranty remains unaffected!</p>
+                <br />
+                <p class="" data-aos="zoom-in"
+                   data-aos-duration="2000">Your unlock is completed remotely and delivered 'over the air' via WiFi or 4G/3G, so you can continue to use your device as normal, with no interruptions to phone service. All we need from you is your Phone IMEI. Once the unlocking process is complete, your Phone will be unlocked permanently to use with any network. Phone Approved Unlock have a 100% success rate.</p>
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
+    <br />
+</div>
+
+<div class="choose-network" id="togglecarrier">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="choose-network-header">
+                    <h4><b>Chose your network</b></h4>
+                    <h3>Chose a carrier you want to unlock your phone. Unlock your phone with VeeUnlock</h3>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model.NetworkCarriers)
+            {
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="panel panel-default">
+                        <div class="panel-body" style="height:55px;padding:2px">
+                            <div class="row">
+                                <a asp-controller="Carrier" asp-action="Select" asp-route-id="@item.Id" class="text-black">
+                                    <div class="col-xs-4">
+                                        <img src="@Url.Content(item.CarrierIcon)" alt="@item.NetworkName" class="img-responsive center-block" style="max-height: 51px;">
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <h3 style="font-weight: 700; font-size: 1em;">@item.NetworkName</h3>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-sm-2 col-xs-6 mb-30" data-aos="zoom-in"
+                         data-aos-duration="2000">
+                        <a asp-controller="Carrier" asp-action="Select" asp-route-id="@item.Id">
+                            <div class="choose-network-content">
+                                <div class="choose-network-img">
+                                    <img src="@Url.Content(item.CarrierIcon)" height="40">
+                                </div>
+                                <p style="color:#22435C">@item.NetworkName</p>
+                            </div>
+                        </a>
+                    </div>*@
+            }
+
+        </div>
+
+        <div class="main-btn">
+            <a href="/Carrier/Index" class="btn btn-primary btn-square black">All Carriers</a>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="unlock-faq">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h2 class="device-network-header" data-aos="fade-up" *@
+                    data-aos-duration="2000">
+                    Frequenty Asked Questions
+                </h2>
+            </div>
+        </div>
+        <div class="row" data-aos="zoom-in"
+             data-aos-duration="2000">
+            <div class="col-sm-12">
+                <div class="faq-content">
+                    @{ int i = 0; }
+                    @foreach (var item in Model.FAQs)
+                    {
+                        string collapse = "#collapse" + i.ToString();
+                        string collapseID = "collapse" + i.ToString();
+                        if (i == 0)
+                        {
+                            <div class="faq-content-wrap">
+                                <div class="faq-header">
+                                    <a role="button" data-toggle="collapse" href="@Url.Content(collapse)" aria-expanded="true" aria-controls="question2">
+                                        <h2 class="h3">@item.Question</h2>
+                                        <span><i class="icon ion-plus"></i></span>
+                                    </a>
+                                </div>
+                                <div class="collapse faq-details" id="@Url.Content(collapseID)">
+                                    <p>
+                                        @item.Answer
+                                    </p>
+                                </div>
+                            </div>
+
+                        }
+                        else
+                        {
+                            <div class="faq-content-wrap">
+                                <div class="faq-header">
+                                    <a role="button" data-toggle="collapse" href="@Url.Content(collapse)" aria-expanded="true" aria-controls="question2">
+                                        <h2 class="h3">@item.Question</h2>
+                                        <span><i class="icon ion-plus"></i></span>
+                                    </a>
+                                </div>
+                                <div class="collapse faq-details" id="@Url.Content(collapseID)">
+                                    <p>
+                                        @item.Answer
+                                    </p>
+                                </div>
+                            </div>
+                        }
+                        i++;
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+
+<div class="info-content">
+    <div class="container">
+        <div class="row">
+            <div class="text-center" data-aos="zoom-in"
+                 data-aos-duration="2000">
+                <h2 class="">Why we are the best Phone unlocking service.</h2>
+                <p class="lead">Our IMEI unlocking methods are safe, trusted &amp; recommended by Apple as the best way to unlock your Phone without invalidating the warranty.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-12 xs-text-center">
+                <div class="row">
+                    <div class="col-md-2 col-sm-3 col-xs-12">
+                        <div class="text-center" style="padding-top:20px;">
+                            <img src="~/Contents/assets/img/wifisign.PNG" />
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-sm-9 col-xs-12">
+                        <h3>Remote Phone unlock service</h3>
+                        <br>
+                        <p>We unlock Phones remotely, this means you can continue using your Phone as normal whilst we complete the unlock in the background. We’ll never ask for personal login details.</p>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-3 col-xs-12">
+                        <div class="text-center" style="padding-top:20px;">
+                            <img src="~/Contents/assets/img/unlocksign.PNG" />
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-sm-9 col-xs-12">
+                        <h3>Permanent &amp; Secure Unlock</h3>
+                        <br>
+                        <p>By whitelisting your device in Apple’s database, it will be permanently unlocked for use on any network worldwide. The performance, security & outstanding Phone warranty is not affected!</p>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12 xs-text-center">
+                <div class="row">
+                    <div class="col-md-2 col-sm-3 col-xs-12">
+                        <div class="text-center" style="padding-top:20px;">
+                            <img src="~/Contents/assets/img/clocksign.PNG" />
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-sm-9 col-xs-12">
+                        <h3>24 hr Delivery & Dedicated Customer Service</h3>
+                        <br>
+                        <p>Most of our Phone unlocks take less than 24 hours! Wiith live order tracking and a dedicated customer support team, our unlocking service provides real convenience and peace of mind.</p>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-3 col-xs-12">
+                        <div class="text-center" style="padding-top:20px;">
+                            <img src="~/Contents/assets/img/tagsign.PNG" />
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-sm-9 col-xs-12">
+                        <h3>Great Value for Money</h3>
+                        <br>
+                        <p class="pb-5">We offer one of the cheapest yet most trusted Phone unlock services out there.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="xs-text-center">
+                <br />
+                <h2 class="pb-2">The Benefits of Unlocking your Phone</h2>
+                <p>You may only have one primary reason for wanting to unlock your Phone at the moment, but once it’s unlocked remember the other great benefits that having an unlocked Phone offers:</p>
+            </div>
+            <br />
+            <ul class="">
+                <li>
+                    <p class="arrow">Avoid roaming limits when travelling by using SIM cards from local network providers.</p>
+                    <br>
+                </li>
+                <li>
+                    <p class="arrow">Find a deal that suits you, whether that be more data or better coverage in your local area.</p>
+                    <br>
+                </li>
+                <li>
+                    <p class="arrow">Sell your Phone easier and for a much higher price.</p>
+                    <br>
+                </li>
+                <li>
+                    <p class="arrow">Buy a cheap locked Phone and use our cheap unlocking service to grab yourself a bargain.</p>
+                </li>
+            </ul>
+            <br />
+            <br />
+            <br class="hidden-md hidden-lg" />
+            <br class="hidden-md hidden-lg" />
+        </div>
+        <div class="col-md-6 col-md-offset-0 col-xs-10">
+            <img src="~/Contents/assets/img/products/ipad-air.jpg" alt="" class="img-responsive center-block">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <hr class="pt-6 visible-lg visible-md visible-sm hidden-xs" />
+        </div>
+    </div>
+</div>
+<div class="testimonial">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="trust-pilot">
+                    <div class="trust-pilot-wrap">
+                        <div class="trust-pilot-img">
+                            <img src="~/images/trustpilot.png" />
+                        </div>
+                        <div class="trust-pilot-body">
+                            <p class="trust-pilot-rating">
+                                4.8
+                            </p>
+                            <div class="trust-pilot-star">
+                                <span><i class="icon ion-star"></i></span>
+                                <span><i class="icon ion-star"></i></span>
+                                <span><i class="icon ion-star"></i></span>
+                                <span><i class="icon ion-star"></i></span>
+                                <span><i class="icon ion-star"></i></span>
+                            </div>
+                            <p class="trust-pilot-review">Out of 1500 reviews</p>
+                            <br />
+                            <button type="submit" class="btn btn-link review-btn">Review</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="carousel tp-carosel" data-count="2" data-current="1">
+                    <div class="items">
+                        <div class="item active" data-marker="1" data-aos="fade-left"
+                             data-aos-duration="2000">
+                            <img src="~/Contents/assets/img/carousel/bckg.jpg" alt="Background" class="background" data-marker="1" data-aos="fade-left"
+                                 data-aos-duration="2000" />
+
+                            <div class="content">
+                                <div class="outside-content">
+                                    <div class="row">
+                                        <div class="col-sm-6 content-top">
+                                            <div class="tp-star">
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                            </div>
+                                            <h2 class="tp-cmt-title" data-marker="1">
+                                                Helped when provider couldn't
+                                            </h2>
+                                            <p class="tp-cmt-para">
+                                                Brilliant service unlocking my Samsung Galaxy S8 within 3 hours of purchase. Considering I had been doing battle with Vodafone for the exact same service for well over a month this service worked perfectly.
+                                            </p>
+                                            <p class="tp-cmt-name">
+                                                Stave
+                                                <br />
+                                                <small>4/15/2021 10:14:02 AM</small>
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-6 content-top">
+                                            <div class="tp-star">
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                            </div>
+                                            <h2 class="tp-cmt-title" data-marker="1">
+                                                Helped when provider couldn't
+                                            </h2>
+                                            <p class="tp-cmt-para">
+                                                Brilliant service unlocking my Samsung Galaxy S8 within 3 hours of purchase. Considering I had been doing battle with Vodafone for the exact same service for well over a month this service worked perfectly.
+                                            </p>
+                                            <p class="tp-cmt-name">
+                                                Stave
+                                                <br />
+                                                <small>4/15/2021 10:14:02 AM</small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-marker="2" data-aos="fade-left"
+                             data-aos-duration="2000">
+                            <img src="~/Contents/assets/img/carousel/bckg.jpg" alt="Background" class="background" data-marker="1" data-aos="fade-left"
+                                 data-aos-duration="2000" />
+
+                            <div class="content">
+                                <div class="outside-content">
+                                    <div class="row">
+                                        <div class="col-sm-6 content-top">
+                                            <div class="tp-star">
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                            </div>
+                                            <h2 class="tp-cmt-title" data-marker="1">
+                                                Helped when provider couldn't
+                                            </h2>
+                                            <p class="tp-cmt-para">
+                                                Brilliant service unlocking my Samsung Galaxy S8 within 3 hours of purchase. Considering I had been doing battle with Vodafone for the exact same service for well over a month this service worked perfectly.
+                                            </p>
+                                            <p class="tp-cmt-name">
+                                                Stave
+                                                <br />
+                                                <small>4/15/2021 10:14:02 AM</small>
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-6 content-top">
+                                            <div class="tp-star">
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                            </div>
+                                            <h2 class="tp-cmt-title" data-marker="1">
+                                                Helped when provider couldn't
+                                            </h2>
+                                            <p class="tp-cmt-para">
+                                                Brilliant service unlocking my Samsung Galaxy S8 within 3 hours of purchase. Considering I had been doing battle with Vodafone for the exact same service for well over a month this service worked perfectly.
+                                            </p>
+                                            <p class="tp-cmt-name">
+                                                Stave
+                                                <br />
+                                                <small>4/15/2021 10:14:02 AM</small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="markers">
+                        <li data-marker="1" class="active"></li>
+                        <li data-marker="2"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@await Component.InvokeAsync("HomeUnlock")
+@section Scripts {
+
+    <script type="text/javascript">
+        function FormCheckSubmit(e) {
+            var url = "/Imei/check";
+            var imei = $("#IMEI").val();
+            $("#msg").empty();
+            $.getJSON(url, { imei: imei }, function (data) {
+                if (data == false) {
+                    $("#msg").append("Please enter a valid IMEI number.");
+                }
+
+                if (data == true) {
+                    $("#msg").empty();
+                    $("#formorder").submit();
+                }
+            });
+        }
+        function FormCarrierCheckSubmit(e) {
+            var url = "/Imei/check";
+            var imei = $(".carrierimeifield").val();
+            $("#msgcr").empty();
+            $.getJSON(url, { imei: imei }, function (data) {
+                if (data == false) {
+                    $("#msgcr").append("Please enter a valid IMEI number.");
+                }
+
+                if (data == true) {
+                    $("#msgcr").empty();
+                    $("#carriercheckform").submit();
+                }
+            });
+        }
+        function FormUnlockCheckSubmit(e) {
+            var url = "/Imei/check";
+            var imei = $(".imeihomeunlock").val();
+            $("#msgun").empty();
+            $.getJSON(url, { imei: imei }, function (data) {
+                if (data == false) {
+                    $("#msgun").append("Please enter a valid IMEI number.");
+                }
+
+                if (data == true) {
+                    $("#msgun").empty();
+                    $("#formorderunlock").submit();
+                }
+            });
+        }
+        function CalculatePrice(e) {
+            var url = "/Calculate/CalculateCarrierPrice";
+            var CarrierId = $("#CarrierId").val();
+            var ModelId = $("#DeviceModelId").val();
+            var BrandId = $("#DeviceModelId").val();
+            $.getJSON(url, { CarrierId: CarrierId, ModelId: ModelId, BrandId: BrandId }, function (data) {
+                $("#divprev").removeClass('hidden');
+                $("#TotalPrice").val(0);
+                $("#chnageprice").empty();
+                var pricitem = "$" + data.price + "";
+                $("#chnageprice").append(pricitem);
+                if (data.isAvailable === false) {
+                    $("#serviceprev").addClass('hidden');
+                    $("#TotalPrice").val(0);
+                    $("#premPrice").val(0);
+                    $("#standardPrice").val(0);
+                    $("#divprevwarnig").removeClass('hidden');
+                    $("#pricehide").addClass('hidden');
+                    $("#unavailableprice").removeClass('hidden');
+                    $("#btnsub").addClass('disabled');
+                    $("#btnsub").prop("disabled", "disabled");
+
+                }
+                else {
+                    $("#serviceprev").removeClass('hidden');
+                    if (data.hasPremium == true) {
+                        $("#serviceprem").removeClass('hidden');
+                        $("#premPrice").val(data.premiumPrice);
+                    }
+                    else {
+                        $("#serviceprem").addClass('hidden');
+                        $("#premPrice").val(0);
+                    }
+                    $("#divprevwarnig").addClass('hidden');
+                    $("#TotalPrice").val(data.price);
+                    $("#standardPrice").val(data.price);
+                    $("#pricehide").removeClass('hidden');
+                    $("#unavailableprice").addClass('hidden');
+                    $("#btnsub").removeClass('disabled');
+                    $("#btnsub").prop("disabled", false);
+
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            $("#suppportpage").click(function () {
+                window.location.href = "/support/index";
+            });
+            $("#imeicheck").click(function () {
+                window.location.href = "/Phonecheck/index";
+            });
+            $("#phoneunlock").click(function () {
+                window.location.href = "/UnlockPhone/Index";
+            });
+
+
+              $('#CarrierId').change(function () {
+                  var url = '@Url.Content("~/")' + "Information/GetCarrierInfo";
+                  var ddlsource = "#CarrierId";
+                  var valyue = $(ddlsource).val();
+                  $("#divprevwarnig").addClass('hidden');
+
+                  if (valyue == "") {
+                      $("#divprev2").addClass('hidden');
+                      $("#serviceprem").addClass('hidden');
+                  }
+                  else {
+                      $.getJSON(url, { modelId: $(ddlsource).val() }, function (data) {
+                          $("#divprev2").removeClass('hidden');
+                          $("#changeimagecarrier").removeAttr('src');
+                          $("#changeimagecarrier").attr('src', "" + data.image + "");
+                          $("#chnageNamecarrier").empty();
+                          $("#chnageNamecarrier").append(data.name);
+                      });
+                      var CarrierId = $("#CarrierId").val();
+                      var ModelId = $("#DeviceModelId").val();
+                      if (CarrierId != "" && ModelId != "") {
+                          CalculatePrice();
+                      }
+                  }
+
+              });
+              $('#DeviceModelId').change(function () {
+                  var url = '@Url.Content("~/")' + "Information/GetModelInfo";
+                  var ddlsource = "#DeviceModelId";
+                  var valyue = $(ddlsource).val();
+
+                  if (valyue == "") {
+                      $("#divprev1").addClass('hidden');
+                      $("#serviceprem").addClass('hidden');
+                  }
+                  else {
+                      $.getJSON(url, { modelId: $(ddlsource).val() }, function (data) {
+                          $("#divprev1").removeClass('hidden');
+                          $("#changeimagemodel").removeAttr('src');
+                          $("#changeimagemodel").attr('src', "" + data.image + "");
+                          $("#chnageNameModel").empty();
+                          $("#chnageNameModel").append(data.name);
+                      });
+                      var CarrierId = $("#CarrierId").val();
+                      var ModelId = $("#DeviceModelId").val();
+                      if (CarrierId != "" && ModelId != "") {
+                          CalculatePrice();
+                      }
+                  }
+            });
+              $('#CountryId').change(function () {
+                  var url = '@Url.Content("~/")' + "Carrier/GetCarrier";
+                  var ddlsource = "#CountryId";
+                  $.getJSON(url, { CountryId: $(ddlsource).val() }, function (data) {
+                      var items = '';
+                      items += "<option value='0'>Select Carrier</option>";
+                      $("#CarrierId").empty();
+                    $.each(data, function (i, item) {
+                        items += "<option value='" + item.value + "'>" + item.text + "</option>";
+                    });
+                      $('#CarrierId').html(items);
+                });
+               });
+
+              $('#radioService').change(function () {
+                  var radioValue = $("#radioService").val();
+                  if (radioValue == "2") {
+                      $("#TotalPrice").val(0);
+                      $("#chnageprice").empty();
+                      var premprice =  $("#premPrice").val();
+                      var stdprice =  $("#standardPrice").val();
+                      var pricitem = "$" + premprice + "";
+                      $("#chnageprice").append(pricitem);
+
+                      $("#TotalPrice").val(premprice);
+                  }
+                  else {
+                      $("#TotalPrice").val(0);
+                      $("#chnageprice").empty();
+                      var premprice =  $("#premPrice").val();
+                      var stdprice =  $("#standardPrice").val();
+                      var pricitem = "$" + stdprice + "";
+                      $("#chnageprice").append(pricitem);
+
+                      $("#TotalPrice").val(stdprice);
+                  }
+              });
+
+              $('#serstd').change(function () {
+                  var radioValue = $("#serstd").val();
+                  if (radioValue == "1") {
+                      $("#TotalPrice").val(0);
+                      $("#chnageprice").empty();
+                      var premprice = $("#premPrice").val();
+                      var stdprice = $("#standardPrice").val();
+                      var pricitem = "$" + stdprice + "";
+                      $("#chnageprice").append(pricitem);
+
+                      $("#TotalPrice").val(stdprice);
+                  }
+                  else {
+
+                      $("#TotalPrice").val(0);
+                      $("#chnageprice").empty();
+                      var premprice = $("#premPrice").val();
+                      var stdprice = $("#standardPrice").val();
+                      var pricitem = "$" + premprice + "";
+                      $("#chnageprice").append(pricitem);
+
+                      $("#TotalPrice").val(premprice);
+                  }
+              });
+
+            $('.controlbrand').change(function () {
+                var url = '@Url.Content("~/")' + "Device/GetDeviceModel";
+                var ddlsource = ".controlbrand";
+                $.getJSON(url, { BrandId: $(ddlsource).val() }, function (data) {
+                    var items = '';
+                    items += "<option value='0'>Select Model</option>";
+                    $("#DeviceModelId").empty();
+                    $.each(data, function (i, deviceModel) {
+                        items += "<option value='" + deviceModel.value + "'>" + deviceModel.text + "</option>";
+                    });
+                    $('#DeviceModelId').html(items);
+                });
+            });
+            $('#BrandId').change(function () {
+                var url = '@Url.Content("~/")' + "Device/GetDeviceModel";
+                var ddlsource = "#BrandId";
+                $.getJSON(url, { BrandId: $(ddlsource).val() }, function (data) {
+                    var items = '';
+                    items += "<option value='0'>Select Model</option>";
+                    $("#DeviceModelId").empty();
+                    $.each(data, function (i, deviceModel) {
+                        items += "<option value='" + deviceModel.value + "'>" + deviceModel.text + "</option>";
+                    });
+                    $('#DeviceModelId').html(items);
+                });
+            });
+
+
+        });
+    </script>
+
+}

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Country>
+
+@{
+    ViewData["Title"] = "Country List";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Select country to add carrier:</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home /</a></li>
+                    <li><a href="/Admin/NetworkCarrier/index">Network Carrier</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-6"><div class="text-left"><strong class="card-title">Select country to add carrier:</strong></div></div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th hidden>#</th>
+                                        <th>Country Name</th>
+                                        <th>Icon</th>
+                                        <th>Network Carriers</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td hidden>@item.Id</td>
+                                            <td>@item.Name</td>
+                                            <td><img src="@Url.Content(item.FlagIcon)" height="20" /></td>
+                                            <td>
+                                                <a href="/Admin/NetworkCarrier/CarrierList?id=@item.Id" class="btn btn-success btn-sm"><i class="fa fa-globe"></i> Carriers List</a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+    </div>
+</div>

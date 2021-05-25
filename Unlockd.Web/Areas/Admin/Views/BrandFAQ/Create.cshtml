@@ -1,0 +1,69 @@
+﻿@model Unlockd.Domain.Entities.Services.BrandFAQ
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h2>Brand FAQ</h2>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home /</a></li>
+                    <li><a href="/Admin/BrandFAQ/index">Brand FAQ</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Add new Brand FAQ</strong>
+                        </div>
+                        <div class="card-body">
+                            <form asp-controller="BrandFAQ" asp-action="Create" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                  @Html.HiddenFor(s=>s.SupportMenuId)
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Question</label>
+                                    <input type="text" asp-for="Question" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Answer</label>
+                                    <textarea asp-for="Answer" class="form-control"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success">Save</button>
+                                    <a href="/Admin/BrandFAQ/Index?id=@Model.SupportMenuId" class="btn btn-warning">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            $('.dropify').dropify();
+            $('.summernote').summernote({
+                tabsize: 2,
+                height: 500
+            });
+        });
+
+    </script>
+}

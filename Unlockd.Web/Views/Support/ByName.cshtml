@@ -1,0 +1,80 @@
+﻿@model BrandFAQViewModel
+@{
+    ViewData["Title"] = "ByName";
+}
+
+<hr class="offset-lg">
+<hr class="offset-lg">
+
+<div class="container">
+    <div class="container-shadow">
+        <div style="padding:10px">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <h2>@Model.Name</h2>
+                    <br>
+                    <p class="lead">@Model.Desciption</p>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row" data-aos="zoom-in"
+             data-aos-duration="2000">
+            <div class="col-sm-12">
+
+                @{ int i = 0; }
+                @foreach (var item in Model.FAQs)
+                {
+                    string collapse = "#collapse" + i.ToString();
+                    string collapseID = "collapse" + i.ToString();
+                    if (i == 0)
+                    {
+                        <div style="border:2px solid;border-color:black;border-radius:4px">
+                            <div style="padding-left:5px">
+                                <a class="" role="button" data-toggle="collapse" href="@Url.Content(collapse)" aria-expanded="true" aria-controls="question2">
+                                    <h2 class="h3">@item.Question</h2>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="collapse" id="@Url.Content(collapseID)">
+                            <div style="padding-top:5px">
+                                <div class="well" style="padding-left:5px">
+                                    <p>
+                                        @item.Answer
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    }
+                    else
+                    {
+                        <div style="border:2px solid;border-color:black;border-radius:4px">
+                            <div style="padding-left:5px">
+                                <a class="" role="button" data-toggle="collapse" href="@Url.Content(collapse)" aria-expanded="true" aria-controls="question2">
+                                    <h2 class="h3">@item.Question</h2>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="collapse" id="@Url.Content(collapseID)">
+                            <div style="padding-top:5px">
+                                <div class="well" style="padding-left:5px">
+                                    <p>
+                                        @item.Answer
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    }
+                    i++;
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<br />

@@ -1,0 +1,159 @@
+﻿@model IEnumerable<Unlockd.Web.Areas.Admin.Models.Orders.OrderViewModel>
+
+@{
+    ViewData["Title"] = "Orders";
+    int i = 1;
+}
+@Html.AntiForgeryToken()
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Orders</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Home</a> /</li>
+                    <li><a asp-area="Admin" asp-controller="ManageOrder" asp-action="Index">Orders</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    @Html.DropDownList("untype", (SelectList)ViewBag.unlockTypeList, "Select type", new { @class = "form-control",  @style = "border-color:red;" })
+
+                                </div>
+                                <div class="col-md-3">
+                                    @Html.DropDownList("country", (SelectList)ViewBag.countrylist, "Select country", new { @class = "form-control",  @style = "border-color:red;" })
+
+                                </div>
+                                <div class="col-md-3">
+                                    @Html.DropDownList("brand", (SelectList)ViewBag.brandlist, "Select brand", new { @class = "form-control", @style = "border-color:red;" })
+
+                                </div>
+                                <div class="col-md-3 text-center">
+                                    <button id="btnsearch" class="btn btn-primary">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <table id="ordertable" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th hidden>#</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Brand</th>
+                                        <th>Price</th>
+                                        <th>IMEI</th>
+                                        <th>Order type</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+    var _ID;
+    var _id;
+    var table;
+    var StatusIsActive = 1;
+    $(document).ready(function () {
+        table = $("#ordertable").DataTable
+            ({
+                "language":
+                {
+                    "processing": "<div class='overlay custom-loader-background'><i class='fa fa-cog fa-spin custom-loader-color'></i></div>"
+                },
+                "processing": true,
+                "serverSide": true,
+                "ajax":
+                {
+                    "url": "/Admin/ManageOrder/GetAll",
+                    "type": "POST",
+                    "dataType": "JSON",
+                    data: function (d) {
+                        d.__RequestVerificationToken = $('[name=__RequestVerificationToken]').val();
+                        d.brandId = $("#brand").val();
+                        d.countryId = $("#country").val();
+                        d.unlockTypeId = $("#untype").val();
+                    }
+                },
+                "columnDefs": [
+                    { "targets": [0], "width": "5%" },
+                    { "targets": [0], "data": "id", "render": function (data, type, row, meta) { return "<td hidden><input type='hidden' id='id' name='id' value=" + row.id + "></td>" } },
+                    { "targets": [8], "style": "align='center'", "orderable": false, "data": "Action", "render": function (data, type, row, meta) { return '<a href="/Admin/ManageOrder/Details?id=' + row.id+'" class="btn btn-sm btn-outline-success">Details</a><a href="/Admin/ManageOrder/Delete?id=' + row.id+'" class="btn btn-sm btn-outline-danger">Delete</a>' } }
+                ],
+                "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                    $(nRow).find("td:eq(0)").attr("hidden", true);
+                    return nRow;
+                },
+                "columns": [
+                    {
+                        "data": "id"
+                    },
+                    {
+                        "data": "fullName"
+                    },
+                    {
+                        "data": "email"
+                    },
+                    {
+                        "data": "brandName"
+                    },
+                    {
+                        "data": "totalPrice"
+                    },
+                    {
+                        "data": "imei"
+                    },
+                    {
+                        "data": "unlockTypeName"
+                    },
+                    {
+                        "data": "orderStatusName"
+                    },
+                    {
+                        "data": ""
+                    }
+                ],
+                "bFilter": false
+            });
+        $("#tblPayment").on("click", "#showForDetails", function (e) {
+            e.preventDefault();
+            _id = $(this).closest("tr").find("td:eq(0) input").val();
+            window.location.href = "/ManageTR/ViewDetails?id=" + _id + "";
+        });
+        $("#btnsearch").click(function (e) {
+            e.preventDefault();
+                table.draw();
+        });
+    });
+    </script>
+}

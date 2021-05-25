@@ -1,0 +1,19 @@
+﻿@model CartViewModel
+<form id="carriercheckform" asp-area="" asp-controller="Order" asp-action="ProceedToCheckout" method="post">
+    <input type="hidden" asp-for="UnlockTypeId" />
+    <input type="hidden" asp-for="TotalPrice" />
+    <input type="hidden" asp-for="radioService" value="4" />
+
+    <div class="form-group">
+        <label class="text-white">Select make</label>
+        <select id="BrandId" class="form-control" asp-items="@(new SelectList(@ViewBag.BrandList,"Id", "Name"))" style="color:#00a1b4;background-color:transparent;border:1px solid;border-color:white"></select>
+    </div>
+
+    <div class="form-group">
+        <label class="text-white">Enter IMEI</label>
+        <input type="text" asp-for="IMEI" class="form-control carrierimeifield" required style="color:#00a1b4;background-color:transparent;border:1px solid;border-color:white">
+        <p id="msgcr" class="text-danger-cs"></p>
+    </div>
+    <a id="btnsub" onclick="FormCarrierCheckSubmit()" class="btn btn-primary btn-sm btn-square btn-block btn-themecolor"><strong>Checkout</strong></a>
+
+</form>

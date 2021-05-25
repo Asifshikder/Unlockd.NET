@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>0a4ccfeb-8065-40a0-83b8-3b898c3c7b96</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FreeGeoIPCore" Version="1.0.3" />
+    <PackageReference Include="LazZiya.ImageResize" Version="3.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Shared\Components\" />
+    <Folder Include="wwwroot\Country\" />
+    <Folder Include="wwwroot\Brand\" />
+    <Folder Include="wwwroot\BlogMedia\" />
+    <Folder Include="wwwroot\images\New folder\" />
+    <Folder Include="wwwroot\Devices\" />
+    <Folder Include="wwwroot\SupportMenuItem\" />
+    <Folder Include="wwwroot\Testimonials\" />
+    <Folder Include="wwwroot\Post\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Areas\Admin\Views\ManageOrder\Delete.cshtml" />
+    <None Include="Areas\Admin\Views\ManageOrder\Details.cshtml" />
+    <None Include="Areas\Admin\Views\ManageOrder\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Unlockd.Data\Unlockd.Data.csproj" />
+    <ProjectReference Include="..\Unlockd.Domain\Unlockd.Domain.csproj" />
+    <ProjectReference Include="..\Unlockd.Service\Unlockd.Service.csproj" />
+  </ItemGroup>
+
+</Project>

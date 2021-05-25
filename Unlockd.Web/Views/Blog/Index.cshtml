@@ -1,0 +1,130 @@
+﻿@model BlogIndexViewModel
+@{
+    ViewData["Title"] = "Welcome to unlockd blog";
+}
+
+
+<hr class="offset-lg">
+<hr class="offset-lg">
+<div class="body-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center" data-aos="zoom-in"
+                 data-aos-duration="2000">
+                <h1><b>VeeUnlock blog <br /><small>welcome to our blog</small></b></h1>
+                <br />
+                <br />
+                <br />
+            </div>
+        </div>
+        @foreach (var item in Model.BlogPosts)
+            if (item.IsFeatured)
+            {
+
+                <div style="background-color: rgb(164 167 169); float: left; width: 100%;">
+                    <div class="col-md-4 col-sm-6 col-xs-12 no-pad" data-aos="zoom-in"
+                         data-aos-duration="2000">
+                        <div style="padding: 50px 40px 60px;">
+                            <label class="label label-info" style="background-color: rgb(0,122,255);">@item.BlogCategoryName</label>
+                            <h2 class="text-white">
+                                @item.Title
+                            </h2>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <hr />
+                                </div>
+                            </div>
+                            <p class="text-white text-uppercase" style="margin-bottom: 15px;"><small style="font-size: 0.75em;">By UNLOCKD &nbsp;&bull;&nbsp; @item.CreateDate</small></p>
+                            <br />
+                            <div class="text-white">
+                                <p class="text-white">
+                                    @*@Html.Raw(item.Description)*@
+                                    @item.ShortDescription
+                                </p>
+                            </div>
+                            <br />
+                            <br />
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <a asp-area="" asp-controller="Blog" asp-action="Post" asp-route-id="@item.Id" class="btn btn-primary btn-square black">Read more &nbsp;<i class="fa fa-chevron-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-6 col-xs-12 no-pad" data-aos="zoom-in"
+                         data-aos-duration="2000">
+                        <div style=" width: 100%;
+        height: 540px;
+        background-image: url(@Url.Content(item.PrimaryImage));
+        background-size: cover;
+        background-position: center;">&nbsp;</div>
+                    </div>
+                </div>
+            }
+
+    </div>
+
+    <div class="BlogPosts">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2>Latest Articles</h2>
+                    <br />
+                    <br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    @foreach (var item in Model.BlogPosts)
+                    {
+                        <div class="panel panel-default">
+                            <div class="panel-body" style="height:177px;padding:2px">
+                                <div class="row">
+                                    <a asp-controller="Carrier" asp-action="Select" asp-route-id="@item.Id" class="text-black">
+                                        <div class="col-md-4 col-xs-12">
+                                            <img src="@Url.Content(item.PrimaryImage)" alt="@item.Title" class="img-responsive center-block" style="max-height: 180px;">
+                                        </div>
+                                        <div class="col-md-8 col-xs-12">
+                                            <div style="padding:3px">
+                                                <label class="label label-info" style="background-color: rgb(0,122,255);">@item.BlogCategoryName</label>
+                                                <h3 style="font-weight: 700; font-size: 1em;"><a asp-area="" asp-controller="Blog" asp-action="Post" asp-route-id="@item.Id" class="text-black"> @item.Title</a></h3>
+                                                <p class="text-grey text-uppercase" style="margin-bottom: 15px;"><small style="font-size: 0.75em;">By UNLOCKD &nbsp;&bull;&nbsp; @item.CreateDate</small></p>
+                                                <p class="text-sm">@item.ShortDescription</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        @*<hr />
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-12" data-aos="zoom-in" data-aos-duration="2000">
+                                <div style="background-image: url(@Url.Content(item.PrimaryImage));
+                                        background-size: cover;
+                                        background-position: center;
+                                        height: 180px;
+                                        cursor: pointer;">Read more</div>
+                            </div>
+                            <div class="col-sm-8 col-xs-12" data-aos="zoom-in"
+                                 data-aos-duration="2000">
+                                <label class="label label-info" style="background-color: rgb(0,122,255);">@item.BlogCategoryName</label>
+                                <br />
+                                <br />
+                                <h3><a asp-area="" asp-controller="Blog" asp-action="Post" asp-route-id="@item.Id" class="text-black"> @item.Title</a></h3>
+                                <p class="text-grey text-uppercase" style="margin-bottom: 15px;"><small style="font-size: 0.75em;">By UNLOCKD &nbsp;&bull;&nbsp; @item.CreateDate</small></p>
+                                <p dir="ltr"><span style="font-family: arial, helvetica, sans-serif;">@Html.Raw(item.Description)</span></p>
+
+                            </div>
+                        </div> <hr />*@
+                    }
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />

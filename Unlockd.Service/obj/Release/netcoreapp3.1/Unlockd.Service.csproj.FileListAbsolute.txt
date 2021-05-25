@@ -1,0 +1,16 @@
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Service\bin\Release\netcoreapp3.1\Unlockd.Service.deps.json
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Service\bin\Release\netcoreapp3.1\Unlockd.Service.dll
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Service\bin\Release\netcoreapp3.1\Unlockd.Service.pdb
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Service\bin\Release\netcoreapp3.1\Unlockd.Data.dll
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Service\bin\Release\netcoreapp3.1\Unlockd.Domain.dll
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Service\bin\Release\netcoreapp3.1\Unlockd.Repo.dll
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Service\bin\Release\netcoreapp3.1\Unlockd.Data.pdb
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Service\bin\Release\netcoreapp3.1\Unlockd.Domain.pdb
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Service\bin\Release\netcoreapp3.1\Unlockd.Repo.pdb
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Service\obj\Release\netcoreapp3.1\Unlockd.Service.csprojAssemblyReference.cache
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Service\obj\Release\netcoreapp3.1\Unlockd.Service.AssemblyInfoInputs.cache
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Service\obj\Release\netcoreapp3.1\Unlockd.Service.AssemblyInfo.cs
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Service\obj\Release\netcoreapp3.1\Unlockd.Service.csproj.CoreCompileInputs.cache
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Service\obj\Release\netcoreapp3.1\Unlockd.Service.csproj.CopyComplete
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Service\obj\Release\netcoreapp3.1\Unlockd.Service.dll
+C:\Users\Asifs\Desktop\Unlockd\Unlockd.Service\obj\Release\netcoreapp3.1\Unlockd.Service.pdb

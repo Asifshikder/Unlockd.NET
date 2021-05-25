@@ -1,0 +1,164 @@
+﻿@model Unlockd.Web.Areas.Admin.Models.Orders.OrderViewModel
+@{
+    ViewData["Title"] = "Order Details";
+}
+@Html.AntiForgeryToken()
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h2>Order Details</h2>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a> / </li>
+                    <li><a href="/Admin/ManageOrder/Index">Orders</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card p-2">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <address>
+                        <strong>@Model.Forename @Model.Surname</strong>
+                        <br>Address : @Model.AddressLine<br>
+                        @*<abbr title="Phone">Mobile :</abbr> @Html.DisplayFor(model => model.PhoneNumber)*@
+                        <br />
+                        <abbr title="Email">Email :</abbr> @Model.Email
+                    </address>
+                </div>
+                <div class="col-md-6 col-sm-6 text-right">
+                    <p class="mb-0"><strong>Order Date : </strong>@Model.CreateDate</p>
+                    @*<p class="mb-0"><strong>Delivery Location : </strong>@Html.DisplayFor(model => model.DeliveryMethod)</p>*@
+                    <p class="mb-0"><strong>Payment Status : </strong>@Model.PaymentStatus</p>
+                    <p class="mb-0"><strong>Order Status : </strong> <span class="badge badge-warning">@Model.OrderStatus</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-custom spacing5 table-responsive-md mb-0">
+                            <thead>
+                                <tr class="font-weight-bold">
+                                    <th>
+                                        #
+                                    </th>
+                                    <th>
+                                        Device Name
+                                    </th>
+                                    <th>
+                                        Carrier Name
+                                    </th>
+                                    <th>
+                                        Unlock Type
+                                    </th>
+                                    <th>
+                                        IMEI
+                                    </th>
+                                    <th>
+                                        Price
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        @Model.DeviceModelName
+                                    </td>
+                                    <td>
+                                        @Model.NetworkCarrierName
+                                    </td>
+                                    <td>
+                                        @Model.UnlockTypeName
+                                    </td>
+                                    <td>
+                                        @Model.IMEI
+                                    </td>
+                                    <td>
+                                        @Model.TotalPrice
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="list-group-item py-2">
+        <h6>Order Status</h6>
+        @if (Model.OrderStatus != OrderStatus.Pending)
+        {
+            <form asp-action="ChangeOrderStatus" asp-route-returnUrl="@Context.Request.GetEncodedPathAndQuery()" style="display:inline;" method="post">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <input type="hidden" name="status" value="@OrderStatus.Pending" />
+                <button type="submit" class="loader btn btn-xs btn-warning py-1">Pending</button>
+            </form>
+        }
+
+        @if (Model.OrderStatus != OrderStatus.Accepted)
+        {
+            <form asp-action="ChangeOrderStatus" asp-route-returnUrl="@Context.Request.GetEncodedPathAndQuery()" style="display:inline;" method="post">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <input type="hidden" name="status" value="@OrderStatus.Accepted" />
+                <button type="submit" class="loader btn btn-xs btn-primary py-1">Accepted</button>
+            </form>
+        }
+
+        @if (Model.OrderStatus != OrderStatus.Processing)
+        {
+            <form asp-action="ChangeOrderStatus" asp-route-returnUrl="@Context.Request.GetEncodedPathAndQuery()" style="display:inline;" method="post">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <input type="hidden" name="status" value="@OrderStatus.Processing" />
+                <button type="submit" class="loader btn btn-xs btn-secondary py-1">Processing</button>
+            </form>
+        }
+
+        @if (Model.OrderStatus != OrderStatus.Completed)
+        {
+            <form asp-action="ChangeOrderStatus" asp-route-returnUrl="@Context.Request.GetEncodedPathAndQuery()" style="display:inline;" method="post">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <input type="hidden" name="status" value="@OrderStatus.Completed" />
+                <button type="submit" class="loader btn btn-xs btn-success py-1">Completed</button>
+            </form>
+        }
+        @if (Model.OrderStatus != OrderStatus.Refunded)
+        {
+            <form asp-action="ChangeOrderStatus" asp-route-returnUrl="@Context.Request.GetEncodedPathAndQuery()" style="display:inline;" method="post">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <input type="hidden" name="status" value="@OrderStatus.Refunded" />
+                <button type="submit" class="loader btn btn-xs btn-info py-1">Refunded</button>
+            </form>
+        }
+
+        @if (Model.OrderStatus != OrderStatus.Cancel)
+        {
+            <form asp-action="ChangeOrderStatus" asp-route-returnUrl="@Context.Request.GetEncodedPathAndQuery()" style="display:inline;" method="post">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <input type="hidden" name="status" value="@OrderStatus.Cancel" />
+                <button type="submit" class="loader btn btn-xs btn-danger py-1">Cancel</button>
+            </form>
+        }
+
+    </div>
+</div>
+
+@*@section Scripts {
+        <environment include="Development">
+            <script src="~/js/shared/print.js"></script>
+        </environment>
+        <environment exclude="Development">
+            <script src="~/js/shared/print.min.js"></script>
+        </environment>
+    }*@

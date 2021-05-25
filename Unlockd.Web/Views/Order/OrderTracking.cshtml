@@ -1,0 +1,317 @@
+﻿@model OrderTraceViewModel
+
+@{
+    ViewData["Title"] = "Track order";
+}
+
+<hr class="offset-lg">
+<hr class="offset-lg">
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+            <p class="text-themecolor">Track your order</p>
+        </div>
+        <div class="col-xs-6">
+            <a href="/Support/Index" title="Contact Support" class="pull-right">
+                Support
+            </a>
+            <a href="/home/FAQ" title="FAQ" class="pull-right text-black">
+                FAQ /
+            </a>
+        </div>
+    </div>
+    <hr />
+</div>
+
+<div class="container">
+    <div class="col-md-6 col-md-offset-3 text-center">
+        <h1 class="order-tracking-header">Track your unlock order<br /> <small>View your unlock progress.</small></h1>
+        <br />
+        <div class="row">
+            <div class="col-xs-12 text-red">
+            </div>
+        </div>
+        <br />
+        <form asp-area="" asp-controller="Order" asp-action="OrderTracking" method="post" id="formorder">
+            <div class="form-group">
+                <div class="input-group">
+                    <input class="form-control form-control-lg" asp-for="EmailAddress" placeholder="Email address" type="email" required />
+                    <span class="input-group-addon">
+                        <i class="icon ion-email"></i>
+                    </span>
+                </div>
+                <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+            </div>
+            <div class="form-group">
+                <input class="form-control form-control-lg" asp-for="ImeiNo" placeholder="IMEI / Serial Number" type="text" />
+                <span class="field-validation-valid" data-valmsg-for="Identifier" data-valmsg-replace="true"></span>
+            </div>
+            <p id="msg" class="text-danger"></p>
+            <br />
+            <a onclick="FormCheckSubmit()" class="btn btn-primary  btn-square black">Track Order</a>
+        </form>
+        <div class="info-panel">
+            <p>Enter the IMEI number and email address used at the time of purchase or use the link in the confirmation email.</p>
+        </div>
+    </div>
+</div>
+<br />
+
+
+<div class="info-content">
+    <div class="container">
+        <div class="row">
+            <div class="text-center" data-aos="zoom-in"
+                 data-aos-duration="2000">
+                <h2 class="">Why we are the best Phone unlocking service.</h2>
+                <p class="lead">Our IMEI unlocking methods are safe, trusted &amp; recommended by Apple as the best way to unlock your Phone without invalidating the warranty.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-12 xs-text-center">
+                <div class="row">
+                    <div class="col-md-2 col-sm-3 col-xs-12">
+                        <div class="text-center" style="padding-top:20px;">
+                            <img src="~/Contents/assets/img/wifisign.PNG" />
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-sm-9 col-xs-12">
+                        <h3>Remote Phone unlock service</h3>
+                        <br>
+                        <p>We unlock Phones remotely, this means you can continue using your Phone as normal whilst we complete the unlock in the background. We’ll never ask for personal login details.</p>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-3 col-xs-12">
+                        <div class="text-center" style="padding-top:20px;">
+                            <img src="~/Contents/assets/img/unlocksign.PNG" />
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-sm-9 col-xs-12">
+                        <h3>Permanent &amp; Secure Unlock</h3>
+                        <br>
+                        <p>By whitelisting your device in Apple’s database, it will be permanently unlocked for use on any network worldwide. The performance, security & outstanding Phone warranty is not affected!</p>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12 xs-text-center">
+                <div class="row">
+                    <div class="col-md-2 col-sm-3 col-xs-12">
+                        <div class="text-center" style="padding-top:20px;">
+                            <img src="~/Contents/assets/img/clocksign.PNG" />
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-sm-9 col-xs-12">
+                        <h3>24 hr Delivery & Dedicated Customer Service</h3>
+                        <br>
+                        <p>Most of our Phone unlocks take less than 24 hours! Wiith live order tracking and a dedicated customer support team, our unlocking service provides real convenience and peace of mind.</p>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-3 col-xs-12">
+                        <div class="text-center" style="padding-top:20px;">
+                            <img src="~/Contents/assets/img/tagsign.PNG" />
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-sm-9 col-xs-12">
+                        <h3>Great Value for Money</h3>
+                        <br>
+                        <p class="pb-5">We offer one of the cheapest yet most trusted Phone unlock services out there.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="testimonial">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="trust-pilot">
+                    <div class="trust-pilot-wrap">
+                        <div class="trust-pilot-img">
+                            <img src="~/images/trustpilot.png" />
+                        </div>
+                        <div class="trust-pilot-body">
+                            <p class="trust-pilot-rating">
+                                4.8
+                            </p>
+                            <div class="trust-pilot-star">
+                                <span><i class="icon ion-star"></i></span>
+                                <span><i class="icon ion-star"></i></span>
+                                <span><i class="icon ion-star"></i></span>
+                                <span><i class="icon ion-star"></i></span>
+                                <span><i class="icon ion-star"></i></span>
+                            </div>
+                            <p class="trust-pilot-review">Out of 1500 reviews</p>
+                            <br />
+                            <button type="submit" class="btn btn-link review-btn">Review</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="carousel tp-carosel" data-count="2" data-current="1">
+                    <div class="items">
+                        <div class="item active" data-marker="1" data-aos="fade-left"
+                             data-aos-duration="2000">
+                            <img src="~/Contents/assets/img/carousel/bckg.jpg" alt="Background" class="background" data-marker="1" data-aos="fade-left"
+                                 data-aos-duration="2000" />
+
+                            <div class="content">
+                                <div class="outside-content">
+                                    <div class="row">
+                                        <div class="col-sm-6 content-top">
+                                            <div class="tp-star">
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                            </div>
+                                            <h2 class="tp-cmt-title" data-marker="1">
+                                                Helped when provider couldn't
+                                            </h2>
+                                            <p class="tp-cmt-para">
+                                                Brilliant service unlocking my Samsung Galaxy S8 within 3 hours of purchase. Considering I had been doing battle with Vodafone for the exact same service for well over a month this service worked perfectly.
+                                            </p>
+                                            <p class="tp-cmt-name">
+                                                Stave
+                                                <br />
+                                                <small>4/15/2021 10:14:02 AM</small>
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-6 content-top">
+                                            <div class="tp-star">
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                            </div>
+                                            <h2 class="tp-cmt-title" data-marker="1">
+                                                Helped when provider couldn't
+                                            </h2>
+                                            <p class="tp-cmt-para">
+                                                Brilliant service unlocking my Samsung Galaxy S8 within 3 hours of purchase. Considering I had been doing battle with Vodafone for the exact same service for well over a month this service worked perfectly.
+                                            </p>
+                                            <p class="tp-cmt-name">
+                                                Stave
+                                                <br />
+                                                <small>4/15/2021 10:14:02 AM</small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-marker="2" data-aos="fade-left"
+                             data-aos-duration="2000">
+                            <img src="~/Contents/assets/img/carousel/bckg.jpg" alt="Background" class="background" data-marker="1" data-aos="fade-left"
+                                 data-aos-duration="2000" />
+
+                            <div class="content">
+                                <div class="outside-content">
+                                    <div class="row">
+                                        <div class="col-sm-6 content-top">
+                                            <div class="tp-star">
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                            </div>
+                                            <h2 class="tp-cmt-title" data-marker="1">
+                                                Helped when provider couldn't
+                                            </h2>
+                                            <p class="tp-cmt-para">
+                                                Brilliant service unlocking my Samsung Galaxy S8 within 3 hours of purchase. Considering I had been doing battle with Vodafone for the exact same service for well over a month this service worked perfectly.
+                                            </p>
+                                            <p class="tp-cmt-name">
+                                                Stave
+                                                <br />
+                                                <small>4/15/2021 10:14:02 AM</small>
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-6 content-top">
+                                            <div class="tp-star">
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                                <span><i class="icon ion-star"></i></span>
+                                            </div>
+                                            <h2 class="tp-cmt-title" data-marker="1">
+                                                Helped when provider couldn't
+                                            </h2>
+                                            <p class="tp-cmt-para">
+                                                Brilliant service unlocking my Samsung Galaxy S8 within 3 hours of purchase. Considering I had been doing battle with Vodafone for the exact same service for well over a month this service worked perfectly.
+                                            </p>
+                                            <p class="tp-cmt-name">
+                                                Stave
+                                                <br />
+                                                <small>4/15/2021 10:14:02 AM</small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="markers">
+                        <li data-marker="1" class="active"></li>
+                        <li data-marker="2"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+
+
+@section Scripts{
+    <script>
+        function FormCheckSubmit(e) {
+            var url = "/Imei/check";
+            var imei = $("#ImeiNo").val();
+            $("#msg").empty();
+            $.getJSON(url, { imei: imei }, function (data) {
+                if (data == false) {
+                    $("#msg").append("IMEI number is not valid.");
+                }
+                if (data == true) {
+                    $("#msg").empty();
+                    $("#formorder").submit();
+                }
+            });
+        }
+                            //const { ajax } = require("jquery");
+
+                            //function checkImei() {
+                            //    var value = $("#ImeiNo").val();
+                            //    var res = ImeiManager.validate(value);
+                            //    $("#msg").append(res);
+                            //}
+                            //$(document).ready(function () {
+
+                            //    var isvalid = ajax
+                            //    //$("#ImeiNo").change(function () {
+                            //    //    var value = $("#ImeiNo").val();
+                            //    //    ImeiManager.validate(value)
+                            //    //});
+                            //    //$("#imeicheck").click(function () {
+                            //    //    window.location.href ="/Phonecheck/index";
+                            //    //});
+                            //});
+
+    </script>
+}

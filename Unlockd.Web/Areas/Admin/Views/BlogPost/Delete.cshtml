@@ -1,0 +1,57 @@
+﻿@model BlogPost
+@{
+    ViewData["Title"] = "Delete";
+}
+@Html.AntiForgeryToken()
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h2>Blog Post</h2>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home /</a></li>
+                    <li><a href="/Admin/BlogPost/index">Blog Post</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Delete BlogPost</strong>
+                        </div>
+                        <div class="card-body">
+                            <form asp-controller="BlogPost" asp-action="DeleteConfirm" method="post">
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Name</label>
+                                    <input type="text" asp-for="Title" class="form-control" disabled>
+                                </div>
+                                @Html.HiddenFor(model => model.Id)
+                                @Html.HiddenFor(model => model.Description)
+                                @Html.HiddenFor(model => model.ShortDesciption)
+                                @Html.HiddenFor(model => model.BlogCategoryId)
+                                @Html.HiddenFor(model => model.PrimaryImage)
+                                @Html.HiddenFor(model => model.IsFeatured)
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <a asp-controller="BlogPost" asp-action="Index" class="btn btn-warning">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

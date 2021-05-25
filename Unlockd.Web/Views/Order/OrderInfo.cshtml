@@ -1,0 +1,111 @@
+﻿@model OrderViewModel
+
+@{
+    ViewData["Title"] = "Track order";
+    string msg = ViewBag.Msg;
+}
+
+<hr class="offset-lg">
+<hr class="offset-lg">
+<div class="container">
+    <h1>Your order Info</h1>
+    <hr />
+</div>
+
+<div class="container">
+    @if (!String.IsNullOrEmpty(msg))
+    {
+        <h2>@msg</h2>
+    }
+    else
+    {
+        <strong>Name:</strong> @Model.Forename @Model.Surname
+        <strong>Address:</strong> @Model.AddressLine <p>,</p> @Model.CityOrTown
+        <strong>OrderStatus:</strong> @Model.StatusName
+
+        <table>
+            <tr>
+                <th>
+                    <strong>Name:</strong>
+                </th>
+                <td>
+                    @Model.Forename @Model.Surname
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <strong>Country:</strong>
+                </th>
+                <td>
+                    @Model.CountryName
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <strong>Network Carrier:</strong>
+                </th>
+                <td>
+                    @Model.NetworkCarrierName
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <strong>Device Model:</strong>
+                </th>
+                <td>
+                    @Model.BrandName @Model.DeviceModelname
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <strong>IMEI:</strong>
+                </th>
+                <td>
+                    @Model.IMEI
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <strong>Address:</strong>
+                </th>
+                <td>
+                    @Model.AddressLine <p>,</p> @Model.CityOrTown
+                </td>
+            </tr>
+        </table>
+    }
+
+</div>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 col-xs-12">
+            <div class="text-center">
+                <div class="icon">
+                    <i class="fa fa-clock-o fa-2x"></i>
+                </div>
+                <h3>24 hour unlock delivery</h3>
+                <p class="lead light">Instant unlocking for many mobile networks.</p>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <div class="text-center">
+                <div class="icon">
+                    <i class="fa fa-wrench fa-2x"></i>
+                </div>
+                <h3>Highly Skilled Tech Team</h3>
+                <p class="lead light">Experienced in all iPhone and iPad <br />products.</p>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <div class="text-center">
+                <div class="icon">
+                    <i class="fa fa-mobile-phone fa-2x"></i>
+                </div>
+                <h3>Your Phone is Safe</h3>
+                <p class="lead light">You keep your device throughout the entire process.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br />

@@ -1,0 +1,228 @@
+﻿@model IEnumerable<Brand>
+@{
+    ViewData["Title"] = "Index";
+    int loopcount = 1;
+}
+
+<hr class="offset-lg">
+<hr class="offset-lg">
+<div class="container">
+    <div class="breadcrumb">
+        <div class="breadcrumb-item"><p><a href="/Home/Index">Home </a>/ Unlock Phone</p></div>
+        <div class="breadcrumb-item"><h3><b>Unlock phone</b></h3></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="unlock-online-func">
+                    <div class="func-form">
+                        <h3>Select your make to unlock</h3>
+                        <p>Your phone’s IMEI number can offer a variety of information that is useful to know when you are looking to unlock your phone, sell or buy a used phone or find out certain information such as details about your warranty or if a device is blacklisted. Our IMEI check service is compatible with all devices and networks.</p>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="col-sm-12 products">
+                <br />
+                <div class="unlock-online-func">
+                    <div class="func-form">
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+
+                                <div class="col-sm-3 col-md-3 col-xs-6">
+                                    <div class="product">
+                                        <a asp-controller="UnlockPhone" asp-action="ByBrand" asp-route-id="@item.Id"><img src="@Url.Content(item.BrandLogo)" alt="@item.Name" height="100" /></a>
+
+                                        <div class="content text-center">
+                                            <h1 class="h4">@item.Name</h1>
+                                            <p class="price">From $@item.AverageUnlockingPrice</p>
+
+                                            <a asp-controller="UnlockPhone" asp-action="ByBrand" asp-route-id="@item.Id" class="btn btn-primary btn-square btn-block black"> Unlock now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br />
+
+
+        </div>
+    </div>
+</div>
+@{ int BFC = 0;}
+@foreach (var item in Model.Where(s=>s.IsFeatured ==true))
+{
+    if (BFC == 0)
+    {
+        <div style="background-color:#b00e23;padding:20px 0px 20px 0px">
+            <div class="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6" data-aos="zoom-in"
+                             data-aos-duration="2000">
+                            <div class="device-content"  style="padding-top:100px">
+                                <p class="text-white">Unlock your</p>
+                                <h2 class="device-name text-white"  style="color:white">@item.Name Device</h2>
+                                <h3 class="device-price text-white"><span>From Only</span> $@item.AverageUnlockingPrice</h3>
+                                <p class="text-white">@item.ShortDescription</p>
+                                <a href="/UnlockPhone/ByBrand?id=@item.Id" class="btn btn-primary btn-square black">Unlock Now</a>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6" data-aos="zoom-in"
+                             data-aos-duration="2000">
+                            <img src="@Url.Content(item.FeaturedImage)" alt="@Url.Content(item.Name)" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+    else if (BFC == 1)
+    {
+
+        <div style="background-color:#6a777a;padding:20px 0px 20px 0px">
+            <div class="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6" data-aos="zoom-in"
+                             data-aos-duration="2000">
+                            <img src="@Url.Content(item.FeaturedImage)" alt="@Url.Content(item.Name)" class="img-responsive">
+                        </div>
+                        <div class="col-sm-6" data-aos="zoom-in"
+                             data-aos-duration="2000">
+                            <div class="device-content"  style="padding-top:100px">
+                                <p class="text-white">Unlock your</p>
+                                <h2 class="device-name" style="color:white">@item.Name Phone</h2>
+                                <h3 class="device-price text-white"><span>From Only</span> $@item.AverageUnlockingPrice</h3>
+                                <p class="text-white">@item.ShortDescription</p>
+                                <a href="/UnlockPhone/ByBrand?id=@item.Id" class="btn btn-primary btn-square black">Unlock Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+    else
+    {
+        <div style="background-color:#1f0272;padding:20px 0px 20px 0px">
+            <div class="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6" data-aos="zoom-in"
+                             data-aos-duration="2000">
+                            <div class="device-content"  style="padding-top:100px">
+                                <p class="text-white">Unlock your</p>
+                                <h2 class="device-name text-white"  style="color:white">@item.Name Device</h2>
+                                <h3 class="device-price text-white"><span>From Only</span> $@item.AverageUnlockingPrice</h3>
+                                <p class="text-white">@item.ShortDescription</p>
+                                <a href="/UnlockPhone/ByBrand?id=@item.Id" class="btn btn-primary btn-square black">Unlock Now</a>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6" data-aos="zoom-in"
+                             data-aos-duration="2000">
+                            <img src="@Url.Content(item.FeaturedImage)" alt="@Url.Content(item.Name)" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    BFC++;
+}
+<br />
+
+<div class="container">
+    <div class="">
+        <div class="row">
+
+            <div class="col-md-12 text-center">
+                <div class="unlock-online-func">
+                    <div class="func-form">
+
+                        <div class="row">
+                            <div class="text-center" data-aos="zoom-in"
+                                 data-aos-duration="2000">
+                                <h2 class="">Why we are the best Phone unlocking service.</h2>
+                                <p class="lead">Our IMEI unlocking methods are safe, trusted &amp; recommended by Apple as the best way to unlock your Phone without invalidating the warranty.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12 xs-text-center">
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-3 col-xs-12">
+                                        <div class="text-center" style="padding-top:20px;">
+                                            <img src="~/Contents/assets/img/wifisign.PNG" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10 col-sm-9 col-xs-12">
+                                        <h3>Remote Phone unlock service</h3>
+                                        <br>
+                                        <p>We unlock Phones remotely, this means you can continue using your Phone as normal whilst we complete the unlock in the background. We’ll never ask for personal login details.</p>
+                                        <br>
+                                        <br>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-3 col-xs-12">
+                                        <div class="text-center" style="padding-top:20px;">
+                                            <img src="~/Contents/assets/img/unlocksign.PNG" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10 col-sm-9 col-xs-12">
+                                        <h3>Permanent &amp; Secure Unlock</h3>
+                                        <br>
+                                        <p>By whitelisting your device in Apple’s database, it will be permanently unlocked for use on any network worldwide. The performance, security & outstanding Phone warranty is not affected!</p>
+                                        <br>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 xs-text-center">
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-3 col-xs-12">
+                                        <div class="text-center" style="padding-top:20px;">
+                                            <img src="~/Contents/assets/img/clocksign.PNG" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10 col-sm-9 col-xs-12">
+                                        <h3>24 hr Delivery & Dedicated Customer Service</h3>
+                                        <br>
+                                        <p>Most of our Phone unlocks take less than 24 hours! Wiith live order tracking and a dedicated customer support team, our unlocking service provides real convenience and peace of mind.</p>
+                                        <br>
+                                        <br>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-3 col-xs-12">
+                                        <div class="text-center" style="padding-top:20px;">
+                                            <img src="~/Contents/assets/img/tagsign.PNG" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10 col-sm-9 col-xs-12">
+                                        <h3>Great Value for Money</h3>
+                                        <br>
+                                        <p class="pb-5">We offer one of the cheapest yet most trusted Phone unlock services out there.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

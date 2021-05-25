@@ -1,0 +1,37 @@
+﻿@model CarrierIndexViewModel
+
+<div id="CountrySelect">
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-helper="true" data-toggle="dropdown" data-value="GlobalCountry" aria-haspopup="true" aria-expanded="false">
+            <span><img class="dropdown-flag-icon" src="@Url.Content(Model.Country.FlagIcon)" /> @Model.Country.DisplayName (@Model.Country.Currency)</span>
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-menu" data-target="GlobalCountry">
+            <ul class="list-unstyled" style="overflow-y: scroll; max-height: 300px;">
+                @foreach (var item in Model.Countries)
+                {
+                    <li><a asp-area="" asp-controller="Carrier" asp-action="SetCountry" asp-route-id="@item.Id"><img class="dropdown-flag-icon" src="@Url.Content(item.FlagIcon)" /> @item.Name</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+@*@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            $("p").click(function () {
+                alert("The paragraph was clicked.");
+                $.ajax(
+                    {
+                        type: "GET",
+                        url: "Carrier/SetCountry/?id=2"
+
+                    });
+            });
+        });
+    </script>
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>*@

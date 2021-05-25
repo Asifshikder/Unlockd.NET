@@ -1,0 +1,133 @@
+﻿
+@model Order
+@{
+    ViewData["Title"] = "UnlokD - Checkout Page";
+}
+<div class="body-content" style="margin-top: 100px;">
+    <div class="unlock-checkout">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="checkout-header">Checkout</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="checkout-info">
+                        <div class="checkout-info-wrap">
+                            <div class="checkout-type">
+                                <h4>Checkout - Network Check via IMEI</h4>
+                                <p>Find out which network / carrier your device is locked to using our carrier check service.</p>
+                            </div>
+                            <div class="checkout-desc">
+                                <div class="checkout-desc-content">
+                                    <span class="checkout-desc-head">Make:</span>
+                                    <span class="checkout-desc-data">Apple</span>
+                                </div>
+                                <div class="checkout-desc-content">
+                                    <span class="checkout-desc-head">IMEI / Serial:</span>
+                                    <span class="checkout-desc-data">490154203237518</span>
+                                    <p>Please ensure this is correct, no refunds if you submit the wrong handset.</p>
+                                </div>
+                                <div class="checkout-desc-content">
+                                    <span class="checkout-desc-head">Average Timeframe:</span>
+                                    <span class="checkout-desc-data">1-24 hours </span>
+                                </div>
+                            </div>
+                            <div class="checkout-user-info">
+                                <div class="checkout-user-form">
+                                    <form method="post">
+                                        <h3 class="checkout-form-head">Enter your details below :</h3>
+                                        <div class="form-group">
+                                            <input type="email" id="emailId" class="form-control" placeholder="abc@mail.com" required>
+
+                                        </div>
+                                        <p class="checkout-form-msg">Please <span>do not</span> use symbols or punctuation when entering your address details</p>
+                                        <div class="form-group">
+                                            <input type="text" id="addressLine" class="form-control" placeholder="Address Line 1">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" id="cityTown" class="form-control" placeholder="City / Town">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" id="postcode" class="form-control" placeholder="ZIP / Postcode">
+                                        </div>
+                                        <div class="form-group">
+                                            <select id="CountryId" class="form-control" placeholder="Select Country"></select>
+                                        </div>
+
+                                        <h3 class="checkout-form-head">Important Information</h3>
+
+                                        <div class="form-check checkout-form-check">
+                                            <input type="checkbox" class="form-check-input" id="terms">
+                                            <label class="form-check-label" for="exampleCheck1">By ticking this box you confirm you have read and understood our <a href="#" target="_blank">Terms and Conditions</a> and <a href="#" target="_blank">Privacy Policy</a> documents.</label>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary paynow-btn">Pay Now</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="checkout-summary">
+                        <div class="checkout-order">
+                            <h4>Order Summary</h4>
+                            <div class="row">
+                                <div class="col-md-8 col-xs-8">
+                                    <strong><small>PRODUCT</small></strong>
+                                </div>
+                                <div class="col-md-4 col-xs-4 text-right">
+                                    <strong><small>SUBTOTAL</small></strong>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <hr>
+                                </div>
+                                <div class="col-xs-8">
+                                    <strong>Network Check</strong><br>
+                                    <small class="IMEI"><small>IMEI Number:</small><br>490154203237518</small>
+                                    <p><small>Standard Service</small></p>
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    $5.00
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkout-delivary">
+                            <div class="row">
+                                <div class="col-md-8 col-xs-8">
+                                    <strong>Average Delivery Time:</strong>
+                                </div>
+                                <div class="col-md-4 col-xs-4 text-right">
+                                    <strong><small>1-24 hours</small></strong>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-6">
+                                    <span class="checkout-total">Total:</span>
+                                </div>
+                                <div class="col-md-6 col-xs-6 text-right">
+                                    <span class="checkout-price">$5.00 <small>(USD)</small></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-8">
+                                    <span class="checkout-payment">
+                                        <img src="~/images/paypal.png" />
+                                    </span>
+
+                                </div>
+                                <div class="col-md-6 col-xs-6 text-right">
+                                    <span class="checkout-payment-secure"> <i class="icon ion-locked"></i> Secure Payments</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,369 @@
+﻿@model DeviceIndexViewModel
+@{
+    ViewData["Title"] = "UnlokD - Devices";
+}
+
+<div class="body-content" style="margin-top: 100px;">
+    <section class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <h1 class="heading-blog"><span class="notranslate">Unlock Your Phone</span> <small>From any Network by IMEI</small></h1>
+                    <br>
+                    <br>
+                    <p style="font-size: 16px; line-height: 24px;">Our trusted online IMEI Phone unlock service will permanently unlock your Phone from any network. We can unlock your Phone in less than 24 hours by whitelisting it in Phone Companies database, meaning our unlock will not affect your Phones warranty or performance, and as we work remotely you can continue to use your Phone as normal whilst we unlock it in the background.</p>
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-6 col-xs-12 col-xs-offset-0">
+                    <div class="row">
+                        <div class="col-md-11 col-xs-12">
+                            <br />
+                            <p><strong>Would you like to unlock your Phone?</strong></p><p>Whether you're looking to unlock your iPhone carrier or just find out which carrier your iPhone is currently locked to, iPhone Approved Unlock can find out! Simply carry out our carrier check and you’ll be ready to submit your carrier unlocking request.</p>
+                            <br />
+                            <div>
+                                <form asp-area="" asp-controller="Order" asp-action="ProceedToCheckout" method="post">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="alert-danger" asp-validation-summary="ModelOnly"></div>
+                                                    <label class=" form-control-label">Your Phone Make</label>
+                                                    <select id="BrandId" class="form-control" asp-items="@(new SelectList(@ViewBag.BrandList,"Id", "Name"))"></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <label class="control-label">Device Model</label>
+                                                    <select class="form-control" id="DeviceModelId" asp-for="@Model.Order.DeviceModelId" asp-items="@(new SelectList(string.Empty,"Id", "Name"))"></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="alert-danger" asp-validation-summary="ModelOnly"></div>
+                                                    <label class=" form-control-label">Your Country</label>
+                                                    <input placeholder="@ViewBag.Country" class="form-control" disabled/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <label class="control-label">Network Carrier</label>
+                                                    <select class="form-control" id="NetworkCarrierId" asp-for="@Model.Order.NetworkCarrierId" asp-items="@(new SelectList(@ViewBag.CarrierList,"Id", "NetworkName"))"></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class=" form-control-label">Enter your IMEI number</label>
+                                        <input type="text" asp-for="@Model.Order.IMEI" class="form-control" required>
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-sm-6 col-xs-12">
+                                            <br />
+                                            <button type="submit" class="btn btn-primary btn-lg stretch-xs">Unlock Now</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @foreach (var item in Model.Brands)
+            {
+                if (item.Devices.Any())
+                {
+                    <div class="row">
+                        <div class="container">
+                            <div class="col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0">
+                                <h2 class="text-center" data-aos="fade-down"
+                                    data-aos-duration="2000">
+                                    @item.Name Devices
+                                </h2>
+                                <br />
+                                <p class="lead light text-center" data-aos="fade-up"
+                                   data-aos-duration="2000">We offer an unlocking service for all iPhone, iPad and iWatch models – find your device here.</p>
+
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @foreach (var subItem in item.Devices)
+                        {
+                            <div class="col-md-3 col-xs-6 text-center">
+                                <div class="device-item">
+                                    <img src="@Url.Content(subItem.Image)" class="img-responsive center-block">
+                                    <br>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-9 col-xs-12 f-none mtza">
+                                            <a asp-area="" asp-controller="Device" asp-action="Select" asp-route-id="@subItem.Id" title=" " class="btn btn-primary">Unlock @item.Name @subItem.Name</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            }
+        </div>
+    </section>
+    <section class="pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <h2>How do I Unlock my iPhone <br><small class="text-black">with iPhone Approved Unlock</small></h2>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-3 col-xs-12">
+                            <div class="icon-lg text-center">
+                                <i class="fa fa-lock"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <h3>Make Sure your iPhone is Locked</h3>
+                            <br>
+                            <p>Before you purchase your iPhone unlock with us, it's important to double check your iPhone is definitely locked. To do this simply insert a SIM card from another network into your iPhone and restart it, if the iPhone IS locked a 'SIM Not Valid' message will appear, this confirms your phone is locked to just one network.</p>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 col-sm-3 col-xs-12">
+                            <div class="icon-lg text-center">
+                                <i class="fa fa-tag"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <h3>Find your iPhones IMEI Number</h3>
+                            <br>
+                            <p>Now we know your iPhone is locked, we need to find your IMEI number in order to be able to complete our iPhone unlock service. To find the IMEI number on the iPhone simply dial *#06# on the keypad and tap dial, the IMEI number should be displayed on the phone. If this does not work for whatever reason you’ll find the IMEI number embossed on the SIM tray of newer iPhones, and on the back of older iPhones.</p>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 col-sm-3 col-xs-12">
+                            <div class="icon-lg text-center">
+                                <i class="fa fa-unlock"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <h3>We complete your iPhone unlock</h3>
+                            <br>
+                            <p>Once you purchase your iPhone unlock service with us, we'll whitelist your iPhone in Apple's database, creating a permanent and trusted unlock that won't affect your iPhones warranty or performance.  Once this is done we'll email you confirming the unlock is complete along with some really simple instructions to finalise the unlock on your iPhone.</p>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <a href="#" class="btn btn-primary btn-lg stretch-xs">Select your iPhone</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <h2 class="heading-sm">Why Unlock iPhone?</h2>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p>iPhones are some of the best smartphones on the market, and often command a high price - this means networks often sell their iPhones as part of a contract with inflated monthly repayment charges to help cover the cost of the phone. They lock the iPhone to maximise the chance that you’ll stay on their network for the longest possible time, as people often think unlocking an iPhone is an unreliable and costly affair that may damage their phone.</p>
+                    <br>
+                    <p>Thankfully trusted online unlocking service like iPhone Approved Unlock can provide you with a permanent and trusted unlock without any hassle or inconvenience! Having a permanently unlocked iPhone comes with many benefits:</p>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-10 col-xs-12">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <p style="font-weight: 600; padding: 0 0 0 24px; background-image: url(images/select-arrow.png); background-size: 18px; background-repeat: no-repeat; background-position: left 3px;">Sell your iPhone for a higher premium, you'll be able to sell an unlocked iPhone to loads more people who will be willing to pay more for your iPhone.</p>
+                                    <br>
+                                </li>
+                                <li>
+                                    <p style="font-weight: 600; padding: 0 0 0 24px; background-image: url(images/select-arrow.png); background-size: 18px; background-repeat: no-repeat; background-position: left 3px;">Enjoy unlimited data around the world on your iPhone - purchase a local SIM card and pop it in your unlocked iPhone to avoid roaming limits.</p>
+                                    <br>
+                                </li>
+                                <li>
+                                    <p style="font-weight: 600; padding: 0 0 0 24px; background-image: url(images/select-arrow.png); background-size: 18px; background-repeat: no-repeat; background-position: left 3px;">Get a great SIM only deal by being able to shop around all networks in your local area.</p>
+                                    <br>
+                                </li>
+                                <li>
+                                    <p style="font-weight: 600; padding: 0 0 0 24px; background-image: url(images/select-arrow.png); background-size: 18px; background-repeat: no-repeat; background-position: left 3px;">Grab a bargain locked iPhone and use our trusted iPhone unlock service to unlock it and be able to use it with the network of your preference.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="reviews">
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1 text-center">
+                <div>
+                    <h2 class="heading-lg">Excellent <strong>4.8</strong> <small>/ 5</small></h2>
+                    <br />
+                    <div class="rating">
+                        <i class="fa fa-2x fa-star"></i>
+                        <i class="fa fa-2x fa-star"></i>
+                        <i class="fa fa-2x fa-star"></i>
+                        <i class="fa fa-2x fa-star"></i>
+                        <i class="fa fa-2x fa-star"></i>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0">
+                                <p class="text-grey" style="margin: 10px 0 0; line-height: 22px;">Unlock iPhone (via IMEI) Apple Unlocking Service from testingphone.com is rated 4.8 out of 5 based on 528 reviews</p>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+            <hr />
+        </div>
+        <div id="reviewCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="testimonial text-center">
+                                    <h3>Excellent service</h3>
+                                    <p class="text-grey">Mr John Stanford</p>
+                                    <br />
+                                    <div class="rating small">
+                                        <i class="fa fa-2x fa-star"></i>
+                                        <i class="fa fa-2x fa-star"></i>
+                                        <i class="fa fa-2x fa-star"></i>
+                                        <i class="fa fa-2x fa-star"></i>
+                                        <i class="fa fa-2x fa-star"></i>
+                                        <p>Rated 5 out of 5 stars</p>
+                                    </div>
+                                    <br />
+                                    <p class="lead light">No messing around I've had my iPhone 7 unlocked by <span class="notranslate">iPhone Approved Unlock</span> within 48 hours. I found the site really easy to use, Strongly recommend.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="testimonial text-center">
+                                    <h3>Impeccable service</h3>
+                                    <p class="text-grey">Miss Keeley Churchill</p>
+                                    <br />
+                                    <div class="rating small">
+                                        <i class="fa fa-2x fa-star"></i>
+                                        <i class="fa fa-2x fa-star"></i>
+                                        <i class="fa fa-2x fa-star"></i>
+                                        <i class="fa fa-2x fa-star"></i>
+                                        <i class="fa fa-2x fa-star disabled"></i>
+                                        <p>Rated 4 out of 5 stars</p>
+                                    </div>
+                                    <br />
+                                    <p class="lead light">I was very pleased with the service I received from this company. My iPhone was unlocked within a couple of days and the price was very reasonable.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="testimonial text-center">
+                                    <h3>Best unlocking company</h3>
+                                    <p class="text-grey">Mr Marc Beckwith</p>
+                                    <br />
+                                    <div class="rating small">
+                                        <i class="fa fa-2x fa-star"></i>
+                                        <i class="fa fa-2x fa-star"></i>
+                                        <i class="fa fa-2x fa-star"></i>
+                                        <i class="fa fa-2x fa-star"></i>
+                                        <i class="fa fa-2x fa-star"></i>
+                                        <p>Rated 5 out of 5 stars</p>
+                                    </div>
+                                    <br />
+                                    <p class="lead light"> I've used a few different companies without success! <span class="notranslate">iPhone Approved Unlock</span> have unlocked 4 of our iPhones, the site easy to use and support team are very helpful.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="background-color: #f7f7f7;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-md-10 col-xs-12 pull-right">
+                                    <img src="./assets/images/benefits-background.webp" alt="" class="img-responsive pull-right">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <br>
+                            <br>
+                            <br class="hidden-xs">
+                            <h2>iPhone Network Check</h2>
+                            <br>
+                            <p>Don't know your Network? Instantly find out what your iPhone Network is locked to using your IMEI number.</p>
+                            .
+                            z<br>
+                            <a href="#" title="" class="btn btn-primary">Network Check</a>
+                            <br class="hidden-lg hidden-md hidden-sm">
+                            <br class="hidden-lg hidden-md hidden-sm">
+                            <br class="hidden-lg hidden-md hidden-sm">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var items = "<option value='0'>Select</option>";
+            $('#DeviceModelId').html(items);
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#BrandId').change(function () {
+                var url = '@Url.Content("~/")' + "Device/GetDeviceModel";
+                var ddlsource = "#BrandId";
+                $.getJSON(url, { BrandId: $(ddlsource).val() }, function (data) {
+                    var items = '';
+                    $("#DeviceModelId").empty();
+                    $.each(data, function (i, deviceModel) {
+                        items += "<option value='" + deviceModel.value + "'>" + deviceModel.text + "</option>";
+                    });
+                    $('#DeviceModelId').html(items);
+                });
+            });
+        });
+    </script>
+}

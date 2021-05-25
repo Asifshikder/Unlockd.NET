@@ -1,0 +1,68 @@
+﻿@model DeviceModelViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h2>Device model</h2>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home /</a></li>
+                    <li><a href="/Admin/devicemodel/index">Device Model</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Add new Device Model</strong>
+                        </div>
+                        <div class="card-body">
+                            <form href="/Admin/DeviceModel/Create" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label class=" form-control-label">Name</label>
+                                    <input type="text" asp-for="Name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Charge</label>
+                                    <input type="text" asp-for="Charge" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Brand</label>
+                                    <select asp-for="BrandId" class="form-control" asp-items="ViewBag.brandList"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Image</label>
+                                    <input type="file" asp-for="ImageFile" class="form-control dropify">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success">Save</button>
+                                    <a href="/Admin/DeviceModel/index" class="btn btn-warning">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.dropify').dropify();
+        });
+    </script>
+}

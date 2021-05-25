@@ -1,0 +1,50 @@
+﻿@model Unlockd.Domain.Entities.Services.SupportMenu
+@{
+    ViewData["Title"] = "Delete";
+}
+@Html.AntiForgeryToken()
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h2>Support Menu</h2>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home /</a></li>
+                    <li><a href="/Admin/SupportMenu/index">Support Menu</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Delete Support Menu</strong>
+                        </div>
+                        <div class="card-body">
+                            <form asp-area="Admin" asp-controller="SupportMenu" asp-action="DeleteConfirm" method="post">
+                                @Html.HiddenFor(model => model.Id)
+                                @Html.HiddenFor(model => model.Name)
+                                @Html.HiddenFor(model => model.MenuIcon)
+                                <h3>Are you sure to delete @Model.Name with all related data?</h3>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <a href="/Admin/SupportMenu/index" class="btn btn-warning">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

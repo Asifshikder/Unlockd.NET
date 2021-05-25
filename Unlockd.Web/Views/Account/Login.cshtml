@@ -1,0 +1,31 @@
+﻿@model LoginViewModel
+<hr class="offset-lg">
+<hr class="offset-lg">
+<div class="container">
+
+    <div class="mt-8">
+        <div class="login-form">
+            <div class="text-center">
+                <h3>Login to admin panel</h3>
+            </div>
+            <form method="post" asp-action="Login" asp-controller="Account">
+                <div class="form-group">
+                    <label>Email address</label>
+                    <input type="email" asp-for="Email" class="form-control" placeholder="Email" required>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                    @Html.HiddenFor(s => s.ReturnUrl)
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" asp-for="Password" class="form-control" placeholder="Password" required>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+
+                </div>
+                <span asp-validation-for="IncorrectInput" class="text-danger"></span>
+
+                <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
+
+            </form>
+        </div>
+    </div>
+</div>

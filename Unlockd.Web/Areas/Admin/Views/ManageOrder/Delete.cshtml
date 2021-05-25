@@ -1,0 +1,48 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "Delete";
+}
+
+@Html.AntiForgeryToken()
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h2>Order</h2>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Admin/Home/Index">Home</a> / </li>
+                    <li><a href="/Admin/ManageOrder/Index">Orders</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Delete Brand</strong>
+                        </div>
+                        <div class="card-body">
+                            <form asp-area="Admin" asp-controller="ManageOrder" asp-action="DeleteConfirm" method="post" enctype="multipart/form-data">
+
+                                @Html.HiddenFor(model => model.Id)
+                                <h3>Are you sure to delete @Model.Forename @Model.Surname's @Model.UnlockType?</h3>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <a href="/Admin/ManageOrder/Index" class="btn btn-warning">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

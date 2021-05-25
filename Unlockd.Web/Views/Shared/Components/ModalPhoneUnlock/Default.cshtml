@@ -1,0 +1,43 @@
+﻿@model CartViewModel
+
+
+<form id="formorder" asp-area="" asp-controller="Order" asp-action="ProceedToCheckout" method="post">
+
+    <input type="hidden" asp-for="UnlockTypeId" />
+    <input type="hidden" asp-for="TotalPrice" />
+    <input type="hidden" asp-for="radioService" value="1" />
+
+    <div class="form-group">
+        @Html.DropDownListFor(s => s.BrandId, (SelectList)ViewBag.brandList, "Select Brand", new { @class = "form-control controlbrand", @required = "required", @style = "color:#00a1b4;background-color:transparent;border:1px solid;border-color:white" })
+    </div>
+    <div class="form-group">
+        <select class="form-control" style="color: #00a1b4; background-color: transparent; border: 1px solid; border-color: white" asp-for="DeviceModelId" asp-items="@(new SelectList(string.Empty,"Id", "Name"))">
+            <option value="">Select Model</option>
+        </select>
+    </div>
+    <div class="form-group">
+        @Html.DropDownListFor(s => s.CountryId, (SelectList)ViewBag.countryList, "Select Country", new { @class = "form-control", @required = "required", @style = "color:#00a1b4;background-color:transparent;border:1px solid;border-color:white" })
+    </div>
+    <div class="form-group">
+        <select class="form-control" style="color: #00a1b4; background-color: transparent; border: 1px solid; border-color: white" asp-for="CarrierId" asp-items="@(new SelectList(string.Empty,"Id", "Name"))">
+            <option value="">Select Carrier</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input style="color: #00a1b4; background-color: transparent; border: 1px solid; border-color: white" type="text" asp-for="IMEI" class="form-control" placeholder="Enter IMEI number" required>
+        <p id="msg" class="text-danger-cs"></p>
+    </div>
+    <div class="col-md-12 col-xs-12">
+        <a id="btnsub" onclick="FormCheckSubmit()" class="btn btn-primary btn-block btn-square btn-themecolor"><strong>Checkout</strong></a>
+    </div>
+    <div class="col-md-12 col-xs-12">
+        <div class="unlock-price" id="pricehide">
+            <span class="text-themecolor">Price: </span>
+            <span id="chnageprice" class="text-white">$0</span>
+        </div>
+        <div class="unlock-price hidden" id="unavailableprice">
+            <span><h5 class="text-danger-cs"><b>Unlock unavailable</b></h5></span>
+        </div>
+    </div>
+
+</form>

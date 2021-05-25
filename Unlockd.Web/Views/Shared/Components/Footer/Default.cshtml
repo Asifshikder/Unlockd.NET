@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Unlockd.Domain.Entities.Network.Country>
+<footer>
+    <div class="container">
+        <hr class="offset-md">
+
+        <div class="row menu">
+            <div class="col-sm-3 col-md-3">
+                <h1 class="h4" style="color:wheat">Enquires <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
+
+                <div class="list-group">
+                    <a href="#" class="list-group-item">Email : support@veeunlock.com</a>
+                </div>
+            </div>
+            <div class="col-sm-3 col-md-3">
+                <h1 class="h4" style="color:wheat">Services <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
+
+                <div class="list-group">
+                    <a href="/UnlockPhone/Index" class="list-group-item">Unlock phone</a>
+                    <a href="/PhoneCheck/Index" class="list-group-item">Phone check</a>
+                    <a href="/Carrier/Index" class="list-group-item">Carriers</a>
+                </div>
+            </div>
+            <div class="col-sm-3 col-md-3">
+                <h1 class="h4" style="color:wheat">Browse <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
+
+                <div class="list-group">
+                    <a href="/Support/Index" class="list-group-item">Support</a>
+                    <a href="/Blog/Index" class="list-group-item">Blog</a>
+                    <a href="/Order/OrderTracking" class="list-group-item">Order Track</a>
+                </div>
+            </div>
+            <div class="col-sm-3 col-md-3">
+                <h1 class="h4" style="color:wheat">Help <i class="ion-plus-round hidden-sm hidden-md hidden-lg"></i> </h1>
+
+                <div class="list-group">
+                    <a href="#" class="list-group-item">Privacy policy</a>
+                    <a href="#" class="list-group-item">Refund policy</a>
+                    <a href="#" class="list-group-item">Terms & Conditions</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="subscribe">
+            <div class="container align-center">
+                <hr class="offset-md">
+
+                <div class="social">
+                    <a href=""><i class="ion-social-facebook"></i></a>
+                    <a href="#"><i class="ion-social-twitter"></i></a>
+                    <a href="#"><i class="ion-social-linkedin-outline"></i></a>
+                </div>
+                <hr class="offset-md">
+                <hr class="offset-md">
+            </div>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <div class="col-sm-12 col-md-12 text-center">
+            <hr class="offset-sm">
+            <p class="text-white">VeeUnlock operates in</p>
+            <div class="container">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+        <div class="col-md-2" style="color:white"><p>@item.Name</p></div>}
+
+                </div>
+            </div>>
+            <p style="color:wheat">All third party brands and logos are the registered trademarks of their respected owners. This website is neither affiliated nor part of any of the carrier operators / handset manufacturers detailed on our website.</p>
+            <hr class="offset-lg visible-xs">
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-9 payments">
+                <p></p>
+
+                <div class="payment-icons" style="color:white">
+                    <img src="~/Contents/assets/img/payments/paypal.svg" alt="paypal">
+                    <img src="~/Contents/assets/img/payments/visa.svg" alt="visa">
+                    <img src="~/Contents/assets/img/payments/master-card.svg" alt="mc">
+                    <img src="~/Contents/assets/img/payments/discover.svg" alt="discover">
+                    <img src="~/Contents/assets/img/payments/american-express.svg" alt="ae">
+                </div>
+                <br>
+
+            </div>
+            <div class="col-sm-4 col-md-3 align-right align-center-xs">
+                <hr class="offset-sm hidden-sm">
+                <hr class="offset-sm">
+                <p class="text-white">© 2021 VeeUnlock. All rights reserved.</p>
+                <hr class="offset-lg visible-xs">
+            </div>
+        </div>
+    </div>
+</footer>

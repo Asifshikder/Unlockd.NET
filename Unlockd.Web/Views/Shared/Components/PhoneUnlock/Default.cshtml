@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Unlockd.Domain.Entities.Device.Brand>
+
+    <ul class="dropdown-menu">
+        <li><a href="./catalog/product.html">Product</a></li>
+        <li><a href="./cart/">Cart</a></li>
+        <li class="dropdown">
+            <a href="./catalog/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More</a>
+            <ul class="dropdown-menu">
+                <li><a href="./catalog/product.html">Product</a></li>
+                <li><a href="./cart/">Cart</a></li>
+                <li class="dropdown">
+                    <a href="./catalog/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More</a>
+                </li>
+                <li><a href="./faq/">FAQ</a></li>
+                <li><a href="./contacts/">Contacts</a></li>
+                <li><a href="./home">Home</a></li>
+                <li><a href="./blog/item-photo.html">Article Photo</a></li>
+                <li><a href="./blog/item-video.html">Article Video</a></li>
+                <li><a href="./blog/item-review.html">Article Review</a></li>
+            </ul>
+        </li>
+        <li><a href="./faq/">FAQ</a></li>
+        <li><a href="./contacts/">Contacts</a></li>
+        <li><a href="./home">Home</a></li>
+        <li><a href="./blog/item-photo.html">Article Photo</a></li>
+        <li><a href="./blog/item-video.html">Article Video</a></li>
+        <li><a href="./blog/item-review.html">Article Review</a></li>
+    </ul>
+    @*<div class="container">
+            <div class="row">
+                <div class="col-md-12 col-xs-12 text-center">
+                    <h3 class="h4">Select make to unlock</h3>
+                    <a class="btn btn-primary btn-square btn-sm" href="/UnlockPhone/Index">All Makes..</a>
+                </div>
+            </div>
+            <div class="row" style="width: 100%;">
+
+                @foreach (var item in Model)
+                {
+        <div class="col-md-2">
+            <a asp-area="" asp-controller="UnlockPhone" asp-action="ByBrand" asp-route-id="@item.Id">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <div class="mm-icon">
+                                <img src="@Url.Content(item.BrandLogo)" height="50" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <div class="mm-header">
+                                <h3><a asp-area="" asp-controller="UnlockPhone" asp-action="ByBrand" asp-route-id="@item.Id">@item.Name</a></h3>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>}
+            </div>
+        </div>*@

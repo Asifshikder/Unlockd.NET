@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SupportMenu>
+<div class="dropdown-menu mega-menu">
+    <div class="container">
+        <div class="row" style="width: 100%;">
+            <div class="col-md-12">
+                <div class="text-center">
+                    <h3 class="h4">Do not find what you want? </h3>
+                    <a class="btn btn-sm btn-primary btn-square" href="/Home/Contact">Contact us</a>
+                    <a class="btn btn-sm btn-primary btn-square" href="/Support/Index">Support</a>
+                   
+                </div>
+            </div>
+            <div class="col-md-3">
+                <a href="/home/faq">
+                    <div class='row'>
+                        <div class="col-md-12">
+                            <div class="text-center">
+                                <div class="mm-icon">
+                                    <img src="~/Contents/assets/img/icons/FAQIcon.webp" height="50" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="text-center">
+
+                                <div class='mm-header'>
+                                    <h4><a>FAQ</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
+                    <a href="/Support/ByName?id=@item.Id">
+                        <div class='row'>
+                            <div class="col-md-12">
+                                <div class="text-center">
+
+                                    <div class="mm-icon">
+                                        <img src="@Url.Content(item.MenuIcon)" height="50" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="text-center">
+
+                                    <div class='mm-header'>
+                                        <h4><a>@item.Name</a></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

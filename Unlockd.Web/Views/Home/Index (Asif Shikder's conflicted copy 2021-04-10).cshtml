@@ -1,0 +1,1453 @@
+﻿
+@{
+    ViewData["Title"] = "Unlock your phone";
+}
+
+
+<style>
+    h1 {
+        font-size: 70px;
+    }
+
+    .hero-text {
+        width: 100%;
+    }
+
+    @@media screen and (max-width: 480px) {
+        h1 {
+            font-size: 30px !important;
+            line-height: 80%;
+            margin-top: 100px;
+        }
+
+        .hero-text {
+            width: 100%;
+            color: rgb(6 6 6);
+        }
+    }
+</style>
+
+<header>
+    <div class="carousel" data-count="1" data-current="1">
+        <div class="carousel" data-count="1" data-current="1">
+
+            <div class="items">
+                <div class="item active" data-marker="1" data-aos="fade-up"
+                     data-aos-duration="2000">
+                    <img src="~/Assets/assets/img/AdobeStock_216241731-small size.jpg" alt="Background" class="background" data-marker="1" data-aos="fade-up"
+                         data-aos-duration="2000" />
+
+                    <div class="content">
+                        <div class="outside-content">
+                            <div class="inside-content">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-12 align-center">
+                                            <h1 class="hero-text" data-marker="1" data-aos="fade-down"
+                                                data-aos-duration="2000">
+                                                <b>We Unlock<br />Phones</b>
+                                            </h1>
+                                            <a data-marker="1" data-aos="zoom-in"
+                                               data-aos-duration="2000" class="btn btn-primary btn-square btn-lg black" href="#" data-target="#unlock" data-toggle="modal" data-country="Pakistan">Carrier Check<i class="fa fa-signal"></i></a>
+                                            <a data-marker="1" data-aos="zoom-out"
+                                               data-aos-duration="2000" class="btn btn-primary btn-square btn-lg black" href="#" data-target="#unlockMobile" data-toggle="modal" data-country="Pakistan">Unlock Phone<i class="fa fa-signal"></i></a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul hidden class="markers">
+                <li hidden data-marker="1" class="active"></li>
+            </ul>
+        </div>
+        @*<div class="items">
+            <div class="item active" data-marker="1" data-aos="fade-up"
+                 data-aos-duration="2000">
+                <img src="~/Contents/assets/img/mockup-863469_1920.jpg" alt="Background" class="background" data-marker="1" data-aos="fade-up"
+                     data-aos-duration="2000" />
+
+                <div class="content">
+                    <div class="outside-content">
+                        <div class="inside-content">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-12 align-center">
+                                        <h1 class="hero-text" data-marker="1" data-aos="fade-down"
+                                            data-aos-duration="2000">
+                                            <b>We Unlock<br />Phones</b>
+                                        </h1>
+                                        <a data-marker="1" data-aos="zoom-in"
+                                           data-aos-duration="2000" class="btn btn-primary btn-square btn-lg black" href="#" data-target="#unlock" data-toggle="modal" data-country="Pakistan">Carrier Check<i class="fa fa-signal"></i></a>
+                                        <a data-marker="1" data-aos="zoom-out"
+                                           data-aos-duration="2000" class="btn btn-primary btn-square btn-lg black" href="#" data-target="#unlockMobile" data-toggle="modal" data-country="Pakistan">Unlock Phone<i class="fa fa-signal"></i></a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul hidden class="markers">
+            <li hidden data-marker="1" class="active"></li>
+        </ul>*@
+    </div>
+</header>
+<br />
+@*<div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="text-center">
+                    <h2>Unlock network</h2>
+                    <p>
+                        Unlock your phone using our online service. We unlock all phones using the IMEI number so that your device is capable of using any Networks sim card. Our recommended method of unlocking is safe and legal, No technical skills are required; simply follow the 3 steps bellow to unlock your device now.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <form>
+                    <div class="form-group">
+                        <input class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control"/>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+*@
+
+<div style="background-color:#1B4665">
+    <div class="row" style="margin:5px">
+        <div class="col-sm-12 col-md-12" style="background-color:#1B4665">
+            <div style="min-height:330px">
+                <div class="text-center" style="padding:15px;"><h1 style="color:white"><b>Chose your network</b></h1></div>
+                <div class="text-center" style="padding:15px;">
+                    <div class="content align-center">
+                        <h3 style="color:white">Unlock your phone with VeeUnlock</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach (var item in Model.NetworkCarriers)
+                    {
+                        <div class="col-sm-3 col-xs-12" data-aos="zoom-in"
+                             data-aos-duration="2000">
+                            <div style="padding:10px;">
+                                <div class="prod-card">
+                                    <a asp-controller="Carrier" asp-action="Select" asp-route-id="@item.Id">
+                                        <div class="text-center">
+                                            <div style="height:200px">
+                                                <div style="padding:10px">
+                                                    <img src="@Url.Content(item.CarrierIcon)" height="150" width="150">
+                                                </div>
+                                            </div>
+                                            <h2 style="color:black"><b>@item.NetworkName</b></h2>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+
+                <div class="content align-center" style="margin:15px">
+                    <a href="#" class="btn btn-square btn-block btn-primary">All carriers...</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<br />
+
+@{ int BFC = 0;}
+@foreach (var item in Model.Brands)
+{
+    if (BFC == 0)
+    {
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6" data-aos="zoom-in"
+                     data-aos-duration="2000">
+                    <h4 class="color-back">Unlock your</h4>
+                    <h1>@item.Name Device</h1>
+                    <br />
+                    <h2>From only $@item.AverageUnlockingPrice</h2>
+                    <br />
+                    <p>100% guaranteed to permanently factory unlock your Phone. Your Phone will remain unlocked even after updating it's firmware.</p>
+                    <p>Our Phone unlocking service is the best and most straight forward solution available on the Internet.</p>
+                    <a class="btn btn-primary">Unlock Now</a>
+                </div>
+                <div class="col-sm-6" data-aos="zoom-in"
+                     data-aos-duration="2000">
+                    <img src="@Url.Content(item.FeaturedImage)" alt="@Url.Content(item.Name)" class="img-responsive">
+                </div>
+            </div>
+        </div>
+        <br />
+    }
+    else if (BFC == 1)
+    {
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6" data-aos="zoom-in"
+                     data-aos-duration="2000">
+                    <img src="@Url.Content(item.FeaturedImage)" alt="@Url.Content(item.Name)" class="img-responsive">
+                </div>
+                <div class="col-sm-6" data-aos="zoom-in"
+                     data-aos-duration="2000">
+                    <h4 class="color-back">Unlock your</h4>
+                    <h1>@item.Name Phone</h1>
+                    <br />
+                    <h2>From only $@item.AverageUnlockingPrice</h2>
+                    <br />
+                    <p>100% guaranteed to permanently factory unlock your iPhone. Your iPhone will remain unlocked even after updating it's firmware.</p>
+                    <p>Our iPhone unlocking service is the best and most straight forward solution available on the Internet.</p>
+
+                    <button class="btn-unl">Unlock Now</button>
+                </div>
+            </div>
+        </div>
+        <br />
+    }
+    else
+    {
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6" data-aos="zoom-in"
+                     data-aos-duration="2000">
+                    <h4 class="color-back">Unlock your</h4>
+                    <h1>@item.Name Device</h1>
+                    <br />
+                    <h2>From only $@item.AverageUnlockingPrice</h2>
+                    <br />
+                    <p>100% guaranteed to permanently factory unlock your Phone. Your Phone will remain unlocked even after updating it's firmware.</p>
+                    <p>Our Phone unlocking service is the best and most straight forward solution available on the Internet.</p>
+                    <a class="btn btn-primary">Unlock Now</a>
+                </div>
+                <div class="col-sm-6" data-aos="zoom-in"
+                     data-aos-duration="2000">
+                    <img src="@Url.Content(item.FeaturedImage)" alt="@Url.Content(item.Name)" class="img-responsive">
+                </div>
+            </div>
+        </div>
+        <br />
+    }
+    BFC++;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <br />
+            <br />
+            <h2 data-aos="fade-up" *@
+                data-aos-duration="2000">
+                Unlock your iphone or any <span class="notranslate">Apple</span> device from any network Worldwide.
+            </h2>
+            <br>
+            <p class="lead" data-aos="fade-down"
+               data-aos-duration="2000">In three simple steps you can permanently unlock you device.</p>
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-xs-12" data-aos="zoom-in"
+             data-aos-duration="2000">
+            <div class="text-center" style="padding:10px">
+                <div style="border:solid 5px;border-color:#adadad;min-height:350px;max-height:500px">
+                    <div style="background-color:#445667"><h2 style="color:white"><b>1</b></h2></div>
+                    <h3>Enter your device details</h3>
+                    <p class="lead light">Select the model and network the device is locked to and enter the IMEI or Serial <i class="fa fa-question-circle hidden-xs" data-toggle="popover" data-placement="bottom" data-trigger="hover" style="font-size: 1.2em; position: relative; top: 1px; color: rgb(0,122,255); cursor: help;" data-content="Your IMEI number can be found in the Settings > General > About screen, or by dialing *#06#" title="" data-original-title="Finding your IMEI Number"></i></p>
+                    <p class="lead light visible-xs">If you don't know your IMEI number then dial <strong>*#06#</strong> into your phone</p>
+                    <p class="lead light">If you don’t know the network your device is locked to use our <a class="text-blue" href="#" data-toggle="modal" data-country="United States">network check</a>.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12" data-aos="zoom-in"
+             data-aos-duration="2000">
+            <div class="text-center" style="padding:10px">
+                <div style="border:solid 5px;border-color:#adadad;min-height:350px;max-height:500px">
+                    <div style="background-color:#445667"><h2 style="color:white"><b>2</b></h2></div>
+                    <h3>Process your unlock</h3>
+                    <p class="lead light">Your payment is verified and your order is processed.</p>
+                    <p class="lead light">Your live tracking login is supplied within the confirmation email.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12" data-aos="zoom-in"
+             data-aos-duration="2000">
+            <div class="text-center" style="padding:10px">
+                <div style="border:solid 5px;border-color:#adadad;min-height:350px;max-height:500px">
+                    <div style="background-color:#445667"><h2 style="color:white"><b>3</b></h2></div>
+                    <h3>Device Unlocked</h3>
+                    <p class="lead light">Your Phone or <span class="notranslate">Apple</span><sup>TM</sup> device is unlocked.</p>
+                    <p class="lead light">Confirmation will be sent to you via email and your unlock is delivered over the air using 3G/4G/WIFI <i class="fa fa-info-circle hidden-xs" data-toggle="popover" data-placement="bottom" data-trigger="hover" style="font-size: 1.2em; position: relative; top: 1px; color: rgb(0,122,255); cursor: help;" data-content="Please do not send us your device, your unlock is delivered Over-The-Air via WIFI/3G/4G." title="" data-original-title="You keep your device"></i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+</div>
+
+<div class="container text-center">
+    <div style="border:solid 5px; border-color:#022e4c">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0">
+                <h2 data-aos="fade-down"
+                    data-aos-duration="2000">
+                    Unlock your Phone easily by whitelisting <br />your IMEI
+                </h2>
+                <br />
+                <br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <p class="" data-aos="zoom-in"
+                   data-aos-duration="2000">Our easy and affordable Phone unlocking service is compatible with all versions of iOS, up to and including iOS 12. Supported Apple models include Phone 11, 11 Pro, 11 Pro Max, XR, XS Max, XS, X, 8 Plus, 8, 7 Plus, 7, 6S Plus, 6S, 6 Plus, 6, 5S, 5C, 5, 4S, 4, 3GS and 3G.</p>
+                <br />
+                <p class="" data-aos="zoom-in"
+                   data-aos-duration="2000">During the unlocking process your IMEI will be whitelisted in the Apple Database providing an official and permanent unlock, as well as being safe and completely legal. What's more, it is the recommended method to unlock Phone as your <span class="notranslate">Apple</span> Warranty remains unaffected!</p>
+                <br />
+                <p class="" data-aos="zoom-in"
+                   data-aos-duration="2000">Your unlock is completed remotely and delivered 'over the air' via WiFi or 4G/3G, so you can continue to use your device as normal, with no interruptions to phone service. All we need from you is your Phone IMEI. Once the unlocking process is complete, your Phone will be unlocked permanently to use with any network. Phone Approved Unlock have a 100% success rate.</p>
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
+    <br />
+</div>
+
+<div style="background-color:#dadcdd">
+    <div class="row" style="margin:5px">
+        <div class="col-sm-12 col-md-12" style="background-color:#dadcdd">
+            <div style="min-height:330px">
+                <div class="text-center" style="padding:15px;"><h1><b>Chose your brand</b></h1></div>
+                <div class="text-center" style="padding:15px;">
+                    <div class="content align-center">
+                        <h3>Unlock your phone with VeeUnlock</h3>
+                    </div>
+                </div>
+                <div class="row">
+
+
+                    @foreach (var item in Model.Brands)
+                    {
+
+                        <div class="col-sm-3 col-xs-12" data-aos="zoom-in"
+                             data-aos-duration="2000">
+                            <div style="padding:10px;">
+                                <div class="prod-card">
+                                    <a href="">
+                                        <div class="text-center">
+                                            <div style="height:200px">
+                                                <div style="padding:10px">
+                                                    <img src="@Url.Content(item.BrandLogo)" height="150" width="150">
+                                                </div>
+                                            </div>
+                                            <h2 style="color:black"><b>@item.Name</b></h2>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+                </div>
+
+                <div class="content align-center" style="margin:15px">
+                    <a href="#" class="btn btn-square btn-block btn-primary">All Makes...</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="container">
+    <div class="container-shadow">
+        <div style="padding:10px">
+            <div class="text-center">
+                <h2 class="text-themecolor"><b>Frequenty asked questions</b></h2>
+            </div>
+            <hr />
+            <div class="row" data-aos="zoom-in"
+                 data-aos-duration="2000">
+                <div class="col-sm-12">
+
+                    @{ int i = 0; }
+                    @foreach (var item in Model.FAQs)
+                    {
+                        string collapse = "#collapse" + i.ToString();
+                        string collapseID = "collapse" + i.ToString();
+                        if (i == 0)
+                        {
+                            <div style="border:2px solid;border-color:black;border-radius:4px">
+                                <div style="padding-left:5px">
+                                    <a class="" role="button" data-toggle="collapse" href="@Url.Content(collapse)" aria-expanded="true" aria-controls="question2">
+                                        <h2 class="h3">@item.Question</h2>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="collapse" id="@Url.Content(collapseID)">
+                                <div style="padding-top:5px">
+                                    <div class="well" style="padding-left:5px">
+                                        <p>
+                                            @item.Answer
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                        }
+                        else
+                        {
+                            <div style="border:2px solid;border-color:black;border-radius:4px">
+                                <div style="padding-left:5px">
+                                    <a class="" role="button" data-toggle="collapse" href="@Url.Content(collapse)" aria-expanded="true" aria-controls="question2">
+                                        <h2 class="h3">@item.Question</h2>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="collapse" id="@Url.Content(collapseID)">
+                                <div style="padding-top:5px">
+                                    <div class="well" style="padding-left:5px">
+                                        <p>
+                                            @item.Answer
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                        }
+                        i++;
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="text-center" data-aos="zoom-in"
+             data-aos-duration="2000">
+            <h2 class="">Why we are the best Phone unlocking service.</h2>
+            <p class="lead">Our IMEI unlocking methods are safe, trusted &amp; recommended by Apple as the best way to unlock your Phone without invalidating the warranty.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12 xs-text-center">
+            <div class="row">
+                <div class="col-md-2 col-sm-3 col-xs-12">
+                    <div class="text-center" style="padding-top:20px;">
+                        <img src="~/Contents/assets/img/wifisign.PNG" />
+                    </div>
+                </div>
+                <div class="col-md-10 col-sm-9 col-xs-12">
+                    <h3>Remote Phone unlock service</h3>
+                    <br>
+                    <p>We unlock Phones remotely, this means you can continue using your Phone as normal whilst we complete the unlock in the background. We’ll never ask for personal login details.</p>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-sm-3 col-xs-12">
+                    <div class="text-center" style="padding-top:20px;">
+                        <img src="~/Contents/assets/img/unlocksign.PNG" />
+                    </div>
+                </div>
+                <div class="col-md-10 col-sm-9 col-xs-12">
+                    <h3>Permanent &amp; Secure Unlock</h3>
+                    <br>
+                    <p>By whitelisting your device in Apple’s database, it will be permanently unlocked for use on any network worldwide. The performance, security & outstanding Phone warranty is not affected!</p>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12 xs-text-center">
+            <div class="row">
+                <div class="col-md-2 col-sm-3 col-xs-12">
+                    <div class="text-center" style="padding-top:20px;">
+                        <img src="~/Contents/assets/img/clocksign.PNG" />
+                    </div>
+                </div>
+                <div class="col-md-10 col-sm-9 col-xs-12">
+                    <h3>24 hr Delivery & Dedicated Customer Service</h3>
+                    <br>
+                    <p>Most of our Phone unlocks take less than 24 hours! Wiith live order tracking and a dedicated customer support team, our unlocking service provides real convenience and peace of mind.</p>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-sm-3 col-xs-12">
+                    <div class="text-center" style="padding-top:20px;">
+                        <img src="~/Contents/assets/img/tagsign.PNG" />
+                    </div>
+                </div>
+                <div class="col-md-10 col-sm-9 col-xs-12">
+                    <h3>Great Value for Money</h3>
+                    <br>
+                    <p class="pb-5">We offer one of the cheapest yet most trusted Phone unlock services out there.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="xs-text-center">
+                <br />
+                <h2 class="pb-2">The Benefits of Unlocking your Phone</h2>
+                <p>You may only have one primary reason for wanting to unlock your Phone at the moment, but once it’s unlocked remember the other great benefits that having an unlocked Phone offers:</p>
+            </div>
+            <br />
+            <ul class="">
+                <li>
+                    <p class="arrow">Avoid roaming limits when travelling by using SIM cards from local network providers.</p>
+                    <br>
+                </li>
+                <li>
+                    <p class="arrow">Find a deal that suits you, whether that be more data or better coverage in your local area.</p>
+                    <br>
+                </li>
+                <li>
+                    <p class="arrow">Sell your Phone easier and for a much higher price.</p>
+                    <br>
+                </li>
+                <li>
+                    <p class="arrow">Buy a cheap locked Phone and use our cheap unlocking service to grab yourself a bargain.</p>
+                </li>
+            </ul>
+            <br />
+            <br />
+            <div class="row">
+                <div class="col-md-12 col-md-offset-0 col-xs-6 ">
+                    <a href="javascript:;" class="btn btn-primary xs-btn-stretch" rel="nofollow">Learn more <i class="fa fa-chevron-circle-right"></i></a>
+                </div>
+            </div>
+            <br class="hidden-md hidden-lg" />
+            <br class="hidden-md hidden-lg" />
+        </div>
+        <div class="col-md-6 col-md-offset-0 col-xs-10">
+            <img src="~/Contents/assets/img/products/ipad-air.jpg" alt="" class="img-responsive center-block">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <hr class="pt-6 visible-lg visible-md visible-sm hidden-xs" />
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center"> <h1>Testimonial</h1></div>
+            <div style="min-height:280px;background-color:#eef5fa;border-radius:10px">
+
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+
+                    <div class="carousel-inner">
+
+                        @{ int j = 0; }
+                        @foreach (var testimonial in Model.Testimonials)
+                        {
+                            if (j == 0)
+                            {
+
+                                <div class="item active">
+                                    <div class="row" style="padding: 20px">
+                                        <button style="border: none;"><i class="fa fa-quote-left testimonial_fa" aria-hidden="true"></i></button>
+                                        <p class="testimonial_para">@testimonial.Message</p><br>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <img src="@Url.Content(testimonial.Image)" class="img-responsive img-circle" style="width: 100px">
+
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <h4><strong>@testimonial.Name</strong></h4>
+                                                <p class="testimonial_subtitle">
+                                                    <span>@testimonial.Designation</span><br>
+                                                    <span>@testimonial.Company</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="item">
+                                    <div class="row" style="padding: 20px">
+                                        <button style="border: none;"><i class="fa fa-quote-left testimonial_fa" aria-hidden="true"></i></button>
+                                        <p class="testimonial_para">@testimonial.Message</p><br>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <img src="@Url.Content(testimonial.Image)" class="img-responsive img-circle" style="width: 100px">
+
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <h4><strong>@testimonial.Name</strong></h4>
+                                                <p class="testimonial_subtitle">
+                                                    <span>@testimonial.Designation</span><br>
+                                                    <span>@testimonial.Company</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            j++;
+                        }
+                    </div>
+                </div>
+                <div style="padding:10px">
+                    <div class="controls testimonial_control pull-right">
+                        <a class="btn btn-default btn-square btn-sm black" href="#carousel-example-generic"
+                           data-slide="prev"><i class="ion-arrow-left-c"></i></a>
+                        <a class="btn btn-default btn-square btn-sm black" href="#carousel-example-generic"
+                           data-slide="next"><i class="ion-arrow-right-c"></i></a>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+        </div>
+    </div>
+</div>
+<!--<div id="wrapper">
+    <div id="background-img" class="hero-background">
+        <section id="hero" class="beta">
+            <div class="home-slider">
+                <img src="~/images/mockup-863469_1920.jpg">
+            </div>
+            <div class="container">
+                <div class="inline-buttons">
+                    <div class="row">
+                        <div class="col-sm-12 my-auto d-flex text-center" data-aos="fade-up"
+                             data-aos-duration="2000">
+                            <br>
+
+                            <br>
+                            <h1 class="text-center heading-sm white-color"> We Unlock </h1>
+                            <h1 class="text-center heading-sm white-color margintop"> Phones </h1>
+                            <img class="imgdivider" src="~/images/digitl-agency-underline-uai-750x24.png">
+                            <br>
+                            <br>
+                            <br>-->
+<!--<a class="btn btn-lg btn-primary btnstyle" href="#"  data-toggle="modal"  data-country="Pakistan">Network Check <i class="fa fa-signal"></i></a>-->
+<!--<a class="btn btn-lg btn-primary btnstyle" href="#" data-target="#unlock" data-toggle="modal" data-country="Pakistan">Carrier Check<i class="fa fa-signal"></i></a>
+                        <a class="btn btn-lg btn-primary btnstyle" href="/deviceDetail/" data-target="" data-toggle="modal" data-country="Pakistan">Network Check <i class="fa fa-signal"></i></a>
+                        <a class="btn btn-lg btn-primary btnstyle" href="#" data-target="#cloudActivation" data-toggle="modal" data-country="Pakistan">Cloud Activation <i class="fa fa-signal"></i></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <ul class="slider_D">
+            <li>
+                <a href="#" title="title">
+                    <img src="~/uploads/5f072b1736ab5" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#" title="title">
+                    <img src="~/uploads/5f072b1736ab5" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#" title="title">
+                    <img src="~/uploads/5f072b1736ab5" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#" title="title">
+                    <img src="~/uploads/5f072b1736ab5" alt="" />
+                </a>
+            </li>
+
+        </ul>
+    </section>
+</div>
+<section id="steps" class="make">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12" data-aos="zoom-in"
+                 data-aos-duration="2000">
+                <h1 class="text-center  mt-2 mb-2"> Choose Your Network</h1>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-sm-3 col-xs-12" data-aos="zoom-in"
+                 data-aos-duration="2000">
+                <a href="#" title="unknown">
+                    <div class="text-center">
+                        <img src="~/uploads/5f072b1736ab5.jpg" alt="unknown" class="img-responsive" style="background-color: #0c4da2;">
+                        <h3>Unlock </h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-3 col-xs-12" data-aos="zoom-in"
+                 data-aos-duration="2000">
+                <a href="#" title="unknown">
+                    <div class="text-center">
+                        <img src="~/uploads/5f072b1736ab5.jpg" alt="unknown" class="img-responsive" style="background-color: #0c4da2;">
+                        <h3>Unlock </h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-3 col-xs-12" data-aos="zoom-in"
+                 data-aos-duration="2000">
+                <a href="#" title="unknown">
+                    <div class="text-center">
+                        <img src="~/uploads/5f072b1736ab5.jpg" alt="unknown" class="img-responsive" style="background-color: #0c4da2;">
+                        <h3>Unlock </h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-3 col-xs-12" data-aos="zoom-in"
+                 data-aos-duration="2000">
+                <a href="#" title="unknown">
+                    <div class="text-center">
+                        <img src="~/uploads/5f072b1736ab5.jpg" alt="unknown" class="img-responsive" style="background-color: #0c4da2;">
+                        <h3>Unlock </h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+        <div class="col-xs-12 text-center white">
+            <br />
+            <br />
+            <br />
+            <h1>
+                Instantly unlock your iPhone or Samsung
+                <br /> device with Official Sim Unlock.
+            </h1>
+            <br />
+            <p>
+                It's quick, easy and will instantly unlock any clean device to use on
+                <br /> any carrier in any country.
+            </p>
+        </div>
+    </div>
+</section>
+<sction id="steps" class="make1">
+    @@{ int BFC = 0;}
+    @@foreach (var item in Model.Brands)
+    {
+        if (BFC == 0)
+        {
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6 mbb">
+                        <h4>Unlock your</h4>
+                        <h1>@@item.Name Device</h1>
+                        <br />
+                        <h2>From only $@@item.AverageUnlockingPrice</h2>
+                        <br />
+                        <p>100% guaranteed to permanently factory unlock your iPhone. Your iPhone will remain unlocked even after updating it's firmware.</p>
+                        <p>Our iPhone unlocking service is the best and most straight forward solution available on the Internet.</p>
+                        <button class="btn-unl">Unlock Now</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <img src="@@Url.Content(item.FeaturedImage)" alt="@@Url.Content(item.Name)" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        }
+        else if (BFC == 1)
+        {
+            <section id="steps" class="make2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <img src="@@Url.Content(item.FeaturedImage)" alt="@@Url.Content(item.Name)" class="img-responsive">
+                        </div>
+                        <div class="col-xs-6 mbb">
+                            <h4>Unlock your</h4>
+                            <h1>@@item.Name Phone</h1>
+                            <br />
+                            <h2>From only $@@item.AverageUnlockingPrice</h2>
+                            <br />
+                            <p>100% guaranteed to permanently factory unlock your iPhone. Your iPhone will remain unlocked even after updating it's firmware.</p>
+                            <p>Our iPhone unlocking service is the best and most straight forward solution available on the Internet.</p>
+
+                            <button class="btn-unl">Unlock Now</button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        }
+        else
+        {
+            <section id="steps" class="make3">
+                <div class="container">
+                    <div class="row">
+
+                    </div>
+                    <div class="col-xs-6 mbb">
+                        <h4>Unlock your</h4>
+                        <h1>@@item.Name Phone</h1>
+                        <br />
+                        <h2>From only $@@item.AverageUnlockingPrice</h2>
+                        <br />
+                        <p>100% guaranteed to permanently factory unlock your iPhone. Your iPhone will remain unlocked even after updating it's firmware.</p>
+                        <p>Our iPhone unlocking service is the best and most straight forward solution available on the Internet.</p>
+
+                        <button class="btn-unl">Unlock Now</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <img src="@@Url.Content(item.FeaturedImage)" alt="@@Url.Content(item.Name)" class="img-responsive">
+                    </div>
+
+                </div>
+            </section>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        }
+        BFC++;
+    }
+    <section id="steps">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <br />
+                    <br />
+                    <h2 data-aos="fade-up"
+                        data-aos-duration="2000">
+                        Unlock your iPhone or any <span class="notranslate">Apple</span> device from any network <br class="visible-md visible-lg">in the PK and Worldwide.
+                    </h2>
+                    <br>
+                    <p class="lead" data-aos="fade-down"
+                       data-aos-duration="2000">In three simple steps you can permanently unlock an iPhone.</p>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-xs-12" data-aos="zoom-in"
+                     data-aos-duration="2000">
+                    <div class="text-center">
+                        <div class="num">1</div>
+                        <h3>Enter your device details</h3>
+                        <p class="lead light">Select the model and network the device is locked to and enter the IMEI or Serial <i class="fa fa-question-circle hidden-xs" data-toggle="popover" data-placement="bottom" data-trigger="hover" style="font-size: 1.2em; position: relative; top: 1px; color: rgb(0,122,255); cursor: help;" data-content="Your IMEI number can be found in the Settings > General > About screen, or by dialing *#06#" title="" data-original-title="Finding your IMEI Number"></i></p>
+                        <p class="lead light visible-xs">If you don't know your IMEI number then dial <strong>*#06#</strong> into your phone</p>
+                        <p class="lead light">If you don’t know the network your device is locked to use our <a class="text-blue" href="#" data-toggle="modal" data-country="United States">network check</a>.</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12" data-aos="zoom-in"
+                     data-aos-duration="2000">
+                    <div class="text-center">
+                        <div class="num">2</div>
+                        <h3>Process your unlock</h3>
+                        <p class="lead light">Your payment is verified and your order is processed.</p>
+                        <p class="lead light">Your live tracking login is supplied within the confirmation email.</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12" data-aos="zoom-in"
+                     data-aos-duration="2000">
+                    <div class="text-center">
+                        <div class="num">3</div>
+                        <h3>Device Unlocked</h3>
+                        <p class="lead light">Your iPhone or <span class="notranslate">Apple</span><sup>TM</sup> device is unlocked.</p>
+                        <p class="lead light">Confirmation will be sent to you via email and your unlock is delivered over the air using 3G/4G/WIFI <i class="fa fa-info-circle hidden-xs" data-toggle="popover" data-placement="bottom" data-trigger="hover" style="font-size: 1.2em; position: relative; top: 1px; color: rgb(0,122,255); cursor: help;" data-content="Please do not send us your device, your unlock is delivered Over-The-Air via WIFI/3G/4G." title="" data-original-title="You keep your device"></i></p>
+                        <br class="hidden-lg hidden-md hidden-sm">
+                        <br class="hidden-lg hidden-md hidden-sm">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content-section">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0">
+                    <h2 data-aos="fade-down"
+                        data-aos-duration="2000">
+                        Unlock your iPhone easily by whitelisting <br />your IMEI
+                    </h2>
+                    <br />
+                    <br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p class="lead light" data-aos="zoom-in"
+                       data-aos-duration="2000">Our easy and affordable iPhone unlocking service is compatible with all versions of iOS, up to and including iOS 12. Supported Apple models include iPhone 11, 11 Pro, 11 Pro Max, XR, XS Max, XS, X, 8 Plus, 8, 7 Plus, 7, 6S Plus, 6S, 6 Plus, 6, 5S, 5C, 5, 4S, 4, 3GS and 3G.</p>
+                    <br />
+                    <p class="lead light" data-aos="zoom-in"
+                       data-aos-duration="2000">During the unlocking process your IMEI will be whitelisted in the Apple Database providing an official and permanent unlock, as well as being safe and completely legal. What's more, it is the recommended method to unlock iPhone as your <span class="notranslate">Apple</span> Warranty remains unaffected!</p>
+                    <br />
+                    <p class="lead light" data-aos="zoom-in"
+                       data-aos-duration="2000">Your unlock is completed remotely and delivered 'over the air' via WiFi or 4G/3G, so you can continue to use your device as normal, with no interruptions to phone service. All we need from you is your iPhone IMEI. Once the unlocking process is complete, your iPhone will be unlocked permanently to use with any network. iPhone Approved Unlock have a 100% success rate.</p>
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @@foreach (var item in Model.Brands)
+    {
+        if (item.Devices.Any())
+        {
+            <section id="deviceIndex" style="background-color: #ececec !important;">
+                <div class="row">
+                    <div class="container">
+                        <div class="col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0">
+                            <h2 class="text-center" data-aos="fade-down"
+                                data-aos-duration="2000">
+                                @@item.Name Devices
+                            </h2>
+                            <br />
+                            <p class="lead light text-center" data-aos="fade-up"
+                               data-aos-duration="2000">We offer an unlocking service for all iPhone, iPad and iWatch models – find your device here.</p>
+
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div id="devicesCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="container">
+                                <div class="row">
+                                    @@foreach (var subItem in item.Devices)
+                                    {
+                                        <div class="col-md-3 col-xs-6 text-center">
+                                            <div class="pt-5 pb-5">
+                                                <img alt="@@Url.Content(subItem.Name)" src="@@Url.Content(subItem.Image)" class="img-responsive center-block" />
+                                                <br />
+                                                <strong class="center-block">@@item.Name @@subItem.Name</strong>
+                                                <br />
+                                                <a href="#" title="dvalue Name Unlock" class="btn btn-primary">Unlock Now</a>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="container">
+                                <div class="row">
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+<!-- Left and right controls -->
+<!--<a class="left carousel-control" href="#devicesCarousel" data-slide="prev">
+                    <i class="fa fa-chevron-left"></i>
+                </a>
+                <a class="right carousel-control" href="#devicesCarousel" data-slide="next">
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+        </section>
+        <div></div>
+    }
+}
+
+<section class="padding faqs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h2>iPhone Unlock FAQ</h2>
+                <br>
+                <p class="lead">How to unlock your iPhone questions answered.</p>
+                <br>
+                <br>
+            </div>
+        </div>
+        @@{ int i = 0; }
+        @@foreach (var item in Model.FAQs)
+        {
+            string collapse = "#collapse" + i.ToString();
+            string collapseID = "collapse" + i.ToString();
+            if (i == 0)
+            {
+                <div class="row faq-row">
+                    <div class="col-md-10 col-md-offset-1 col-xs-12">
+                        <div>
+                            <a data-toggle="collapse" data-parent="#accordion" href="@@Url.Content(collapse)" class="cust-accordian"><strong>@@item.Question</strong><i class="fa fa-chevron-down" style="position: absolute; top: 17px; right: 15px;"></i></a>
+                            <div id="@@Url.Content(collapseID)" class="collapse in">
+                                <div style="padding: 15px;">
+                                    <p>@@item.Answer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="row faq-row">
+                    <div class="col-md-10 col-md-offset-1 col-xs-12">
+                        <div>
+                            <a data-toggle="collapse" data-parent="#accordion" href="@@Url.Content(collapse)" class="cust-accordian"><strong>@@item.Question</strong><i class="fa fa-chevron-down" style="position: absolute; top: 17px; right: 15px;"></i></a>
+                            <div id="@@Url.Content(collapseID)" class="collapse">
+                                <div style="padding: 15px;">
+                                    <p>@@item.Answer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            i++;
+        }
+    </div>
+</section>
+<section class="padding why-we-are">
+    <div class="container">
+        <div class="row pb-3">
+            <div class="col-xs-12 xs-text-center">
+                <h2 class="pb2">Why we are the best iPhone unlocking service.</h2>
+
+                <p class="lead">Our IMEI unlocking methods are safe, trusted &amp; recommended by Apple as the best way to unlock your iPhone without invalidating the warranty.</p>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-12 xs-text-center">
+                <div class="row">
+                    <div class="col-md-2 col-sm-3 col-xs-12">
+                        <div class="icon-lg text-center">
+                            <i class="fa fa-wifi"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-sm-9 col-xs-12">
+                        <h3>Remote iPhone unlock service</h3>
+                        <br>
+                        <p>We unlock iPhones remotely, this means you can continue using your iPhone as normal whilst we complete the unlock in the background. We’ll never ask for personal login details.</p>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-3 col-xs-12">
+                        <div class="icon-lg text-center">
+                            <i class="fa fa-unlock"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-sm-9 col-xs-12">
+                        <h3>Permanent &amp; Secure Unlock</h3>
+                        <br>
+                        <p>By whitelisting your device in Apple’s database, it will be permanently unlocked for use on any network worldwide. The performance, security & outstanding iPhone warranty is not affected!</p>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12 xs-text-center">
+                <div class="row">
+                    <div class="col-md-2 col-sm-3 col-xs-12">
+                        <div class="icon-lg text-center">
+                            <i class="fa fa-clock-o"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-sm-9 col-xs-12">
+                        <h3>24 hr Delivery & Dedicated Customer Service</h3>
+                        <br>
+                        <p>Most of our iPhone unlocks take less than 24 hours! Wiith live order tracking and a dedicated customer support team, our unlocking service provides real convenience and peace of mind.</p>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-3 col-xs-12">
+                        <div class="icon-lg text-center">
+                            <i class="fa fa-tag"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-sm-9 col-xs-12">
+                        <h3>Great Value for Money</h3>
+                        <br>
+                        <p class="pb-5">We offer one of the cheapest yet most trusted iPhone unlock services out there.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section style="background-color: #fff; float: left; width: 100%; clear: both;" class="content-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="xs-text-center">
+                    <br />
+                    <h2 class="pb-2">The Benefits of Unlocking your iPhone</h2>
+
+                    <p>You may only have one primary reason for wanting to unlock your iPhone at the moment, but once it’s unlocked remember the other great benefits that having an unlocked iPhone offers:</p>
+                </div>
+                <br />
+                <ul class="list-unstyled">
+                    <li>
+                        <p class="arrow">Avoid roaming limits when travelling by using SIM cards from local network providers.</p>
+                        <br>
+                    </li>
+                    <li>
+                        <p class="arrow">Find a deal that suits you, whether that be more data or better coverage in your local area.</p>
+                        <br>
+                    </li>
+                    <li>
+                        <p class="arrow">Sell your iPhone easier and for a much higher price.</p>
+                        <br>
+                    </li>
+                    <li>
+                        <p class="arrow">Buy a cheap locked iPhone and use our cheap unlocking service to grab yourself a bargain.</p>
+                    </li>
+                </ul>
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-0 col-xs-6 col-xs-offset-3">
+                        <a href="javascript:;" class="btn btn-primary xs-btn-stretch" rel="nofollow">Learn more <i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </div>
+                <br class="hidden-md hidden-lg" />
+                <br class="hidden-md hidden-lg" />
+            </div>
+            <div class="col-md-6 col-md-offset-0 col-xs-10 col-xs-offset-1">
+                <img src="~/images/devices/iphone-11-pro-max-hero.jpg" alt="" class="img-responsive center-block">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+
+                <hr class="pt-6 visible-lg visible-md visible-sm hidden-xs" />
+            </div>
+        </div>
+    </div>
+</section>
+<section class="split grey-black">
+    <div class="container">
+        <div class="row">
+            <div id="NetworkCheck" class="col-md-6 no-pad">
+                <div class="text-center">
+                    <h2 class="heading-lg"><strong>Network Check</strong></h2>
+                    <p class="lead">&nbsp;</p>
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+                            <p class="lead light">Instantly find out what network your iPhone, iPad or iWatch is locked to using the IMEI number.<br />&nbsp;</p>
+                            <br />
+                            <br />
+                            <a href="#" data-toggle="modal" data-country="Pakistan" class="btn btn-primary">Network Check <i class="fa fa-signal"></i></a>
+                        </div>
+                    </div>-->
+<!--  <div id="networksCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+      <div class="carousel-inner">
+  <div class="item active"><img data-target="/Images/Networks/Zong.webp" src="<?php echo base_url(); ?>/assets/images/loading.gif" alt="" /></div>                        </div>
+</div> -->
+<!--</div>
+            </div>
+            <div id="CloudActivations" class="col-md-6 no-pad">
+                <div class="text-center">
+                    <h2 class="text-white heading-lg"><strong>iCloud Activation</strong></h2>
+                    <p class="lead text-white">&nbsp;</p>
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+                            <p class="lead light text-white">Removes your device from it's previous iCloud account permanently. Allowing you to activate and set up the device as normal.</p>
+                            <br />
+                            <br />
+                            <a href="javascript:;" title="iCloud Unlock Activation" class="btn btn-primary" data-target="#cloudActivation" data-toggle="modal" data-country="">Unlock iCloud <i class="fa fa-cloud"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="split black-grey">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 no-pad" id="Times">
+                <div class="text-center">
+                    <div class="text-white">
+                        <h2 class="heading-lg"><strong>Unbeatable <br />Prices</strong></h2>
+                        <br />
+                        <br />
+                        <div class="row">
+                            <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+                                <p class="lead light">Quickest SIM unlock on the Internet (see our price list for full details).</p>
+                                <br />
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 no-pad" id="Tracking">
+                <div class="text-center">
+                    <div class="text-black">
+                        <h2 class="heading-lg"><strong>Track <br />your unlock</strong></h2>
+                        <br />
+                        <br />
+                        <div class="row">
+                            <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+                                <p class="lead light">Login below to view your iPhone unlock progress at any point of the process.</p>
+                                <br />
+                                <br />
+                                <p class="lead light"><a href="javascript:;" class="text-blue">Live tracking <i class="fa fa-chevron-right"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="reviews">
+    <div class="container">
+        <div class="col-md-10 col-md-offset-1 text-center">
+            <div>
+                <h2 class="heading-lg">Excellent <strong>4.8</strong> <small>/ 5</small></h2>
+                <br />
+                <div class="rating">
+                    <i class="fa fa-2x fa-star"></i>
+                    <i class="fa fa-2x fa-star"></i>
+                    <i class="fa fa-2x fa-star"></i>
+                    <i class="fa fa-2x fa-star"></i>
+                    <i class="fa fa-2x fa-star"></i>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0">
+                            <p class="text-grey" style="margin: 10px 0 0; line-height: 22px;">Unlock iPhone (via IMEI) Apple Unlocking Service from testingphone.com is rated 4.8 out of 5 based on 528 reviews</p>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div>
+        <hr />
+    </div>
+    <div id="reviewCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="testimonial text-center">
+                                <h3>Excellent service</h3>
+                                <p class="text-grey">Mr John Stanford</p>
+                                <br />
+                                <div class="rating small">
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <p>Rated 5 out of 5 stars</p>
+                                </div>
+                                <br />
+                                <p class="lead light">No messing around I've had my iPhone 7 unlocked by <span class="notranslate">iPhone Approved Unlock</span> within 48 hours. I found the site really easy to use, Strongly recommend.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial text-center">
+                                <h3>Impeccable service</h3>
+                                <p class="text-grey">Miss Keeley Churchill</p>
+                                <br />
+                                <div class="rating small">
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star disabled"></i>
+                                    <p>Rated 4 out of 5 stars</p>
+                                </div>
+                                <br />
+                                <p class="lead light">I was very pleased with the service I received from this company. My iPhone was unlocked within a couple of days and the price was very reasonable.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial text-center">
+                                <h3>Best unlocking company</h3>
+                                <p class="text-grey">Mr Marc Beckwith</p>
+                                <br />
+                                <div class="rating small">
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <p>Rated 5 out of 5 stars</p>
+                                </div>
+                                <br />
+                                <p class="lead light"> I've used a few different companies without success! <span class="notranslate">iPhone Approved Unlock</span> have unlocked 4 of our iPhones, the site easy to use and support team are very helpful.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="banner" id="bulkunlock">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
+                <div class="text-center">
+                    <h2 class="text-white heading-lg">Bulk Unlock</h2>
+                    <br />
+                    <p class="lead text-white">Ideal for businesses or families with 3 or more devices to unlock.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="testimonial padding reviews list">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0">
+                <h1>Testimonial</h1>
+                <div class="seprator"></div>
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">-->
+<!-- Wrapper for slides -->
+<!--<div class="carousel-inner">
+                                @@{ int j = 0; }
+                                @@foreach (var testimonial in Model.Testimonials)
+                                {
+                                    if (j == 0)
+                                    {
+                                        <div class="item active">
+                                            <div class="row" style="padding: 20px">
+                                                <button style="border: none;"><i class="fa fa-quote-left testimonial_fa" aria-hidden="true"></i></button>
+                                                <p class="testimonial_para">@@testimonial.Message</p><br>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <img src="@@Url.Content(testimonial.Image)" class="img-responsive" style="width: 80px">
+                                                        <h4><strong>@@testimonial.Name</strong></h4>
+                                                        <p class="testimonial_subtitle">
+                                                            <span>@@testimonial.Designation</span><br>
+                                                            <span>@@testimonial.Company</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="item">
+                                            <div class="row" style="padding: 20px">
+                                                <button style="border: none;"><i class="fa fa-quote-left testimonial_fa" aria-hidden="true"></i></button>
+                                                <p class="testimonial_para">@@testimonial.Message</p><br>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <img src="@@Url.Content(testimonial.Image)" class="img-responsive" style="width: 80px">
+                                                        <h4><strong>@@testimonial.Name</strong></h4>
+                                                        <p class="testimonial_subtitle">
+                                                            <span>@@testimonial.Designation</span><br>
+                                                            <span>@@testimonial.Company</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    j++;
+                                }
+                            </div>
+                        </div>
+                        <div class="controls testimonial_control pull-right">
+                            <a class="left fa fa-chevron-left btn btn-default testimonial_btn" href="#carousel-example-generic"
+                               data-slide="prev"></a>
+                            <a class="right fa fa-chevron-right btn btn-default testimonial_btn" href="#carousel-example-generic"
+                               data-slide="next"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="home-blog">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <hr />
+                        <h2>Latest Articles</h2>
+                        <br />
+                        <br />
+                    </div>
+                </div>
+                <div class="row">
+                   @@foreach (var item in Model.BlogPosts)
+                    {
+                        <div class="col-sm-3">
+                            <a asp-area="" asp-controller="Blog" asp-action="Post" asp-route-id="@@item.Id"><img src="@@Url.Content(item.PrimaryImage)" alt="" class="img-responsive" style="cursor: pointer;" /></a>
+                            <br />
+                            <h3><a asp-area="" asp-controller="Blog" asp-action="Post" asp-route-id="@@item.Id" class="text-black">@@item.Title</a></h3>
+                            <p class="text-grey text-uppercase" style="margin-bottom: 15px;"><small>@@item.BlogCategoryName &bull; @@item.CreateDate</small></p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+</div>-->

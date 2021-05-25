@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> @ViewData["title"] &mdash; VeeUnlock : We unlock phones</title>
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Contents/assets/favicon-01.png">
+    <link href="~/Contents/assets/css/style.css" rel="stylesheet" />
+    <link href="~/Contents/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="~/Contents/assets/css/custom.css" rel="stylesheet">
+    <link href="~/Contents/assets/css/carousel.css" rel="stylesheet">
+    <link href="~/Contents/assets/css/carousel-recommendation.css" rel="stylesheet">
+    <link href="~/Contents/Slider/SliderProduct.css" rel="stylesheet" />
+    <link href="~/Contents/assets/ionicons-2.0.1/css/ionicons.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Catamaran:400,100,300' rel='stylesheet' type='text/css'>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+        .dropdown-toggle a:hover {
+            background-color: #ddd;
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-toggle {
+            display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    @await Component.InvokeAsync("Navbar")
+    <nav class="navbar navbar-default navbar-fixed-top" id="" style="position:fixed;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/Home/Index">
+                    @*<img id="downs" src="~/Contents/assets/img/icons/trlogowhite.png" height="43" hidden/>*@
+                  
+                    <img id="scrollnavimage" src="~/Contents/assets/logo transparncy file.png" height="43" />
+                </a>
+                @await Component.InvokeAsync("Navcountry")
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li class="dropdown">
+                        <a href="./catalog/" class="dropdown-toggle navitem-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Unlock Phone</a>
+                        @await Component.InvokeAsync("PhoneUnlock")
+                    </li>
+                    <li class="dropdown">
+                        <a href="./catalog/" class="dropdown-toggle navitem-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Phone Check</a>
+                        @await Component.InvokeAsync("PhoneUnlock")
+                    </li>*@
+                    <!--<li class="nav-item ">
+                        <a id="phoneunlock" href="/UnlockPhone/Index" class="dropdown-toggle navitem-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Devices
+                        </a>-->
+                    @*<div class="dropdown-menu">
+                        <div class="container">*@
+
+                    @*</div>
+                        </div>*@
+                    <!--</li>-->
+                    @*<li class=" nav-item dropdown">
+                            <a id="imeicheck" href="/Phonecheck/Index" class="dropdown-toggle navitem-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Imei checks
+                            </a>
+                            <div class="dropdown-menu mega-menu">
+                                <div class="container">
+                                    @await Component.InvokeAsync("ImeiCheck")
+                                </div>
+                            </div>
+                        </li>*@
+                    <li class=" nav-item">
+                        <a href="/UnlockPhone/Index" class="nav-link navitem-text">Unlock Phone</a>
+                    </li>
+                    <li class=" nav-item">
+                        <a href="/Phonecheck/Index" class="nav-link navitem-text">Check IMEI</a>
+                    </li>
+                    <li class=" nav-item">
+                        <a href="/Carrier/Index" class="nav-link navitem-text">Networks</a>
+                    </li>
+                    <li class=" nav-item">
+                        <a href="/Blog/Index" class="nav-link navitem-text">Blog</a>
+                    </li>
+                    <li class=" nav-item">
+                        <a href="/Blog/Index" class="nav-link navitem-text">Support</a>
+                    </li>
+                    @*<li class=" nav-item">
+                            <a id="suppportpage" href="/Support/Index" class="nav-link dropdown-toggle navitem-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support</a>
+                            @await Component.InvokeAsync("SupportMenu")
+                        </li>*@
+
+                    <li class=" nav-item">
+                        <a href="/Order/OrderTracking" class="nav-link navitem-text">Track order</a>
+
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@await Component.InvokeAsync("CountrySelect")</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+    @await Component.InvokeAsync("Footer")
+    <script src="~/Contents/assets/js/jquery-latest.min.js"></script>
+    <script src="~/Contents/assets/js/jquery-latest.min.js"></script>
+    <script src="~/Contents/assets/js/catalog.js"></script>
+    <script src="~/Contents/assets/js/bootstrap.min.js"></script>
+    <script src="~/Contents/assets/js/core.js"></script>
+    <script src="~/Contents/assets/js/carousel.js"></script>
+    <script src="~/Contents/assets/js/carousel-recommendation.js"></script>
+    <script src="~/Contents/Slider/SliderProduct.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="~/lib/Utility/imei.js"></script>
+    <script>AOS.init();</script>
+    @RenderSection("Scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () { 
+                if ($(document).scrollTop() > 50) {
+                    $(".navbar-default").css("background-color", "rgb(29 142 154)"); 
+                    $(".navitem-text").css("color", "white");
+                    $("#scrollnavimage").attr("src", "/Contents/assets/img/icons/trlogowhite.png");
+                } else {
+                    $(".navbar-default").css("background-color", "transparent");
+                    $(".navitem-text").css("color", "black");
+                    $("#scrollnavimage").attr("src", "/Contents/assets/logo transparncy file.png");
+                }
+            });
+        });
+        //var myNav = document.getElementById('navbar');
+        //window.onscroll = function () {
+        //    "use strict";
+        //    if (document.body.scrollTop >= 200) {
+        //        myNav.classList.add("nav-colored");
+        //        myNav.classList.remove("nav-transparent");
+        //    }
+        //    else {
+        //        myNav.classList.add("nav-transparent");
+        //        myNav.classList.remove("nav-colored");
+        //    }
+        //};
+        function ChangeCountry(id) {
+            var url = "/Country/SetCountry";
+
+            $.getJSON(url, { id: id }, function (data) {
+                if (data == false) {
+                    alert("Please wait a while.")
+                }
+                if (data == true) {
+                    window.location.reload();
+                }
+            });
+        }
+                //$(document).ready(function () {
+                //    $("#suppportpage").click(function () {
+                //        window.location.href = "/support/index";
+                //    });
+                //    $("#imeicheck").click(function () {
+                //        window.location.href = "/Phonecheck/index";
+                //    });
+                //    $("#phoneunlock").click(function () {
+                //        window.location.href = "/UnlockPhone/Index";
+                //    });
+                //});
+
+    </script>
+</body>
+</html>

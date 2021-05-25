@@ -1,0 +1,72 @@
+﻿@model IEnumerable<FAQ>
+@{
+    ViewData["Title"] = "FAQ";
+}
+
+<hr class="offset-lg">
+<hr class="offset-lg">
+
+<div class="container">
+
+    <div class="unlock-faq">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <h2 class="device-network-header" data-aos="fade-up" *@
+                        data-aos-duration="2000">
+                        Frequenty Asked Questions
+                    </h2>
+                </div>
+            </div>
+            <div class="row" data-aos="zoom-in"
+                 data-aos-duration="2000">
+                <div class="col-sm-12">
+                    <div class="faq-content">
+                        @{ int i = 0; }
+                        @foreach (var item in Model)
+                        {
+                            string collapse = "#collapse" + i.ToString();
+                            string collapseID = "collapse" + i.ToString();
+                            if (i == 0)
+                            {
+                                <div class="faq-content-wrap">
+                                    <div class="faq-header">
+                                        <a role="button" data-toggle="collapse" href="@Url.Content(collapse)" aria-expanded="true" aria-controls="question2">
+                                            <h2 class="h3">@item.Question</h2>
+                                            <span><i class="icon ion-plus"></i></span>
+                                        </a>
+                                    </div>
+                                    <div class="collapse faq-details" id="@Url.Content(collapseID)">
+                                        <p>
+                                            @item.Answer
+                                        </p>
+                                    </div>
+                                </div>
+
+                            }
+                            else
+                            {
+                                <div class="faq-content-wrap">
+                                    <div class="faq-header">
+                                        <a role="button" data-toggle="collapse" href="@Url.Content(collapse)" aria-expanded="true" aria-controls="question2">
+                                            <h2 class="h3">@item.Question</h2>
+                                            <span><i class="icon ion-plus"></i></span>
+                                        </a>
+                                    </div>
+                                    <div class="collapse faq-details" id="@Url.Content(collapseID)">
+                                        <p>
+                                            @item.Answer
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+                            i++;
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<br />

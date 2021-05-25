@@ -1,0 +1,343 @@
+﻿@*@model Order
+@{
+    ViewData["Title"] = Model.DeviceModel.Name;
+}
+
+<hr class="offset-lg">
+<hr class="offset-lg">
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0">
+            <img src="@Url.Content(Model.DeviceModel.Image)" class="center-block" style="width: 75px; height: auto; border-radius: 3px; margin-bottom: 30px;">
+            <h1 class="text-center">Device Unlock <br /><small> @Model.DeviceModel.Brand.Name @Model.DeviceModel.Name</small></h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-center" style="margin: 30px 15px;">Unlock your @Model.DeviceModel.Name Phone for use on any carrier worldwide. Permanent factory Phone unlocking service, safe and reliable process, guaranteed to quickly unlock your Phone from the @Model.DeviceModel.Brand.Name @Model.DeviceModel.Name Phone.</p>
+                </div>
+            </div>
+            <div>
+                <form asp-area="" asp-controller="Order" asp-action="ProceedToCheckout" method="post" novalidate="novalidate">
+                    <input type="hidden" asp-for="UnlockType" /><br>
+                    <input type="hidden" asp-for="DeviceModelId" /><br>
+                    <input type="hidden" asp-for="TotalPrice" /><br>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="alert-danger" asp-validation-summary="ModelOnly"></div>
+                                    <label class=" form-control-label">Your Country</label>
+                                    <input placeholder="@ViewBag.Country" class="form-control" disabled />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <div class="row">
+                                    <label class="control-label">Network Carrier</label>
+                                    <select class="form-control" id="NetworkCarrierId" asp-for="NetworkCarrierId" asp-items="@(new SelectList(@ViewBag.CarrierList,"Id", "NetworkName"))"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input asp-for="IMEI" class="form-control" data-val="true" data-val-length="IMEI number must be 15 digits" data-val-length-max="15" data-val-length-min="15" data-val-required="Please enter an IMEI number" id="IMEI" name="IMEI" placeholder="IMEI Number" type="text">
+                                    <div class="input-group-addon">
+                                        <span data-toggle="popover" data-trigger="hover" data-content="Your IMEI number can be found in the Settings > General > About screen, or by dialling *#06#" data-original-title="" title="">
+                                            <i class="fa fa-question-circle"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <span class="field-validation-valid" data-valmsg-for="IMEI" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-6 col-xs-12">
+                                <br>
+                                <button type="submit" class="btn btn-primary btn-lg stretch-xs">Unlock Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<section style="padding: 12vh 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0 text-center">
+                <img src="@Url.Content(Model.DeviceModel.Image)" class="center-block" style="width: 75px; height: auto; border-radius: 3px; margin-bottom: 30px;">
+                <p class="lead light">Tired of being tied to the @Model.DeviceModel.Brand.Name @Model.DeviceModel.Name carrier? Unlock your iPhone, iPad or iWatch with <span class="notranslate">iPhone Approved Unlock</span> and experience the freedom to connect to any carrier worldwide. Our quick and easy unlocking process is completed 'over the air' using your iPhone IMEI, meaning you can continue to use the device throughout, with no interruptions to iPhone service.</p>
+                <br>
+                <p class="lead light">Using the latest technology and our team of highly trained experts, all of our @Model.DeviceModel.Brand.Name @Model.DeviceModel.Name phone unlocks are safe, legal, and come with a money back guarantee to ensure your peace of mind. Your device does not need to be Jailbroken, and the process does not affect your warranty.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="steps">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-xs-12">
+                <h2>Unlock any iPhone, iPad or Watch locked to @Model.DeviceModel.Name for use on any Carrier.</h2>
+                <br>
+                <p class="lead">Over-The-Air using WIFI/3G/4G in three simple steps.</p>
+                <br>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-xs-12">
+                <div style="background-color: #fff; border-radius: 20px; -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1); -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1); box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1); padding: 30px; margin-bottom: 15px; min-height: 370px;">
+                    <div class="row">
+                        <div class="col-xs-9">
+                            <span style="color:rgb(0,122,255); font-weight: 800; font-size: 34px; display: block; margin: 0 0 7px;">01</span>
+                            <h3 style="margin-bottom: 20px; line-height: 1.4em; min-height: 50px;">Enter your @Model.DeviceModel.Brand.Name @Model.DeviceModel.Name device details</h3>
+                        </div>
+                        <div class="col-xs-3">
+                            <img src="/Images/EnterDetails.png" alt="" class="img-responsive" style="margin: 10px 0 0 0;">
+                        </div>
+                    </div>
+                    <br>
+                    <p>Select the model of your iPhone, iPad or watch and enter the <span data-toggle="popover" data-placement="bottom" data-trigger="hover" style="color: rgb(0,122,255); cursor: help;" data-content="Your IMEI number can be found in the Settings > General > About screen, or by dialing *#06#" title="" data-original-title="Finding your IMEI Number">IMEI or Serial number</span>.</p>
+                    <p class="visible-xs">If you don't know your IMEI number then dial <strong>*#06#</strong> into your phone</p>
+                    <p>If you don’t know the carrier your device is locked to please use our <a class="text-blue" href="/imei-check/network-check">IMEI carrier check</a> service.</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <div style="background-color: #fff; border-radius: 20px; -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1); -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1); box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1); padding: 30px; margin-bottom: 15px; min-height: 370px;">
+                    <div class="row">
+                        <div class="col-xs-9">
+                            <span style="color:rgb(0,122,255); font-weight: 800; font-size: 34px; display: block; margin: 0 0 7px;">02</span>
+                            <h3 style="margin-bottom: 20px; line-height: 1.4em; min-height: 50px;">Processing your @Model.DeviceModel.Brand.Name @Model.DeviceModel.Name device unlock</h3>
+                        </div>
+                        <div class="col-xs-3">
+                            <img src="/Images/ProcessingUnlock.png" alt="" class="img-responsive" style="margin: 10px 0 0 0;">
+                        </div>
+                    </div>
+                    <br>
+                    <p>Your payment is verified and your order is processed. We check the @Model.DeviceModel.Brand.Name @Model.DeviceModel.Name device and automatically update your order if any details provided are incorrect.</p>
+                    <p>Your live tracking login is supplied within the confirmation email so you can check on the status of your order at any time.</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <div style="background-color: #fff; border-radius: 20px; -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1); -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1); box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1); padding: 30px; margin-bottom: 15px; min-height: 370px;">
+                    <div class="row">
+                        <div class="col-xs-9">
+                            <span style="color:rgb(0,122,255); font-weight: 800; font-size: 34px; display: block; margin: 0 0 7px;">03</span>
+                            <h3 style="margin-bottom: 20px; line-height: 1.4em; min-height: 50px;">Your @Model.DeviceModel.Brand.Name @Model.DeviceModel.Name device is unlocked!</h3>
+                        </div>
+                        <div class="col-xs-3">
+                            <img src="/Images/DeviceUnlocked.png" alt="" class="img-responsive" style="margin: 10px 0 0 0;">
+                        </div>
+                    </div>
+
+                    <br>
+                    <p>Your @Model.DeviceModel.Brand.Name @Model.DeviceModel.Name device is now permanently unlocked to any carrier provider safely and legally.</p>
+                    <p>Confirmation of your unlock will be sent to you via email.  Please do not send us your device, your unlock is delivered Over-The-Air via WIFI/3G/4G.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="featured">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <br>
+                    <br>
+                    <br>
+                    <h2 class="text-center">Unbeatable unlocking times</h2>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="text-center">
+                        <i class="fa fa-check fa-2x" style="border: 2px solid #555; width: 45px; height: 45px; border-radius: 50%; text-align: center; line-height: 41px; margin-bottom: 5px; color: #555; font-size: 1.5em;"></i>
+                        <p class="lead light">Live order <br class="hidden-xs hidden-sm">tracking</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="text-center">
+                        <i class="fa fa-check fa-2x" style="border: 2px solid #555; width: 45px; height: 45px; border-radius: 50%; text-align: center; line-height: 41px; margin-bottom: 5px; color: #555; font-size: 1.5em;"></i>
+                        <p class="lead light">Instant unlocking for many <br><span class="text-lowercase">Carrier</span>s</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="text-center">
+                        <i class="fa fa-check fa-2x" style="border: 2px solid #555; width: 45px; height: 45px; border-radius: 50%; text-align: center; line-height: 41px; margin-bottom: 5px; color: #555; font-size: 1.5em;"></i>
+                        <p class="lead light">iPhone, iPad or Watch warranty remains unaffected</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="text-center">
+                        <i class="fa fa-check fa-2x" style="border: 2px solid #555; width: 45px; height: 45px; border-radius: 50%; text-align: center; line-height: 41px; margin-bottom: 5px; color: #555; font-size: 1.5em;"></i>
+                        <p class="lead light">All of our unlocks are <br class="hidden-xs hidden-sm">guaranteed</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</section>
+<section class="split black-grey">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 no-pad" id="Times">
+                <div class="text-center">
+                    <div class="text-white">
+                        <h2 class="heading-lg"><strong>Unbeatable <br>Prices</strong></h2>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+                                <p class="lead light">Quickest SIM unlock on the Internet (see our price list for full details).</p>
+                                <br>
+                                <br>
+                                <p class="lead light">&nbsp;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 no-pad" id="Tracking">
+                <div class="text-center">
+                    <div class="text-black">
+                        <h2 class="heading-lg"><strong>Track <br>your unlock</strong></h2>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+                                <p class="lead light">Login below to view your iPhone unlock progress at any point of the process.</p>
+                                <br>
+                                <br>
+                                <p class="lead light"><a href="/tracking" class="text-blue">Live tracking <i class="fa fa-chevron-right"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="usp">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-xs-12">
+                <div class="text-center">
+                    <div class="icon">
+                        <i class="fa fa-clock-o fa-2x"></i>
+                    </div>
+                    <h3>24 hour unlock delivery</h3>
+                    <p class="lead light">Instant unlocking for many mobile networks.</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <div class="text-center">
+                    <div class="icon">
+                        <i class="fa fa-wrench fa-2x"></i>
+                    </div>
+                    <h3>Highly Skilled Tech Team</h3>
+                    <p class="lead light">Experienced in all iPhone and iPad <br>products.</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <div class="text-center">
+                    <div class="icon">
+                        <i class="fa fa-mobile-phone fa-2x"></i>
+                    </div>
+                    <h3>Your Phone is Safe</h3>
+                    <p class="lead light">You keep your device throughout the entire process.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="reviews">
+    <div class="container">
+        <div class="col-md-10 col-md-offset-1 text-center">
+            <div>
+                <h2 class="heading-lg">Excellent <strong>4.8</strong> <small>/ 5</small></h2>
+                <br>
+                <div class="rating">
+                    <i class="fa fa-2x fa-star"></i>
+                    <i class="fa fa-2x fa-star"></i>
+                    <i class="fa fa-2x fa-star"></i>
+                    <i class="fa fa-2x fa-star"></i>
+                    <i class="fa fa-2x fa-star"></i>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0">
+                            <p class="text-grey" style="margin: 10px 0 0; line-height: 22px;">Unlock your @Model.DeviceModel.Brand.Name @Model.DeviceModel.Name phone and use any carrier - iPhone Approved Unlock from iphoneapprovedunlock.com is rated 4.8 out of 5 based on 528 reviews</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div id="reviewCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="testimonial text-center">
+                                <h3>Excellent service</h3>
+                                <p class="text-grey">Mr John Stanford</p>
+                                <br>
+                                <div class="rating small">
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <p>Rated 5 out of 5 stars</p>
+                                </div>
+                                <br>
+                                <p class="lead light">No messing around I've had my iPhone 7 unlocked by <span class="notranslate">iPhone Approved Unlock</span> within 48 hours. I found the site really easy to use, Strongly recommend.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial text-center">
+                                <h3>Impeccable service</h3>
+                                <p class="text-grey">Miss Keeley Churchill</p>
+                                <br>
+                                <div class="rating small">
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star disabled"></i>
+                                    <p>Rated 4 out of 5 stars</p>
+                                </div>
+                                <br>
+                                <p class="lead light">I was very pleased with the service I received from this company. My iPhone was unlocked within a couple of days and the price was very reasonable.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial text-center">
+                                <h3>Best unlocking company</h3>
+                                <p class="text-grey">Mr Marc Beckwith</p>
+                                <br>
+                                <div class="rating small">
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <i class="fa fa-2x fa-star"></i>
+                                    <p>Rated 5 out of 5 stars</p>
+                                </div>
+                                <br>
+                                <p class="lead light"> I've used a few different companies without success! <span class="notranslate">iPhone Approved Unlock</span> have unlocked 4 of our iPhones, the site easy to use and support team are very helpful.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@

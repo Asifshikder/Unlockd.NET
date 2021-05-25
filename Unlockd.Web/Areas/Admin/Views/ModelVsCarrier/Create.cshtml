@@ -1,0 +1,93 @@
+﻿@model ModelVsCarrier
+@{
+    ViewData["Title"] = "Create";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Model vs Carrier price</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home /</a></li>
+                    <li><a href="/Admin/ModelVsCarrier/index?id=@Model.NetworkCarrierId">Network Carrier</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Add new price role</strong>
+                        </div>
+                        <div class="card-body">
+                            <form href="/Admin/ModelVsCarrier/Create" method="post" enctype="multipart/form-data">
+                                @Html.HiddenFor(s=>s.NetworkCarrierId)
+                                <div class="form-group">
+                                    <label class=" form-control-label">Select Brand</label>
+                                    <select id="BrandId" class="form-control" asp-items="ViewBag.brandList"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Device Model</label>
+                                    <select class="form-control" id="DeviceModelId" asp-for="DeviceModelId" asp-items="@(new SelectList(string.Empty,"Id", "Name"))" required></select>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Has premuim service<input type="checkbox" asp-for="HasPremiumService" class="form-control" value="false"></label>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Base Price</label>
+                                    <input type="number" asp-for="BasePrice" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Premium service price</label>
+                                    <input type="number" asp-for="PremiumPrice" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success">Save</button>
+                                    <a href="/Admin/ModelVsCarrier/Index?id=@ViewBag.pageId" class="btn btn-warning">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var items = "<option value='0'>Select</option>";
+            $('#DeviceModelId').html(items);
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#BrandId').change(function () {
+                var url = "/Device/GetDeviceModel";
+                var ddlsource = "#BrandId";
+                $.getJSON(url, { BrandId: $(ddlsource).val() }, function (data) {
+                    var items = '';
+                    $("#DeviceModelId").empty();
+                    $.each(data, function (i, deviceModel) {
+                        items += "<option value='" + deviceModel.value + "'>" + deviceModel.text + "</option>";
+                    });
+                    $('#DeviceModelId').html(items);
+                });
+            });
+        });
+
+    </script>
+}

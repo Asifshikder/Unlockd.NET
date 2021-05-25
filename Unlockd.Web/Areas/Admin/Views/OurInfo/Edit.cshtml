@@ -1,0 +1,60 @@
+﻿@model Unlockd.Domain.Entities.Services.OurInfo
+
+@{
+    ViewData["Title"] = "Update";
+}
+@Html.AntiForgeryToken()
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h2>Our Info</h2>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home /</a></li>
+                    <li><a href="/Admin/OurInfo/index">Our Info</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Update OurInfo</strong>
+                        </div>
+                        <div class="card-body">
+                            <form asp-area="Admin" asp-controller="OurInfo" asp-action="Update" method="post">
+                                @Html.HiddenFor(s => s.Id)
+                                <div class="form-group">
+                                    <label class=" form-control-label">Email</label>
+                                    <input type="text" asp-for="Email" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Phone</label>
+                                    <input type="text" asp-for="Phone" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Address</label>
+                                    <input type="text" asp-for="Address" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success">Update</button>
+                                    <a href="/Admin/OurInfo/index" class="btn btn-warning">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
